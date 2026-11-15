@@ -28,9 +28,12 @@ def patterns(runs: list[dict], min_support: int) -> list[dict]:
         for t in r.get("trace") or []:
             if t.get("type") == "verify" and t.get("failed"):
                 for c in t["failed"]:
-                    seen[f"precheck_failed_before_revision:{c}"].append(rid)
+                    seen[f"verifier_failed:{c}"].append(rid)
         for i in (r.get("red_team") or {}).get("issues", []):
-            seen[f"red_team_rule:{i.get('rule')}"].append(rid)
+            rule = i.get("rule") if isinstance(i, dict) else str(i).split(":")[0].replace("rule ", "")
+            seen[f"red_team_confirmed_rule:{rule}"].append(rid)
+        for i in (r.get("red_team") or {}).get("dropped", []):
+            seen[f"red_team_dropped_rule:{str(i).split(':')[0].replace('rule ', '')}"].append(rid)
         if (r.get("red_team") or {}).get("dropped_unverifiable"):
             seen["red_team_unverifiable_quotes"].append(rid)
         if r.get("revisions"):

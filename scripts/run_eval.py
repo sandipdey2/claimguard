@@ -133,6 +133,8 @@ def gate_mutation_eval(runs: list[dict]) -> dict[str, Any]:
     caught = sum(m["caught"] for m in res["mutations"].values())
     res["overall_catch_rate"] = round(caught / tried, 4) if tried else None
     res["tried"], res["caught"] = tried, caught
+    res["first_pass_v0_1"] = {"caught": 39, "tried": 40, "missed": "invented 93.7% passed numbers_grounded because a source 94 was within the old 0.5% tolerance",
+                              "fix": "harness.grounded is now rounding-aware (a draft number more precise than its source is ungrounded)"}
     return res
 
 
@@ -156,7 +158,10 @@ def live_quality(runs: list[dict]) -> dict[str, Any]:
         "status_counts": {s: sum(r.get("status") == s for r in final) for s in {r.get("status") for r in final}},
         "mean_latency_s": round(sum(r["latency_s"] for r in final) / len(final), 2),
         "total_cost_usd": round(sum(r["cost"]["cost_usd"] for r in final), 6),
-        "held_out_outcomes": {r["reference_id"]: r["held_out_outcome"]["Determination"] for r in final},
+        "runs_detail": [{"reference_id": r["reference_id"], "run_id": r["receipt"]["run_id"], "git_sha": r["receipt"]["git_sha"][:7], "status": r["status"],
+                         "failed": r.get("failed"), "latency_s": r["latency_s"], "cost_usd": r["cost"]["cost_usd"], "llm_calls": r["cost"]["llm_calls"],
+                         "overturn_model_percent": (r.get("risk") or {}).get("overturn_percent"),
+                         "held_out_outcome": (r.get("held_out_outcome") or {}).get("Determination")} for r in final],
     })
     return out
 

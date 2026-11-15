@@ -134,12 +134,20 @@ def numbers(text: str) -> list[float]:
     return [float(x) for x in NUM.findall(_strip_for_numbers(text))]
 
 
+def _decimals(x: float) -> int:
+    r = repr(float(x))
+    return 0 if r.endswith(".0") else len(r.split(".")[1]) if "." in r and "e" not in r else 6
+
+
 def grounded(x: float, pool: set[float]) -> bool:
+    """A draft number is grounded when some source number (or it x100 / /100, for rates vs percents) ROUNDS to it at the
+    precision the draft wrote. A draft that is more precise than its source (93.7 when the source says 94) is not grounded."""
     if x in pool:
         return True
+    d = _decimals(x)
     for v in pool:
         for cand in (v, v * 100, v / 100):
-            if abs(cand - x) <= max(0.051, 0.0051 * abs(x)):
+            if abs(round(cand, d) - x) < 1e-9:
                 return True
     return False
 

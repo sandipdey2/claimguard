@@ -1,0 +1,939 @@
+{
+ "kind": "live_e2e",
+ "reference_id": "MN25-45013",
+ "provider": "vocareum",
+ "model": "gpt-4o-mini",
+ "status": "awaiting_human_signoff",
+ "reason": null,
+ "latency_s": 48.9,
+ "cost": {
+  "model": "gpt-4o-mini",
+  "llm_calls": 8,
+  "tool_calls": 12,
+  "input_tokens": 17676,
+  "output_tokens": 3032,
+  "cached_input_tokens": 0,
+  "cost_usd": 0.004471,
+  "rates_usd_per_1m": {
+   "input": 0.15,
+   "output": 0.6
+  },
+  "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+ },
+ "check_status": {
+  "disclaimer_present": "PASS",
+  "citations_exist": "PASS",
+  "citations_retrieved": "PASS",
+  "quotes_verbatim": "PASS",
+  "numbers_grounded": "PASS",
+  "risk_matches_model": "PASS",
+  "checklist_complete": "PASS",
+  "no_phi_in_output": "PASS",
+  "no_authority_or_guarantee": "PASS",
+  "injection_scan_clean": "PASS",
+  "red_team_pass": "PASS",
+  "within_budget": "PASS"
+ },
+ "failed": [],
+ "unrun": [],
+ "details": {
+  "citations": [
+   "IMR-MN12-13675",
+   "IMR-MN16-22954",
+   "NCD-100.1:2",
+   "NCD-100.1:5",
+   "NCD-100.1:8"
+  ],
+  "unknown_citations": [],
+  "citations_not_retrieved": [],
+  "bad_quotes": [],
+  "ungrounded_numbers": [],
+  "missing_checklist_items": [],
+  "phi_types": [],
+  "authority_or_guarantee": [],
+  "output_injection_patterns": [],
+  "red_team_issues": [],
+  "stage": "final",
+  "not_run": []
+ },
+ "receipt": {
+  "product": "ClaimGuard",
+  "version": "0.1.0",
+  "run_id": "edca397f21b942f294ee1ec0bebee0b6",
+  "status": "awaiting_human_signoff",
+  "block_reason": null,
+  "contract_sha256": "bac632d67bb442bcae8f747036236a001ad71e4555d040710746b6c7e3089391",
+  "git_sha": "3f042699d2919ce2a77dcbfdb002d0fe2194b6ba",
+  "git_dirty": false,
+  "feed_versions": {
+   "dfs.parquet": "be70b8cff0ebe988",
+   "imr_findings_recent.parquet": "ed48a6c08fe952fd",
+   "imr_slim.parquet": "4a256478c9e25246",
+   "ncd.parquet": "f998522455c83362"
+  },
+  "provider": "vocareum",
+  "model": "gpt-4o-mini",
+  "input_sha256": "c0f5d102e2399e6ec3c5267e0edb6eec74b41fd43a05c2de4c89eb1f6ec02f5a",
+  "draft_sha256": "c47cf069bc1dd2b9dc889f06bd82bd9204fd1d5a81bd1318aedd4fbd2aad5342",
+  "trace_sha256": "bdaf4e91ed21af7e32452a4bb3c33d655607fe3fed64e3e0c56a5f84a49f1443",
+  "check_status": {
+   "disclaimer_present": "PASS",
+   "citations_exist": "PASS",
+   "citations_retrieved": "PASS",
+   "quotes_verbatim": "PASS",
+   "numbers_grounded": "PASS",
+   "risk_matches_model": "PASS",
+   "checklist_complete": "PASS",
+   "no_phi_in_output": "PASS",
+   "no_authority_or_guarantee": "PASS",
+   "injection_scan_clean": "PASS",
+   "red_team_pass": "PASS",
+   "within_budget": "PASS"
+  },
+  "unrun_checks": [],
+  "failed_checks": [],
+  "human_signoff": null,
+  "cost": {
+   "model": "gpt-4o-mini",
+   "llm_calls": 8,
+   "tool_calls": 12,
+   "input_tokens": 17676,
+   "output_tokens": 3032,
+   "cached_input_tokens": 0,
+   "cost_usd": 0.004471,
+   "rates_usd_per_1m": {
+    "input": 0.15,
+    "output": 0.6
+   },
+   "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+  },
+  "latency_s": 48.44,
+  "case_reference": "MN25-45013",
+  "key_id": "CG_RECEIPT_KEY:dcccbcd5",
+  "algorithm": "HMAC-SHA256",
+  "signed_at": "2026-11-15T13:54:42+0000",
+  "signature": "127d88b567cd3be46feab16a86b448eae9694e872f077afd180a8dbee628b162"
+ },
+ "receipt_verifies": true,
+ "risk": {
+  "overturn_probability": 0.5268,
+  "overturn_percent": 52.7,
+  "band": "typical",
+  "train_overturn_rate": 0.4983,
+  "model": "hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation",
+  "test_roc_auc": 0.7556,
+  "test_brier": 0.1814,
+  "treatment_category_unseen": false,
+  "limit": "Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing."
+ },
+ "signals": {
+  "text_model": {
+   "overturn_probability_text": 0.5907,
+   "top_terms": [
+    {
+     "term": "coverage gastric",
+     "weight": 0.244
+    },
+    {
+     "term": "gastric",
+     "weight": -0.214
+    },
+    {
+     "term": "bypass",
+     "weight": 0.136
+    },
+    {
+     "term": "bypass roux",
+     "weight": 0.105
+    },
+    {
+     "term": "gastric bypass",
+     "weight": -0.105
+    },
+    {
+     "term": "en",
+     "weight": 0.091
+    }
+   ],
+   "test_roc_auc": 0.7476,
+   "note": "TF-IDF + LR on the request sentence only; a signal, not a verdict"
+  },
+  "cohort": {
+   "filters": {
+    "before_year": 2025,
+    "TreatmentCategory": "Gen Surg Proc",
+    "Type": "Medical Necessity"
+   },
+   "n": 1016,
+   "overturned": 532,
+   "overturn_rate": 0.5236,
+   "overturn_percent": 52.4,
+   "wilson_ci95": [
+    0.4929,
+    0.5542
+   ],
+   "years": [
+    2001,
+    2024
+   ],
+   "last_3_years": {
+    "n": 49,
+    "overturn_percent": 53.1
+   },
+   "headline": "532 of 1016 published IMRs (TreatmentCategory = Gen Surg Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.4%).",
+   "caveat": "descriptive rate of past published reviews; not a prediction for any one case"
+  },
+  "features": {
+   "DiagnosisCategory": "Digestive System/ GI",
+   "DiagnosisSubCategory": "GERD/Reflux Disease",
+   "TreatmentCategory": "Gen Surg Proc",
+   "TreatmentSubCategory": "Bariatric Surgery",
+   "Type": "Medical Necessity",
+   "IMRType": "Standard",
+   "AgeRange": "51 to 64",
+   "PatientGender": "Female"
+  }
+ },
+ "precedents": [
+  "MN16-22954",
+  "MN24-41078",
+  "MN22-37877",
+  "MN12-13675"
+ ],
+ "precedent_rows": [
+  {
+   "reference_id": "MN16-22954",
+   "year": 2016,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Gen Surg Proc / Laparotomy",
+   "diagnosis": "Morbid Obesity / Hypertension",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for laparoscopic gastric bypass/Roux-en-Y gastroenterostomy for treatment of the enrollee\u2019s medical condition",
+   "similarity": 0.662,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "MN24-41078",
+   "year": 2024,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Gen Surg Proc / Bariatric Surgery",
+   "diagnosis": "Post Surgical Comp / Other",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and Roux-en-Y gastroenterostomy (roux limb 150 cm or less)",
+   "similarity": 0.591,
+   "findings_excerpt": "Findings:  The physician reviewer found that Nature of Statutory Criteria/Case Summary: A patient has requested authorization and coverage for laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and Roux-en-Y gastroenterostomy (roux limb 150 cm or less). The records support that this patient meets the criteria for revision of the Roux-en-Y gastric bypass. As noted in the medical literature, there are multiple surgical options for bariatric revision including simple revision of the pouch and redo gastrojejunostomy, conversion to pancreaticobiliary bypass, and distal Roux-e..."
+  },
+  {
+   "reference_id": "MN22-37877",
+   "year": 2022,
+   "determination": "Upheld Decision of Health Plan",
+   "treatment": "Gen Surg Proc / Bariatric Surgery",
+   "diagnosis": "Digestive System/ GI / GERD/Reflux Disease",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for laparoscopic gastric restrictive procedure with gastric bypass with Roux-en-Y gastroenterostomy",
+   "similarity": 0.577,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "MN12-13675",
+   "year": 2012,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Gen Surg Proc / Bariatric Other",
+   "diagnosis": "Morbid Obesity / Other",
+   "type": "Medical Necessity",
+   "request": "gastric bypass (Roux-en-Y) surgery for treatment of her morbid obesity",
+   "similarity": 0.57,
+   "findings_excerpt": null
+  }
+ ],
+ "policy_selected": [
+  {
+   "chunk_id": "NCD-100.1:5",
+   "relevance": "This excerpt outlines the coverage criteria for Roux-en-Y gastric bypass, specifying the conditions under which the procedure is covered."
+  },
+  {
+   "chunk_id": "NCD-100.1:2",
+   "relevance": "This excerpt provides a description of the Roux-en-Y gastric bypass procedure and its mechanism for weight loss."
+  },
+  {
+   "chunk_id": "NCD-100.1:8",
+   "relevance": "This excerpt discusses the determination of coverage for bariatric surgery procedures based on specific criteria related to obesity and co-morbidities."
+  },
+  {
+   "chunk_id": "NCD-100.1:6",
+   "relevance": "This excerpt details the requirements for facilities performing bariatric surgeries, which is relevant to the coverage criteria."
+  }
+ ],
+ "criteria": {
+  "criteria": [
+   {
+    "chunk_id": "NCD-100.1:5",
+    "criterion_quote": "Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidit",
+    "status": "supported_by_case_facts",
+    "note": "The case mentions gastric bypass and Roux-en-Y gastroenterostomy."
+   },
+   {
+    "chunk_id": "NCD-100.1:2",
+    "criterion_quote": "Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity.",
+    "status": "supported_by_case_facts",
+    "note": "The case involves bariatric surgery."
+   },
+   {
+    "chunk_id": "NCD-100.1:8",
+    "criterion_quote": "The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.",
+    "status": "supported_by_case_facts",
+    "note": "The case involves a request for bariatric surgery."
+   },
+   {
+    "chunk_id": "NCD-100.1:8",
+    "criterion_quote": "Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on",
+    "status": "supported_by_case_facts",
+    "note": "The case involves a surgical procedure related to obesity."
+   },
+   {
+    "chunk_id": "NCD-100.1:8",
+    "criterion_quote": "The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.",
+    "status": "needs_documentation",
+    "note": "The case does not provide information on risks associated with rapid weight loss."
+   },
+   {
+    "chunk_id": "NCD-100.1:6",
+    "criterion_quote": "Effective for dates of service on and after February 21, 2006, these procedures are only covered when performed at facilities that are:",
+    "status": "needs_documentation",
+    "note": "The case does not specify the facility where the procedure would be performed."
+   },
+   {
+    "chunk_id": "NCD-100.1:6",
+    "criterion_quote": "Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.",
+    "status": "needs_documentation",
+    "note": "The case does not provide information on facility certification."
+   },
+   {
+    "chunk_id": "NCD-100.1:6",
+    "criterion_quote": "A list of approved facilities and their approval dates are listed and maintained on the CMS Coverage Web site at http://www.cms.gov/Medicare/Medicare-General-Information/MedicareApprovedFacilitie/Bariatric-Surgery.html, and published in the Federal Register for services provided up to and including date of service September 23, 2013.",
+    "status": "supported_by_case_facts",
+    "note": "The case involves bariatric surgery which requires facility approval."
+   }
+  ]
+ },
+ "route": [
+  "policy_retriever",
+  "criteria_matcher",
+  "risk_analyst",
+  "appeal_writer",
+  "verifier",
+  "FINISH"
+ ],
+ "revisions": 0,
+ "red_team": {
+  "verdict": "pass",
+  "issues": [],
+  "dropped_unverifiable": 4,
+  "dropped": [
+   "rule 2: \"The National Coverage Determination (NCD) states that open and laparoscopic Roux-en-Y gastric bypass (RYGBP) is covered \"",
+   "rule 2: \"Bariatric surgery procedures, including Roux-en-Y gastric bypass, are performed to treat comorbid conditions associated \"",
+   "rule 2: \"The determination of coverage for bariatric surgery procedures is left to local Medicare Administrative Contractors (MAC\"",
+   "rule 8: \"ClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Med\""
+  ],
+  "llm_verdict": "fail"
+ },
+ "draft_md": "# Appeal letter (DRAFT for human review)\n\n**Re:** Appeal for Authorization and Coverage of Gastric Bypass and Roux-en-Y Gastroenterostomy\n\n**Requested service:** Authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy\n\n**Denial basis:** Medical Necessity\n\nI am writing on behalf of the patient to appeal the denial of authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy. The health plan denied this request based on medical necessity criteria.\n\nThe National Coverage Determination (NCD) states that open and laparoscopic Roux-en-Y gastric bypass (RYGBP) is covered for Medicare beneficiaries who have a body-mass index \u2265 35 and have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity [NCD-100.1:5].\n\nBariatric surgery procedures, including Roux-en-Y gastric bypass, are performed to treat comorbid conditions associated with morbid obesity [NCD-100.1:2]. The case facts indicate that the request is for a surgical procedure related to obesity, which aligns with the coverage criteria outlined in the NCD.\n\nThe determination of coverage for bariatric surgery procedures is left to local Medicare Administrative Contractors (MACs) for beneficiaries who meet the criteria of having a body-mass index \u2265 35 and at least one obesity-related co-morbidity [NCD-100.1:8]. This indicates that the local MAC has the authority to approve the procedure based on the patient's specific circumstances.\n\n**Coverage criteria cited:**\n- \"Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity.\" [NCD-100.1:5] - This policy supports the request for gastric bypass surgery.\n- \"Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity.\" [NCD-100.1:2] - This policy indicates that the surgery is intended to address obesity-related health issues.\n- \"The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.\" [NCD-100.1:8] - This policy allows for local MAC discretion in approving the surgery based on the patient's situation.\n\n**Published independent-review precedents:**\n- [IMR-MN16-22954] Overturned Decision of Health Plan for authorization and coverage for laparoscopic gastric bypass/Roux-en-Y gastroenterostomy for treatment of the enrollee\u2019s medical condition.\n- [IMR-MN12-13675] Overturned Decision of Health Plan for gastric bypass (Roux-en-Y) surgery for treatment of her morbid obesity.\n\n**Requested action:** I request that the health plan review the treating clinician's documentation against the criteria for medical necessity for gastric bypass and Roux-en-Y gastroenterostomy.\n\nSincerely,\n[Patient or authorized representative - to be completed by the human reviewer]\n\n## Denial-risk brief\n\n**Model signal:** The overturn model gives 52.7% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.\n\n- **Text-model signal (P4, request sentence only):** 59.1% (TF-IDF + logistic regression, test ROC-AUC 0.7476)\n- **Published cohort (P2):** 532 of 1016 published IMRs (TreatmentCategory = Gen Surg Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.4%). Wilson 95% CI 49.3% to 55.4%.\n- **Overturn model (P3):** hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation, test ROC-AUC 0.7556, Brier 0.1814.\n- **Closest published precedents:** 4 retrieved (decided before 2025): 3 overturned, 1 upheld.\n- **Policy basis:** NCD-100.1 Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\n- **Limits:** association statistics from past published reviews in California commercial plans; they do not know the clinical record and are not a prediction for this appeal.\n\n## Questions for the human reviewer\n\n- What specific clinical criteria were used to determine medical necessity for this case?\n- What details on the patient's medical history and previous treatments attempted are available?\n- What are the risks associated with rapid weight loss in this patient?\n- What facility is the procedure planned to be performed at, and is it certified?\n- Is the facility where the procedure will be performed compliant with the necessary certification requirements?\n\n## Disclaimer\n\nClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Medicare contractor, and it does not file, submit or send appeals. A qualified human (the patient or their authorized representative, with their clinician or a licensed advocate) must review and edit this draft before it is used. Statistics describe past published reviews and do not predict the outcome of any individual appeal.\n",
+ "intake": {
+  "service": "authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy",
+  "denial_basis": "medical_necessity",
+  "treatment_category": "Gen Surg Proc",
+  "case_facts": [
+   "The health plan denied a request for authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy.",
+   "Denial type: Medical Necessity.",
+   "Diagnosis category: Digestive System/ GI / GERD/Reflux Disease.",
+   "Treatment category: Gen Surg Proc / Bariatric Surgery.",
+   "Age range: 51 to 64.",
+   "Gender: Female."
+  ],
+  "search_queries": [
+   "Medicare coverage policy for gastric bypass surgery",
+   "Medicare coverage for Roux-en-Y gastroenterostomy",
+   "Criteria for medical necessity for bariatric surgery"
+  ],
+  "missing_information": [
+   "Specific clinical criteria used to determine medical necessity.",
+   "Details on the patient's medical history and previous treatments attempted."
+  ]
+ },
+ "plan": {
+  "steps": [
+   {
+    "agent": "policy_retriever",
+    "goal": "Retrieve the Medicare coverage policy for gastric bypass surgery and Roux-en-Y gastroenterostomy."
+   },
+   {
+    "agent": "criteria_matcher",
+    "goal": "Match the patient's case facts against the clinical criteria for medical necessity for bariatric surgery."
+   },
+   {
+    "agent": "risk_analyst",
+    "goal": "Analyze the risks associated with the denial based on the patient's medical history and previous treatments."
+   },
+   {
+    "agent": "appeal_writer",
+    "goal": "Draft an appeal letter addressing the denial of medical necessity, incorporating findings from the previous steps."
+   },
+   {
+    "agent": "verifier",
+    "goal": "Verify all information and ensure the appeal is complete and accurate before submission."
+   }
+  ],
+  "watch_outs": [
+   "Ensure the clinical criteria for medical necessity are up-to-date and relevant to the patient's case.",
+   "Verify if there are any specific exclusions in the policy regarding age or gender for bariatric surgery.",
+   "Check for any additional documentation required from the patient's medical history that may support the appeal."
+  ]
+ },
+ "trace": [
+  {
+   "agent": "input_guard",
+   "type": "guard",
+   "allowed": true,
+   "reason": "ok",
+   "prompt_shields": "NOT_CONFIGURED"
+  },
+  {
+   "agent": "intake",
+   "type": "structured",
+   "output": {
+    "service": "authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy",
+    "denial_basis": "medical_necessity",
+    "treatment_category": "Gen Surg Proc",
+    "case_facts": [
+     "The health plan denied a request for authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy.",
+     "Denial type: Medical Necessity.",
+     "Diagnosis category: Digestive System/ GI / GERD/Reflux Disease.",
+     "Treatment category: Gen Surg Proc / Bariatric Surgery.",
+     "Age range: 51 to 64.",
+     "Gender: Female."
+    ],
+    "search_queries": [
+     "Medicare coverage policy for gastric bypass surgery",
+     "Medicare coverage for Roux-en-Y gastroenterostomy",
+     "Criteria for medical necessity for bariatric surgery"
+    ],
+    "missing_information": [
+     "Specific clinical criteria used to determine medical necessity.",
+     "Details on the patient's medical history and previous treatments attempted."
+    ]
+   }
+  },
+  {
+   "agent": "planner",
+   "type": "plan",
+   "plan": {
+    "steps": [
+     {
+      "agent": "policy_retriever",
+      "goal": "Retrieve the Medicare coverage policy for gastric bypass surgery and Roux-en-Y gastroenterostomy."
+     },
+     {
+      "agent": "criteria_matcher",
+      "goal": "Match the patient's case facts against the clinical criteria for medical necessity for bariatric surgery."
+     },
+     {
+      "agent": "risk_analyst",
+      "goal": "Analyze the risks associated with the denial based on the patient's medical history and previous treatments."
+     },
+     {
+      "agent": "appeal_writer",
+      "goal": "Draft an appeal letter addressing the denial of medical necessity, incorporating findings from the previous steps."
+     },
+     {
+      "agent": "verifier",
+      "goal": "Verify all information and ensure the appeal is complete and accurate before submission."
+     }
+    ],
+    "watch_outs": [
+     "Ensure the clinical criteria for medical necessity are up-to-date and relevant to the patient's case.",
+     "Verify if there are any specific exclusions in the policy regarding age or gender for bariatric surgery.",
+     "Check for any additional documentation required from the patient's medical history that may support the appeal."
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "policy_retriever",
+   "eligible": [
+    "policy_retriever",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage policy for gastric bypass surgery\", \"k\": 4})",
+   "observation": [
+    "NCD-100.1:7",
+    "NCD-100.1:2",
+    "NCD-100.1:5",
+    "NCD-100.1:4"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage for Roux-en-Y gastroenterostomy\", \"k\": 4})",
+   "observation": [
+    "NCD-100.1:5",
+    "NCD-100.1:2",
+    "NCD-310.1:3",
+    "NCD-140.9:1"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Criteria for medical necessity for bariatric surgery\", \"k\": 4})",
+   "observation": [
+    "NCD-100.1:8",
+    "NCD-100.1:7",
+    "NCD-100.1:6",
+    "NCD-100.1:2"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 2,
+   "thought": "Here are the relevant excerpts from the National Coverage Determination (NCD) regarding the coverage criteria for gastric bypass and Roux-en-Y gastroenterostomy:\n\n1. **NCD-100.1:5**  \n   **Title:** Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity  \n   **Effective Dat",
+   "action": "final_answer"
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "selected",
+   "selected": [
+    {
+     "chunk_id": "NCD-100.1:5",
+     "relevance": "This excerpt outlines the coverage criteria for Roux-en-Y gastric bypass, specifying the conditions under which the procedure is covered."
+    },
+    {
+     "chunk_id": "NCD-100.1:2",
+     "relevance": "This excerpt provides a description of the Roux-en-Y gastric bypass procedure and its mechanism for weight loss."
+    },
+    {
+     "chunk_id": "NCD-100.1:8",
+     "relevance": "This excerpt discusses the determination of coverage for bariatric surgery procedures based on specific criteria related to obesity and co-morbidities."
+    },
+    {
+     "chunk_id": "NCD-100.1:6",
+     "relevance": "This excerpt details the requirements for facilities performing bariatric surgeries, which is relevant to the coverage criteria."
+    }
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "criteria_matcher",
+   "eligible": [
+    "criteria_matcher",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "criteria_matcher",
+   "type": "structured",
+   "output": {
+    "criteria": [
+     {
+      "chunk_id": "NCD-100.1:5",
+      "criterion_quote": "Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidit",
+      "status": "supported_by_case_facts",
+      "note": "The case mentions gastric bypass and Roux-en-Y gastroenterostomy."
+     },
+     {
+      "chunk_id": "NCD-100.1:2",
+      "criterion_quote": "Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity.",
+      "status": "supported_by_case_facts",
+      "note": "The case involves bariatric surgery."
+     },
+     {
+      "chunk_id": "NCD-100.1:8",
+      "criterion_quote": "The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.",
+      "status": "supported_by_case_facts",
+      "note": "The case involves a request for bariatric surgery."
+     },
+     {
+      "chunk_id": "NCD-100.1:8",
+      "criterion_quote": "Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on",
+      "status": "supported_by_case_facts",
+      "note": "The case involves a surgical procedure related to obesity."
+     },
+     {
+      "chunk_id": "NCD-100.1:8",
+      "criterion_quote": "The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.",
+      "status": "needs_documentation",
+      "note": "The case does not provide information on risks associated with rapid weight loss."
+     },
+     {
+      "chunk_id": "NCD-100.1:6",
+      "criterion_quote": "Effective for dates of service on and after February 21, 2006, these procedures are only covered when performed at facilities that are:",
+      "status": "needs_documentation",
+      "note": "The case does not specify the facility where the procedure would be performed."
+     },
+     {
+      "chunk_id": "NCD-100.1:6",
+      "criterion_quote": "Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.",
+      "status": "needs_documentation",
+      "note": "The case does not provide information on facility certification."
+     },
+     {
+      "chunk_id": "NCD-100.1:6",
+      "criterion_quote": "A list of approved facilities and their approval dates are listed and maintained on the CMS Coverage Web site at http://www.cms.gov/Medicare/Medicare-General-Information/MedicareApprovedFacilitie/Bariatric-Surgery.html, and published in the Federal Register for services provided up to and including date of service September 23, 2013.",
+      "status": "supported_by_case_facts",
+      "note": "The case involves bariatric surgery which requires facility approval."
+     }
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "risk_analyst",
+   "eligible": [
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "risk_analyst",
+   "type": "tools",
+   "overturn_percent": 52.7,
+   "text_p": 0.5907,
+   "cohort": "532 of 1016 published IMRs (TreatmentCategory = Gen Surg Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.4%).",
+   "precedents": [
+    "MN16-22954",
+    "MN24-41078",
+    "MN22-37877",
+    "MN12-13675"
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "appeal_writer",
+   "eligible": [
+    "appeal_writer"
+   ]
+  },
+  {
+   "agent": "appeal_writer",
+   "type": "draft",
+   "chars": 5474,
+   "precheck_failed": [],
+   "precheck_unrun": []
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "verifier",
+   "eligible": [
+    "verifier"
+   ]
+  },
+  {
+   "agent": "verifier",
+   "type": "verify",
+   "passed": true,
+   "failed": [],
+   "unrun": [],
+   "red_team": "pass",
+   "dropped_unverifiable": 4
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "FINISH",
+   "eligible": [
+    "FINISH"
+   ]
+  },
+  {
+   "agent": "gate",
+   "type": "finalize",
+   "status": "awaiting_human_signoff",
+   "reason": null
+  }
+ ],
+ "held_out_outcome": {
+  "Determination": "Overturned Decision of Health Plan",
+  "overturned": 1
+ },
+ "denial_text": "Published CA DMHC Independent Medical Review case MN25-45013 (2025). The health plan denied a request for authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy. Denial type: Medical Necessity (the plan considered it not medically necessary). Diagnosis category: Digestive System/ GI / GERD/Reflux Disease. Treatment category: Gen Surg Proc / Bariatric Surgery. Review type: Standard. Age range: 51 to 64. Gender: Female.",
+ "gate_inputs": {
+  "quotes": [
+   {
+    "citation_id": "NCD-100.1:5",
+    "quote": "Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity."
+   },
+   {
+    "citation_id": "NCD-100.1:2",
+    "quote": "Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity."
+   },
+   {
+    "citation_id": "NCD-100.1:8",
+    "quote": "The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs."
+   }
+  ],
+  "risk_statement": "The overturn model gives 52.7% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.",
+  "retrieved": {
+   "NCD-100.1:7": "Treatments for obesity alone remain non-covered.\n\n Supplemented fasting is not covered under the Medicare program as a general treatment for obesity (see section D. below for discretionary local coverage).\n\n The following bariatric surgery procedures are non-covered for all Medicare beneficiaries:\n\n Open adjustable gastric banding;\n\n Open sleeve gastrectomy;\n\n Laparoscopic sleeve gastrectomy (prior to June 27, 2012);\n\n Open and laparoscopic vertical banded gastroplasty;\n\n Intestinal bypass surgery; and,\n\n Gastric balloon for treatment of obesity.\n\n D. Other \n\n Effective for services performed on and after June 27, 2012, Medicare Administrative Contractors (MACs) acting within their respective jurisdictions may determine coverage of stand-alone laparoscopic sleeve gastrectomy (LSG) for the treatment of co-morbid conditions related to obesity in Medicare beneficiaries only when all of the following conditions a.-c. are satisfied.\n\n- The beneficiary has a body-mass index (BMI) \u2265 35 kg/m 2 , \n\n- The beneficiary has at least one co-morbidity related to obesity, and, \n\n- The beneficiary has been previously unsuccessful with medical treatment for obesity.",
+   "NCD-100.1:2": "Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity. Two types of surgical procedures are employed. Malabsorptive procedures divert food from the stomach to a lower part of the digestive tract where the normal mixing of digestive fluids and absorption of nutrients cannot occur. Restrictive procedures restrict the size of the stomach and decrease intake. Surgery can combine both types of procedures.\n\n The following are descriptions of bariatric surgery procedures:\n\n 1. Roux-en-Y Gastric Bypass (RYGBP)\n\n The RYGBP achieves weight loss by gastric restriction and malabsorption. Reduction of the stomach to a small gastric pouch (30 cc) results in feelings of satiety following even small meals. This small pouch is connected to a segment of the jejunum, bypassing the duodenum and very proximal small intestine, thereby reducing absorption. RYGBP procedures can be open or laparoscopic.\n\n 2. Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS)",
+   "NCD-100.1:5": "The VGB achieves weight loss by gastric restriction only. The upper part of the stomach is stapled, creating a narrow gastric inlet or pouch that remains connected with the remainder of the stomach. In addition, a non-adjustable band is placed around this new inlet in an attempt to prevent future enlargement of the stoma (opening). As a result, patients experience a sense of fullness after eating small meals. Weight loss from this procedure results entirely from eating less. VGB procedures are essentially no longer performed.\n\nB. Nationally Covered Indications \n\n Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity.",
+   "NCD-100.1:4": "The AGB achieves weight loss by gastric restriction only. A band creating a gastric pouch with a capacity of approximately 15 to 30 cc's encircles the uppermost portion of the stomach. The band is an inflatable doughnut-shaped balloon, the diameter of which can be adjusted in the clinic by adding or removing saline via a port that is positioned beneath the skin. The bands are adjustable, allowing the size of the gastric outlet to be modified as needed, depending on the rate of a patient's weight loss. AGB procedures are laparoscopic only.\n\n 4. Sleeve Gastrectomy\n\n Sleeve gastrectomy is a 70%-80% greater curvature gastrectomy (sleeve resection of the stomach) with continuity of the gastric lesser curve being maintained while simultaneously reducing stomach volume. In the past, sleeve gastrectomy was the first step in a two-stage procedure when performing RYGBP, but more recently has been offered as a stand-alone surgery. Sleeve gastrectomy procedures can be open or laparoscopic.\n\n 5. Vertical Gastric Banding (VGB)",
+   "NCD-310.1:3": "For non-covered items and services, including items and services for which Medicare payment is statutorily prohibited, Medicare only covers the treatment of complications arising from the delivery of the noncovered item or service and unrelated reasonable and necessary care. However, if the item or service is not covered by virtue of a national non-coverage policy in Pub. 100-03, National Coverage Determination (NCD) Manual, and is the focus of a qualifying clinical trial, the routine costs of the clinical trial (as defined above) will be covered by Medicare but the non-covered item or service, itself, will not.\n\n A. Requirements for Medicare Coverage of Routine Costs \n\n Any clinical trial receiving Medicare coverage of routine costs must meet the following three requirements:\n\n- The subject or purpose of the trial must be the evaluation of an item or service that falls within a Medicare benefit category (e.g., physicians' service, durable medical equipment, diagnostic test) and is not statutorily excluded from coverage (e.g., cosmetic surgery, hearing aids).",
+   "NCD-140.9:1": "A. General\n\n Gender reassignment surgery is a general term to describe a surgery or surgeries that affirm a person's gender identity.\n\nB. Nationally Covered Indications \n\n N/A\n\n C. Nationally Non-Covered Indications \n\n N/A\n\n D. Other\n\n The Centers for Medicare & Medicaid Coverage (CMS) conducted a National Coverage Analysis that focused on the topic of gender reassignment surgery. Effective August 30, 2016, after examining the medical evidence, CMS determined that no national coverage determination (NCD) is appropriate at this time for gender reassignment surgery for Medicare beneficiaries with gender dysphoria. In the absence of an NCD, coverage determinations for gender reassignment surgery, under section 1862(a)(1)(A) of the Social Security Act (the Act) and any other relevant statutory requirements, will continue to be made by the local Medicare Administrative Contractors (MACs) on a case-by-case basis. \n\n (This policy last reviewed August 2016.)",
+   "NCD-100.1:8": "The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.\n\n Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on a case-by-case basis or pursuant to a local coverage determination. The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.",
+   "NCD-100.1:6": "Effective for dates of service on and after February 21, 2006, these procedures are only covered when performed at facilities that are: (1) certified by the American College of Surgeons as a Level 1 Bariatric Surgery Center (program standards and requirements in effect on February 15, 2006); or (2) certified by the American Society for Bariatric Surgery as a Bariatric Surgery Center of Excellence (program standards and requirements in effect on February 15, 2006). Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.\n\n Effective for services performed on and after February 12, 2009, the Centers for Medicare & Medicaid Services (CMS) determines that Type 2 diabetes mellitus is a co-morbidity for purposes of this NCD.\n\n A list of approved facilities and their approval dates are listed and maintained on the CMS Coverage Web site at http://www.cms.gov/Medicare/Medicare-General-Information/MedicareApprovedFacilitie/Bariatric-Surgery.html, and published in the Federal Register for services provided up to and including date of service September 23, 2013.\n\n C. Nationally Non-Covered Indications",
+   "IMR-MN16-22954": "authorization and coverage for laparoscopic gastric bypass/Roux-en-Y gastroenterostomy for treatment of the enrollee\u2019s medical condition Overturned Decision of Health Plan ",
+   "IMR-MN24-41078": "authorization and coverage for laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and Roux-en-Y gastroenterostomy (roux limb 150 cm or less) Overturned Decision of Health Plan Findings:  The physician reviewer found that Nature of Statutory Criteria/Case Summary: A patient has requested authorization and coverage for laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and Roux-en-Y gastroenterostomy (roux limb 150 cm or less). The records support that this patient meets the criteria for revision of the Roux-en-Y gastric bypass. As noted in the medical literature, there are multiple surgical options for bariatric revision including simple revision of the pouch and redo gastrojejunostomy, conversion to pancreaticobiliary bypass, and distal Roux-e...",
+   "IMR-MN22-37877": "authorization and coverage for laparoscopic gastric restrictive procedure with gastric bypass with Roux-en-Y gastroenterostomy Upheld Decision of Health Plan ",
+   "IMR-MN12-13675": "gastric bypass (Roux-en-Y) surgery for treatment of her morbid obesity Overturned Decision of Health Plan "
+  },
+  "evidence_text": "{\"service\": \"authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy\", \"denial_basis\": \"medical_necessity\", \"plan_type\": \"commercial_ca_dmhc\", \"imr_reference_ids\": [\"MN25-45013\"], \"ncd_mentions\": [], \"lcd_mentions\": [], \"code_mentions\": {\"icd10\": [], \"hcpcs_level2\": []}, \"method\": \"regex first pass; the intake agent confirms with structured output\"}\n{\"ReferenceID\": \"MN25-45013\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Digestive System/ GI\", \"DiagnosisSubCategory\": \"GERD/Reflux Disease\", \"TreatmentCategory\": \"Gen Surg Proc\", \"TreatmentSubCategory\": \"Bariatric Surgery\", \"Type\": \"Medical Necessity\", \"AgeRange\": \"51 to 64\", \"PatientGender\": \"Female\", \"IMRType\": \"Standard\", \"request_text\": \"authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy\", \"source_url\": \"https://wpso.dmhc.ca.gov/imr/\", \"note\": \"outcome and reviewer Findings withheld (the agents must not see the decision of the case they are drafting for)\"}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-100.1:7\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03279, \"text\": \"Treatments for obesity alone remain non-covered.\\n\\n Supplemented fasting is not covered under the Medicare program as a general treatment for obesity (see section D. below for discretionary local coverage).\\n\\n The following bariatric surgery procedures are non-covered for all Medicare beneficiaries:\\n\\n Open adjustable gastric banding;\\n\\n Open sleeve gastrectomy;\\n\\n Laparoscopic sleeve gastrectomy (prior to June 27, 2012);\\n\\n Open and laparoscopic vertical banded gastroplasty;\\n\\n Intestinal bypass surgery; and,\\n\\n Gastric balloon for treatment of obesity.\\n\\n D. Other \\n\\n Effective for services performed on and after June 27, 2012, Medicare Administrative Contractors (MACs) acting within their respective jurisdictions may determine coverage of stand-alone laparoscopic sleeve gastrectomy (LSG) for the treatment of co-morbid conditions related to obesity in Medicare beneficiaries only when all of the following conditions a.-c. are satisfied.\\n\\n- The beneficiary has a body-mass index (BMI) \\u2265 35 kg/m 2 , \\n\\n- The beneficiary has at least one co-morbidity related to obesity, and, \\n\\n- The beneficiary has been previously unsuccessful with medical treatment for obesity.\"}, {\"id\": \"NCD-100.1:2\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.032, \"text\": \"Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity. Two types of surgical procedures are employed. Malabsorptive procedures divert food from the stomach to a lower part of the digestive tract where the normal mixing of digestive fluids and absorption of nutrients cannot occur. Restrictive procedures restrict the size of the stomach and decrease intake. Surgery can combine both types of procedures.\\n\\n The following are descriptions of bariatric surgery procedures:\\n\\n 1. Roux-en-Y Gastric Bypass (RYGBP)\\n\\n The RYGBP achieves weight loss by gastric restriction and malabsorption. Reduction of the stomach to a small gastric pouch (30 cc) results in feelings of satiety following even small meals. This small pouch is connected to a segment of the jejunum, bypassing the duodenum and very proximal small intestine, thereby reducing absorption. RYGBP procedures can be open or laparoscopic.\\n\\n 2. Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS)\"}, {\"id\": \"NCD-100.1:5\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.032, \"text\": \"The VGB achieves weight loss by gastric restriction only. The upper part of the stomach is stapled, creating a narrow gastric inlet or pouch that remains connected with the remainder of the stomach. In addition, a non-adjustable band is placed around this new inlet in an attempt to prevent future enlargement of the stoma (opening). As a result, patients experience a sense of fullness after eating small meals. Weight loss from this procedure results entirely from eating less. VGB procedures are essentially no longer performed.\\n\\nB. Nationally Covered Indications \\n\\n Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \\u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity.\"}, {\"id\": \"NCD-100.1:4\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03078, \"text\": \"The AGB achieves weight loss by gastric restriction only. A band creating a gastric pouch with a capacity of approximately 15 to 30 cc's encircles the uppermost portion of the stomach. The band is an inflatable doughnut-shaped balloon, the diameter of which can be adjusted in the clinic by adding or removing saline via a port that is positioned beneath the skin. The bands are adjustable, allowing the size of the gastric outlet to be modified as needed, depending on the rate of a patient's weight loss. AGB procedures are laparoscopic only.\\n\\n 4. Sleeve Gastrectomy\\n\\n Sleeve gastrectomy is a 70%-80% greater curvature gastrectomy (sleeve resection of the stomach) with continuity of the gastric lesser curve being maintained while simultaneously reducing stomach volume. In the past, sleeve gastrectomy was the first step in a two-stage procedure when performing RYGBP, but more recently has been offered as a stand-alone surgery. Sleeve gastrectomy procedures can be open or laparoscopic.\\n\\n 5. Vertical Gastric Banding (VGB)\"}]}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-100.1:5\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03252, \"text\": \"The VGB achieves weight loss by gastric restriction only. The upper part of the stomach is stapled, creating a narrow gastric inlet or pouch that remains connected with the remainder of the stomach. In addition, a non-adjustable band is placed around this new inlet in an attempt to prevent future enlargement of the stoma (opening). As a result, patients experience a sense of fullness after eating small meals. Weight loss from this procedure results entirely from eating less. VGB procedures are essentially no longer performed.\\n\\nB. Nationally Covered Indications \\n\\n Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \\u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity.\"}, {\"id\": \"NCD-100.1:2\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03252, \"text\": \"Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity. Two types of surgical procedures are employed. Malabsorptive procedures divert food from the stomach to a lower part of the digestive tract where the normal mixing of digestive fluids and absorption of nutrients cannot occur. Restrictive procedures restrict the size of the stomach and decrease intake. Surgery can combine both types of procedures.\\n\\n The following are descriptions of bariatric surgery procedures:\\n\\n 1. Roux-en-Y Gastric Bypass (RYGBP)\\n\\n The RYGBP achieves weight loss by gastric restriction and malabsorption. Reduction of the stomach to a small gastric pouch (30 cc) results in feelings of satiety following even small meals. This small pouch is connected to a segment of the jejunum, bypassing the duodenum and very proximal small intestine, thereby reducing absorption. RYGBP procedures can be open or laparoscopic.\\n\\n 2. Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS)\"}, {\"id\": \"NCD-310.1:3\", \"doc_id\": \"NCD-310.1\", \"title\": \"Routine Costs in Clinical Trials\", \"effective\": \"2024-05-27\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=1\", \"score\": 0.0308, \"text\": \"For non-covered items and services, including items and services for which Medicare payment is statutorily prohibited, Medicare only covers the treatment of complications arising from the delivery of the noncovered item or service and unrelated reasonable and necessary care. However, if the item or service is not covered by virtue of a national non-coverage policy in Pub. 100-03, National Coverage Determination (NCD) Manual, and is the focus of a qualifying clinical trial, the routine costs of the clinical trial (as defined above) will be covered by Medicare but the non-covered item or service, itself, will not.\\n\\n A. Requirements for Medicare Coverage of Routine Costs \\n\\n Any clinical trial receiving Medicare coverage of routine costs must meet the following three requirements:\\n\\n- The subject or purpose of the trial must be the evaluation of an item or service that falls within a Medicare benefit category (e.g., physicians' service, durable medical equipment, diagnostic test) and is not statutorily excluded from coverage (e.g., cosmetic surgery, hearing aids).\"}, {\"id\": \"NCD-140.9:1\", \"doc_id\": \"NCD-140.9\", \"title\": \"Gender Dysphoria and Gender Reassignment Surgery\", \"effective\": \"2016-08-30\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=368\", \"score\": 0.02821, \"text\": \"A. General\\n\\n Gender reassignment surgery is a general term to describe a surgery or surgeries that affirm a person's gender identity.\\n\\nB. Nationally Covered Indications \\n\\n N/A\\n\\n C. Nationally Non-Covered Indications \\n\\n N/A\\n\\n D. Other\\n\\n The Centers for Medicare & Medicaid Coverage (CMS) conducted a National Coverage Analysis that focused on the topic of gender reassignment surgery. Effective August 30, 2016, after examining the medical evidence, CMS determined that no national coverage determination (NCD) is appropriate at this time for gender reassignment surgery for Medicare beneficiaries with gender dysphoria. In the absence of an NCD, coverage determinations for gender reassignment surgery, under section 1862(a)(1)(A) of the Social Security Act (the Act) and any other relevant statutory requirements, will continue to be made by the local Medicare Administrative Contractors (MACs) on a case-by-case basis. \\n\\n (This policy last reviewed August 2016.)\"}]}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-100.1:8\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03252, \"text\": \"The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \\u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.\\n\\n Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on a case-by-case basis or pursuant to a local coverage determination. The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.\"}, {\"id\": \"NCD-100.1:7\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.032, \"text\": \"Treatments for obesity alone remain non-covered.\\n\\n Supplemented fasting is not covered under the Medicare program as a general treatment for obesity (see section D. below for discretionary local coverage).\\n\\n The following bariatric surgery procedures are non-covered for all Medicare beneficiaries:\\n\\n Open adjustable gastric banding;\\n\\n Open sleeve gastrectomy;\\n\\n Laparoscopic sleeve gastrectomy (prior to June 27, 2012);\\n\\n Open and laparoscopic vertical banded gastroplasty;\\n\\n Intestinal bypass surgery; and,\\n\\n Gastric balloon for treatment of obesity.\\n\\n D. Other \\n\\n Effective for services performed on and after June 27, 2012, Medicare Administrative Contractors (MACs) acting within their respective jurisdictions may determine coverage of stand-alone laparoscopic sleeve gastrectomy (LSG) for the treatment of co-morbid conditions related to obesity in Medicare beneficiaries only when all of the following conditions a.-c. are satisfied.\\n\\n- The beneficiary has a body-mass index (BMI) \\u2265 35 kg/m 2 , \\n\\n- The beneficiary has at least one co-morbidity related to obesity, and, \\n\\n- The beneficiary has been previously unsuccessful with medical treatment for obesity.\"}, {\"id\": \"NCD-100.1:6\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03132, \"text\": \"Effective for dates of service on and after February 21, 2006, these procedures are only covered when performed at facilities that are: (1) certified by the American College of Surgeons as a Level 1 Bariatric Surgery Center (program standards and requirements in effect on February 15, 2006); or (2) certified by the American Society for Bariatric Surgery as a Bariatric Surgery Center of Excellence (program standards and requirements in effect on February 15, 2006). Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.\\n\\n Effective for services performed on and after February 12, 2009, the Centers for Medicare & Medicaid Services (CMS) determines that Type 2 diabetes mellitus is a co-morbidity for purposes of this NCD.\\n\\n A list of approved facilities and their approval dates are listed and maintained on the CMS Coverage Web site at http://www.cms.gov/Medicare/Medicare-General-Information/MedicareApprovedFacilitie/Bariatric-Surgery.html, and published in the Federal Register for services provided up to and including date of service September 23, 2013.\\n\\n C. Nationally Non-Covered Indications\"}, {\"id\": \"NCD-100.1:2\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03101, \"text\": \"Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity. Two types of surgical procedures are employed. Malabsorptive procedures divert food from the stomach to a lower part of the digestive tract where the normal mixing of digestive fluids and absorption of nutrients cannot occur. Restrictive procedures restrict the size of the stomach and decrease intake. Surgery can combine both types of procedures.\\n\\n The following are descriptions of bariatric surgery procedures:\\n\\n 1. Roux-en-Y Gastric Bypass (RYGBP)\\n\\n The RYGBP achieves weight loss by gastric restriction and malabsorption. Reduction of the stomach to a small gastric pouch (30 cc) results in feelings of satiety following even small meals. This small pouch is connected to a segment of the jejunum, bypassing the duodenum and very proximal small intestine, thereby reducing absorption. RYGBP procedures can be open or laparoscopic.\\n\\n 2. Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS)\"}]}\n{\"scanned\": 4, \"flagged_local\": [], \"prompt_shields\": {\"status\": \"NOT_CONFIGURED\", \"service\": \"azure_content_safety_prompt_shields\"}, \"clean\": true}\n{\"criteria\": [{\"chunk_id\": \"NCD-100.1:5\", \"criterion\": \"Effective for services performed on and after February 21, 2006, Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered for Medicare beneficiaries who have a body-mass index \\u2265 35, have at least one co-morbidit\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"bypass\", \"en\", \"gastric\", \"medical\", \"roux\", \"treatment\"]}, {\"chunk_id\": \"NCD-100.1:2\", \"criterion\": \"Bariatric surgery procedures are performed to treat comorbid conditions associated with morbid obesity.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"bariatric\", \"surgery\"]}, {\"chunk_id\": \"NCD-100.1:8\", \"criterion\": \"The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \\u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"bariatric\", \"coverage\", \"medical\", \"surgery\", \"treatment\"]}, {\"chunk_id\": \"NCD-100.1:8\", \"criterion\": \"Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"coverage\", \"surgery\"]}, {\"chunk_id\": \"NCD-100.1:8\", \"criterion\": \"The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"treatment\"]}, {\"chunk_id\": \"NCD-100.1:6\", \"criterion\": \"Effective for dates of service on and after February 21, 2006, these procedures are only covered when performed at facilities that are:\", \"status\": \"needs_documentation\", \"overlap_terms\": []}, {\"chunk_id\": \"NCD-100.1:6\", \"criterion\": \"Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.\", \"status\": \"needs_documentation\", \"overlap_terms\": []}, {\"chunk_id\": \"NCD-100.1:6\", \"criterion\": \"A list of approved facilities and their approval dates are listed and maintained on the CMS Coverage Web site at http://www.cms.gov/Medicare/Medicare-General-Information/MedicareApprovedFacilitie/Bariatric-Surgery.html, and published in the Federal Register for services provided up to and including date of service September 23, 2013.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"bariatric\", \"coverage\", \"surgery\"]}], \"unknown_chunk_ids\": [], \"rule\": \"related_case_fact = the case facts mention >= 2 of the criterion's key terms; this is NOT a determination that it is met\"}\n{\"overturn_probability\": 0.5268, \"overturn_percent\": 52.7, \"band\": \"typical\", \"train_overturn_rate\": 0.4983, \"model\": \"hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation\", \"test_roc_auc\": 0.7556, \"test_brier\": 0.1814, \"treatment_category_unseen\": false, \"limit\": \"Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing.\"}\n{\"overturn_probability_text\": 0.5907, \"top_terms\": [{\"term\": \"coverage gastric\", \"weight\": 0.244}, {\"term\": \"gastric\", \"weight\": -0.214}, {\"term\": \"bypass\", \"weight\": 0.136}, {\"term\": \"bypass roux\", \"weight\": 0.105}, {\"term\": \"gastric bypass\", \"weight\": -0.105}, {\"term\": \"en\", \"weight\": 0.091}], \"test_roc_auc\": 0.7476, \"note\": \"TF-IDF + LR on the request sentence only; a signal, not a verdict\"}\n{\"filters\": {\"before_year\": 2025, \"TreatmentCategory\": \"Gen Surg Proc\", \"Type\": \"Medical Necessity\"}, \"n\": 1016, \"overturned\": 532, \"overturn_rate\": 0.5236, \"overturn_percent\": 52.4, \"wilson_ci95\": [0.4929, 0.5542], \"years\": [2001, 2024], \"last_3_years\": {\"n\": 49, \"overturn_percent\": 53.1}, \"headline\": \"532 of 1016 published IMRs (TreatmentCategory = Gen Surg Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.4%).\", \"caveat\": \"descriptive rate of past published reviews; not a prediction for any one case\"}\n{\"results\": [{\"reference_id\": \"MN16-22954\", \"year\": 2016, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Gen Surg Proc / Laparotomy\", \"diagnosis\": \"Morbid Obesity / Hypertension\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for laparoscopic gastric bypass/Roux-en-Y gastroenterostomy for treatment of the enrollee\\u2019s medical condition\", \"similarity\": 0.662, \"findings_excerpt\": null}, {\"reference_id\": \"MN24-41078\", \"year\": 2024, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Gen Surg Proc / Bariatric Surgery\", \"diagnosis\": \"Post Surgical Comp / Other\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and Roux-en-Y gastroenterostomy (roux limb 150 cm or less)\", \"similarity\": 0.591, \"findings_excerpt\": \"Findings:  The physician reviewer found that Nature of Statutory Criteria/Case Summary: A patient has requested authorization and coverage for laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and Roux-en-Y gastroenterostomy (roux limb 150 cm or less). The records support that this patient meets the criteria for revision of the Roux-en-Y gastric bypass. As noted in the medical literature, there are multiple surgical options for bariatric revision including simple revision of the pouch and redo gastrojejunostomy, conversion to pancreaticobiliary bypass, and distal Roux-e...\"}, {\"reference_id\": \"MN22-37877\", \"year\": 2022, \"determination\": \"Upheld Decision of Health Plan\", \"treatment\": \"Gen Surg Proc / Bariatric Surgery\", \"diagnosis\": \"Digestive System/ GI / GERD/Reflux Disease\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for laparoscopic gastric restrictive procedure with gastric bypass with Roux-en-Y gastroenterostomy\", \"similarity\": 0.577, \"findings_excerpt\": null}, {\"reference_id\": \"MN12-13675\", \"year\": 2012, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Gen Surg Proc / Bariatric Other\", \"diagnosis\": \"Morbid Obesity / Other\", \"type\": \"Medical Necessity\", \"request\": \"gastric bypass (Roux-en-Y) surgery for treatment of her morbid obesity\", \"similarity\": 0.57, \"findings_excerpt\": null}], \"filters\": {\"before_year\": 2025, \"exclude_id\": \"MN25-45013\", \"treatment_category\": null}, \"note\": \"published, de-identified CA DMHC IMR decisions; cite as [IMR-<reference_id>]\"}\nPublished CA DMHC Independent Medical Review case MN25-45013 (2025). The health plan denied a request for authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy. Denial type: Medical Necessity (the plan considered it not medically necessary). Diagnosis category: Digestive System/ GI / GERD/Reflux Disease. Treatment category: Gen Surg Proc / Bariatric Surgery. Review type: Standard. Age range: 51 to 64. Gender: Female.\n{\"ReferenceID\": \"MN25-45013\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Digestive System/ GI\", \"DiagnosisSubCategory\": \"GERD/Reflux Disease\", \"TreatmentCategory\": \"Gen Surg Proc\", \"TreatmentSubCategory\": \"Bariatric Surgery\", \"Type\": \"Medical Necessity\", \"IMRType\": \"Standard\", \"AgeRange\": \"51 to 64\", \"PatientGender\": \"Female\", \"request_text\": \"authorization and coverage for gastric bypass and Roux-en-Y gastroenterostomy\"}\nprecedent counts (code-derived): 4 3 1",
+  "injection": {
+   "input_clean": true,
+   "documents_clean": true
+  },
+  "red_team": {
+   "verdict": "pass",
+   "issues": [],
+   "dropped_unverifiable": 4,
+   "dropped": [
+    "rule 2: \"The National Coverage Determination (NCD) states that open and laparoscopic Roux-en-Y gastric bypass (RYGBP) is covered \"",
+    "rule 2: \"Bariatric surgery procedures, including Roux-en-Y gastric bypass, are performed to treat comorbid conditions associated \"",
+    "rule 2: \"The determination of coverage for bariatric surgery procedures is left to local Medicare Administrative Contractors (MAC\"",
+    "rule 8: \"ClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Med\""
+   ]
+  }
+ },
+ "spans": [
+  {
+   "name": "mcp.tools/call.parse_denial",
+   "start": 1794750834.632141,
+   "end": 1794750834.6362784,
+   "attrs": {
+    "agent": "intake",
+    "tool": "parse_denial",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.get_imr_case",
+   "start": 1794750834.636328,
+   "end": 1794750834.7486453,
+   "attrs": {
+    "agent": "intake",
+    "tool": "get_imr_case",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.intake",
+   "start": 1794750834.7509673,
+   "end": 1794750837.862901,
+   "attrs": {
+    "agent": "intake",
+    "model": "gpt-4o-mini",
+    "input_tokens": 942,
+    "output_tokens": 171,
+    "cost_usd": 0.0002439
+   }
+  },
+  {
+   "name": "llm.planner",
+   "start": 1794750837.8656754,
+   "end": 1794750840.656252,
+   "attrs": {
+    "agent": "planner",
+    "model": "gpt-4o-mini",
+    "input_tokens": 426,
+    "output_tokens": 196,
+    "cost_usd": 0.0001815
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750840.6580262,
+   "end": 1794750842.5757852,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 289,
+    "output_tokens": 89,
+    "cost_usd": 9.67e-05
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750842.575828,
+   "end": 1794750843.6677432,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750843.6678889,
+   "end": 1794750843.7168756,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750843.7170355,
+   "end": 1794750843.76448,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750843.7646456,
+   "end": 1794750850.7177277,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 4401,
+    "output_tokens": 600,
+    "cost_usd": 0.0010202
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750850.7194684,
+   "end": 1794750853.2357483,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 5146,
+    "output_tokens": 167,
+    "cost_usd": 0.0008721
+   }
+  },
+  {
+   "name": "mcp.tools/call.scan_documents",
+   "start": 1794750853.2358396,
+   "end": 1794750853.2459211,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "scan_documents",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.match_coverage_criteria",
+   "start": 1794750853.2481868,
+   "end": 1794750853.2528622,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "tool": "match_coverage_criteria",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.criteria_matcher",
+   "start": 1794750853.2536867,
+   "end": 1794750862.8700533,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1112,
+    "output_tokens": 708,
+    "cost_usd": 0.0005916
+   }
+  },
+  {
+   "name": "mcp.tools/call.score_overturn_likelihood",
+   "start": 1794750862.871805,
+   "end": 1794750863.1058087,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "score_overturn_likelihood",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.classify_request_text",
+   "start": 1794750863.1058402,
+   "end": 1794750863.172182,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "classify_request_text",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.cohort_stats",
+   "start": 1794750863.1722186,
+   "end": 1794750863.219387,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "cohort_stats",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_imr_precedent",
+   "start": 1794750863.2194254,
+   "end": 1794750864.0094616,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "search_imr_precedent",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.appeal_writer",
+   "start": 1794750864.0164044,
+   "end": 1794750878.7987704,
+   "attrs": {
+    "agent": "appeal_writer",
+    "model": "gpt-4o-mini",
+    "input_tokens": 3463,
+    "output_tokens": 858,
+    "cost_usd": 0.0010343
+   }
+  },
+  {
+   "name": "llm.verifier",
+   "start": 1794750878.8425853,
+   "end": 1794750882.0593052,
+   "attrs": {
+    "agent": "verifier",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1897,
+    "output_tokens": 243,
+    "cost_usd": 0.0004304
+   }
+  },
+  {
+   "name": "mcp.tools/call.confirm_red_team",
+   "start": 1794750882.0594516,
+   "end": 1794750882.065464,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "confirm_red_team",
+    "ok": true
+   }
+  }
+ ]
+}

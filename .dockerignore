@@ -1,0 +1,10 @@
+.git
+data/raw
+data/runtime
+.streamlit/secrets.toml
+.env
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+eval/logs/dev

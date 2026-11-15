@@ -1,0 +1,16 @@
+# Azure Developer CLI: azd up  (provisions infra/main.bicep, builds Dockerfile, deploys to Container Apps)
+name: claimguard
+metadata:
+  template: claimguard@0.1.0
+infra:
+  provider: bicep
+  path: infra
+  module: main
+services:
+  app:
+    project: .
+    language: python
+    host: containerapp
+    docker:
+      path: Dockerfile
+      remoteBuild: true

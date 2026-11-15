@@ -1,0 +1,107 @@
+{
+ "name": "claimguard-policy",
+ "fields": [
+  {
+   "name": "key",
+   "type": "Edm.String",
+   "key": true,
+   "filterable": true
+  },
+  {
+   "type": "Edm.String",
+   "searchable": false,
+   "filterable": true,
+   "retrievable": true,
+   "name": "id"
+  },
+  {
+   "type": "Edm.String",
+   "searchable": false,
+   "filterable": true,
+   "retrievable": true,
+   "name": "doc_id"
+  },
+  {
+   "type": "Edm.String",
+   "searchable": false,
+   "filterable": true,
+   "retrievable": true,
+   "name": "doc_type"
+  },
+  {
+   "name": "title",
+   "type": "Edm.String",
+   "searchable": true,
+   "retrievable": true
+  },
+  {
+   "name": "text",
+   "type": "Edm.String",
+   "searchable": true,
+   "retrievable": true,
+   "analyzer": "en.lucene"
+  },
+  {
+   "type": "Edm.String",
+   "searchable": false,
+   "filterable": true,
+   "retrievable": true,
+   "name": "url"
+  },
+  {
+   "type": "Edm.String",
+   "searchable": false,
+   "filterable": true,
+   "retrievable": true,
+   "name": "effective"
+  },
+  {
+   "name": "version",
+   "type": "Edm.Int32",
+   "filterable": true,
+   "retrievable": true
+  },
+  {
+   "name": "embedding",
+   "type": "Collection(Edm.Single)",
+   "searchable": true,
+   "retrievable": false,
+   "dimensions": 256,
+   "vectorSearchProfile": "lsa"
+  }
+ ],
+ "vectorSearch": {
+  "algorithms": [
+   {
+    "name": "hnsw",
+    "kind": "hnsw",
+    "hnswParameters": {
+     "metric": "cosine"
+    }
+   }
+  ],
+  "profiles": [
+   {
+    "name": "lsa",
+    "algorithm": "hnsw"
+   }
+  ]
+ },
+ "semantic": {
+  "configurations": [
+   {
+    "name": "default",
+    "prioritizedFields": {
+     "titleField": {
+      "fieldName": "title"
+     },
+     "prioritizedContentFields": [
+      {
+       "fieldName": "text"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

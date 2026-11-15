@@ -1,0 +1,110 @@
+{
+ "runs_scanned": 12,
+ "status_counts": {
+  "awaiting_human_signoff": 7,
+  "not_finalized": 5
+ },
+ "patterns": [
+  {
+   "pattern": "precheck_failed_before_revision:red_team_pass",
+   "support": 11,
+   "runs": [
+    "160a610b7a704b16a6a3b2d70318089f",
+    "565da43cf4fa4ba99e724b4339daf652",
+    "69da53bf7bfe49fc96ebb25ebea4ca51",
+    "ce068f7df01043e19c894e3802dbe2fb",
+    "d5fb8c0ae7e14e559308480e39ce57ef",
+    "ee03fc07d6e84c79ac9a13c3ed275576"
+   ]
+  },
+  {
+   "pattern": "red_team_unverifiable_quotes",
+   "support": 8,
+   "runs": [
+    "160a610b7a704b16a6a3b2d70318089f",
+    "16ada5fda8644f3c8754be90ee78db15",
+    "2d8869d0d52a439886fe771ee9e8d390",
+    "509c61118b974332a922ace30b917710",
+    "565da43cf4fa4ba99e724b4339daf652",
+    "692679ba7672415eb0ff92a306f19467",
+    "ce068f7df01043e19c894e3802dbe2fb",
+    "edca397f21b942f294ee1ec0bebee0b6"
+   ]
+  },
+  {
+   "pattern": "red_team_dropped_rule:2",
+   "support": 8,
+   "runs": [
+    "692679ba7672415eb0ff92a306f19467",
+    "edca397f21b942f294ee1ec0bebee0b6"
+   ]
+  },
+  {
+   "pattern": "needed_revision",
+   "support": 6,
+   "runs": [
+    "160a610b7a704b16a6a3b2d70318089f",
+    "565da43cf4fa4ba99e724b4339daf652",
+    "69da53bf7bfe49fc96ebb25ebea4ca51",
+    "ce068f7df01043e19c894e3802dbe2fb",
+    "d5fb8c0ae7e14e559308480e39ce57ef",
+    "ee03fc07d6e84c79ac9a13c3ed275576"
+   ]
+  },
+  {
+   "pattern": "check_failed:red_team_pass",
+   "support": 5,
+   "runs": [
+    "565da43cf4fa4ba99e724b4339daf652",
+    "69da53bf7bfe49fc96ebb25ebea4ca51",
+    "ce068f7df01043e19c894e3802dbe2fb",
+    "d5fb8c0ae7e14e559308480e39ce57ef",
+    "ee03fc07d6e84c79ac9a13c3ed275576"
+   ]
+  },
+  {
+   "pattern": "red_team_dropped_rule:8",
+   "support": 4,
+   "runs": [
+    "160a610b7a704b16a6a3b2d70318089f",
+    "509c61118b974332a922ace30b917710",
+    "ce068f7df01043e19c894e3802dbe2fb",
+    "edca397f21b942f294ee1ec0bebee0b6"
+   ]
+  },
+  {
+   "pattern": "red_team_confirmed_rule:1",
+   "support": 4,
+   "runs": [
+    "d5fb8c0ae7e14e559308480e39ce57ef",
+    "ee03fc07d6e84c79ac9a13c3ed275576"
+   ]
+  },
+  {
+   "pattern": "precheck_failed_before_revision:numbers_grounded",
+   "support": 4,
+   "runs": [
+    "69da53bf7bfe49fc96ebb25ebea4ca51",
+    "d5fb8c0ae7e14e559308480e39ce57ef"
+   ]
+  },
+  {
+   "pattern": "red_team_confirmed_rule:2",
+   "support": 3,
+   "runs": [
+    "565da43cf4fa4ba99e724b4339daf652",
+    "ce068f7df01043e19c894e3802dbe2fb"
+   ]
+  },
+  {
+   "pattern": "check_failed:numbers_grounded",
+   "support": 2,
+   "runs": [
+    "69da53bf7bfe49fc96ebb25ebea4ca51",
+    "d5fb8c0ae7e14e559308480e39ce57ef"
+   ]
+  }
+ ],
+ "mode": "propose_only",
+ "proposals": null
+}
