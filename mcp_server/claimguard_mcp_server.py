@@ -135,13 +135,15 @@ def scan_documents(texts: list[str]) -> str:
 
 @mcp.tool()
 @policy.guard("confirm_red_team")
-def confirm_red_team(issues_json: str, draft: str) -> str:
-    """Keep only red-team issues whose quoted sentence really occurs in the draft."""
+def confirm_red_team(issues_json: str, draft: str, case_json: str = "") -> str:
+    """Keep only red-team issues that code can confirm in the draft. case_json (optional) is the CASE FACTS the reviewer saw; with it,
+    rule-1 issues on sentences that only repeat the case facts are dropped."""
     try:
         issues = json.loads(issues_json)
+        case = json.loads(case_json) if case_json else None
     except Exception:
-        return _j({"error": "issues_json must be a JSON list"})
-    return _j(T.confirm_red_team(issues, draft))
+        return _j({"error": "issues_json must be a JSON list and case_json valid JSON"})
+    return _j(T.confirm_red_team(issues, draft, case))
 
 
 # ----------------------------------------------------------------------------- resources

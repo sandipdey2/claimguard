@@ -456,10 +456,10 @@ def build_graph(llm, tools: list, session, ctx: RunContext):
 
     async def verifier(s: CaseState):
         agent = "verifier"
-        p = await session.get_prompt("red_team_review", {"case_json": json.dumps({"intake": s["intake"], "case": s.get("case")}, default=str),
-                                                         "draft": s["draft_md"]})
+        case_json = json.dumps({"intake": s["intake"], "case": s.get("case")}, default=str)
+        p = await session.get_prompt("red_team_review", {"case_json": case_json, "draft": s["draft_md"]})
         rt = await structured(agent, RedTeam, [SystemMessage(SYSTEM[agent]), HumanMessage(p.messages[0].content.text)])
-        conf = await mcp(agent, "confirm_red_team", {"issues_json": json.dumps(rt["issues"]), "draft": s["draft_md"]})
+        conf = await mcp(agent, "confirm_red_team", {"issues_json": json.dumps(rt["issues"]), "draft": s["draft_md"], "case_json": case_json})
         d = s["draft"]
         quotes = [{"citation_id": q["citation_id"], "quote": q["quote"]} for q in d["policy_points"]]
         v = verify(s["draft_md"], quotes, s.get("risk"), d["risk_statement"], s["retrieved"], known_ids(), evidence_text(s), injection_state(s),

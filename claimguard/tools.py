@@ -185,12 +185,112 @@ def citation_unsupported(sentence: str) -> bool:
     return bool(words) and len(words & _content(body)) / len(words) < 0.15
 
 
-def confirm_red_team(issues: list[dict], draft: str) -> dict:
+# Rule 1 confirmation helpers. Rule 1 is about invented PATIENT facts. Two kinds of sentence were confirmed as rule-1 issues
+# although they state no patient fact (live Azure runs 6624778b / 072c6c63, reproduced locally as 7a7c4ba8 / 8578806a):
+#   (a) a cited restatement of the policy's coverage criteria ("CSII ... is covered ... for patients who ...", "the patient must have
+#       completed ... [NCD-280.14:3]"); whether its citation is right is rule 2's job, and it is checked in code;
+#   (b) framing that only repeats the case facts ("This appeal is based on the medical necessity of the requested device for
+#       effective diabetes management.").
+# Both are dropped only on code evidence; any sentence that adds a clinical word or number not in the case facts stays confirmed.
+CRITERIA_RX = re.compile(r"\b(must|required?|requires|requirements?|need(s)? to|covered|coverage|criteri(a|on)|eligib\w*|qualif\w*|"
+                         r"who|if|when|unless|policy|states?|specif(y|ies)|according to)\b", re.I)
+NUM_RX = re.compile(r"\d+(?:\.\d+)?")
+GENERIC_APPEAL = set("""appeal appealing appealed writing write behalf request requested requesting requests requires require based basis
+reconsider reconsideration review reviewed decision denial denied deny overturn coverage covered cover authorization authorize approve approval
+service services device devices treatment therapy care medical medically necessity necessary need needed effective effectively management manage
+managing condition patient patient's enrollee member plan health insurer letter support supports supporting outlined below above following
+respectfully ask asking urge consider please request""".split())
+
+
+def _stem(w: str) -> str:
+    for suf in ("ing", "ed", "es", "s"):
+        if len(w) > len(suf) + 3 and w.endswith(suf):
+            return w[: -len(suf)]
+    return w
+
+
+def _stems(t: str) -> set[str]:
+    return {_stem(w) for w in _content(t)}
+
+
+def _full_sentence(quote: str, draft: str) -> str:
+    """The draft sentence that contains ``quote``, extended to its end so a trailing [citation] is included."""
+    d, q = draft or "", (quote or "").strip()
+    i = d.find(q[:60]) if q else -1
+    if i < 0:
+        return quote
+    start = max(d.rfind(". ", 0, i) + 2 if d.rfind(". ", 0, i) >= 0 else 0, d.rfind("\n", 0, i) + 1)
+    m = re.search(r"(?<!\d)[.!?](?:\s|$)|\n", d[i + len(q[:60]):])
+    end = i + len(q[:60]) + (m.end() if m else len(d) - i - len(q[:60]))
+    return d[start:end].strip()
+
+
+def cited_policy_restatement(sentence: str) -> bool:
+    """True when a sentence states policy criteria and is backed by its cited NCD/LCD excerpt: criteria wording, every cited id
+    exists, every number is in the excerpt, and at least 60% of its content words occur in the excerpt. A sentence that asserts
+    a patient fact ("The patient has completed ... [NCD-x]") has no criteria wording and is not covered."""
+    ids = [c for c in CITE_RX.findall(sentence) if not c.startswith("IMR-")]
+    if not ids or not CRITERIA_RX.search(CITE_RX.sub(" ", sentence)):
+        return False
+    by_id = get_index().by_id
+    texts = []
+    for cid in ids:
+        chunk = by_id.get(cid)
+        if chunk is None:
+            return False
+        texts.append(chunk["text"])
+    body = " ".join(texts)
+    bare = CITE_RX.sub(" ", sentence)
+    if any(n not in body for n in NUM_RX.findall(bare)):
+        return False
+    words = _stems(bare)
+    return bool(words) and len(words & _stems(body)) / len(words) >= 0.6
+
+
+def restates_case_facts(sentence: str, case_text: str) -> bool:
+    """True when a sentence without citations adds nothing beyond the case facts: no number, and every content word is either
+    in the case facts or generic appeal wording. Needs the case facts; without them nothing is dropped."""
+    if not case_text or CITE_RX.search(sentence) or NUM_RX.search(sentence):
+        return False
+    words = _stems(sentence)
+    return bool(words) and words <= (_stems(case_text) | {_stem(w) for w in GENERIC_APPEAL})
+
+
+CASE_FACT_FIELDS = ("service", "denial_basis", "treatment_category", "case_facts")   # not missing_information / search_queries
+
+
+def _case_text(case_facts: object) -> str:
+    """Flatten the CASE FACTS: the published case row and the intake's facts. The intake's own wish lists (missing_information,
+    search_queries) name facts that are NOT known, so they never count as grounding."""
+    out: list[str] = []
+
+    def walk(x: object) -> None:
+        if isinstance(x, dict):
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list | tuple):
+            for v in x:
+                walk(v)
+        elif x is not None:
+            out.append(str(x))
+    if isinstance(case_facts, dict) and ("intake" in case_facts or "case" in case_facts):
+        intake = case_facts.get("intake") or {}
+        walk({k: intake.get(k) for k in CASE_FACT_FIELDS} if isinstance(intake, dict) else intake)
+        walk(case_facts.get("case"))
+    else:
+        walk(case_facts)
+    return " ".join(out)
+
+
+def confirm_red_team(issues: list[dict], draft: str, case_facts: object = None) -> dict:
     """LLM proposes, code confirms: keep only issues whose quote really occurs in the draft AND (for rules with an observable
-    surface form) shows that form. Rule 8 (missing disclaimer) is confirmed only if the disclaimer is really missing."""
+    surface form) shows that form. Rule 8 (missing disclaimer) is confirmed only if the disclaimer is really missing. Rule 1 is
+    dropped for cited policy-criteria restatements and, when ``case_facts`` (the same CASE FACTS the reviewer saw) is given, for
+    sentences that only repeat the case facts."""
     from .harness import DISCLAIMER_PATTERNS
     from .prompts import DISCLAIMER
     disc = norm(DISCLAIMER)
+    case_text = _case_text(case_facts)
     d = norm(draft)
     has_disclaimer = all(re.search(p, (draft or "").lower()) for p in DISCLAIMER_PATTERNS)
     kept: list[dict] = []
@@ -206,6 +306,9 @@ def confirm_red_team(issues: list[dict], draft: str) -> dict:
             ok = not has_disclaimer
         if ok and rule == 1:
             ok = not re.search(ABSENCE, quote, re.I)        # saying a fact is missing does not invent one
+            if ok:
+                sent = _full_sentence(quote, draft)
+                ok = not (cited_policy_restatement(sent) or restates_case_facts(sent, case_text))
         if ok and rule == 2:
             ok = citation_unsupported(quote)
         (kept if ok else dropped).append(i)

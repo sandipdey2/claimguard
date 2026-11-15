@@ -24,67 +24,73 @@
   }
  },
  "gate_mutation": {
-  "drafts": 7,
-  "baseline_all_pass": 5,
+  "drafts": 8,
+  "baseline_all_pass": 6,
   "mutations": {
    "invented_citation": {
     "target_check": "citations_exist",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "invented_number": {
     "target_check": "numbers_grounded",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "altered_quote": {
     "target_check": "quotes_verbatim",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "removed_disclaimer": {
     "target_check": "disclaimer_present",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "guarantee": {
     "target_check": "no_authority_or_guarantee",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "phi": {
     "target_check": "no_phi_in_output",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "injection_text": {
     "target_check": "injection_scan_clean",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    },
    "removed_requested_action": {
     "target_check": "checklist_complete",
-    "tried": 5,
-    "caught": 5
+    "tried": 6,
+    "caught": 6
    }
   },
   "overall_catch_rate": 1.0,
-  "tried": 40,
-  "caught": 40
+  "tried": 48,
+  "caught": 48,
+  "first_pass_v0_1": {
+   "caught": 39,
+   "tried": 40,
+   "missed": "invented 93.7% passed numbers_grounded because a source 94 was within the old 0.5% tolerance",
+   "fix": "harness.grounded is now rounding-aware (a draft number more precise than its source is ungrounded)"
+  }
  },
  "live_runs": {
-  "runs": 7,
+  "runs": 8,
   "dev_runs_excluded": 5,
   "citation_validity": 1.0,
-  "citations_total": 35,
+  "citations_total": 39,
   "checklist_complete_rate": 1.0,
-  "all_12_pass_rate": 0.7143,
+  "all_12_pass_rate": 0.75,
   "status_counts": {
    "not_finalized": 2,
-   "awaiting_human_signoff": 5
+   "awaiting_human_signoff": 6
   },
-  "mean_latency_s": 50.15,
-  "total_cost_usd": 0.029601,
+  "mean_latency_s": 49.8,
+  "total_cost_usd": 0.033175,
   "runs_detail": [
    {
     "reference_id": "EI25-46125",
@@ -134,6 +140,18 @@
     "cost_usd": 0.004471,
     "llm_calls": 8,
     "overturn_model_percent": 52.7,
+    "held_out_outcome": "Overturned Decision of Health Plan"
+   },
+   {
+    "reference_id": "MN25-45854",
+    "run_id": "40c47e8f4c4646abbe9ace1d8113094e",
+    "git_sha": "d4fa1f7",
+    "status": "awaiting_human_signoff",
+    "failed": [],
+    "latency_s": 47.33,
+    "cost_usd": 0.003574,
+    "llm_calls": 8,
+    "overturn_model_percent": 67.7,
     "held_out_outcome": "Overturned Decision of Health Plan"
    },
    {

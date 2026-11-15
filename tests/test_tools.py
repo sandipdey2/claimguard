@@ -67,3 +67,43 @@ def test_red_team_rule1_absence_and_rule2_code_support():
     kept = " ".join(r["issues"])
     assert r["dropped_unverifiable"] == 2 and "every condition" in kept and "skin grafts" in kept
     assert T.citation_unsupported("See [NCD-999.9:1].") and not T.citation_unsupported("no citation here")
+
+
+def test_red_team_rule1_policy_restatement_and_case_framing_regression():
+    """Live Azure runs 6624778b / 072c6c63 (MN25-45854, short default API request) ended not_finalized because the red team's
+    rule-1 issues on cited policy criteria and on case-fact framing were confirmed. Those are dropped now; invented patient facts
+    are still confirmed, including ones that borrow policy wording or a policy citation."""
+    s1 = ("However, continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and "
+          "necessary in the home setting for the treatment of diabetic patients who: (1) either meet the updated fasting C-Peptide testing "
+          "requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as "
+          "described below [NCD-280.14:2].")
+    s2 = ("Additionally, the patient must have completed a comprehensive diabetes education program and have been on a program of multiple "
+          "daily injections of insulin, with frequent self-adjustments of insulin doses for at least 6 months prior to initiation of the "
+          "insulin pump [NCD-280.14:3].")
+    s3 = "This appeal is based on the medical necessity of the requested device for effective diabetes management."
+    bad = ["The patient has completed a comprehensive diabetes education program and has been on multiple daily injections of insulin [NCD-280.14:3].",
+           "Patients must have been on multiple daily injections of insulin for at least 12 months prior to initiation of the insulin pump [NCD-280.14:3].",
+           "She has had frequent severe hypoglycemia despite multiple daily injections.",
+           "Details on the patient's diabetes management history support the appeal.",
+           "Her HbA1c was 9.2% at the last visit."]
+    case = {"intake": {"service": "authorization and coverage for a Tandem Mobi external ambulatory insulin pump", "denial_basis": "medical_necessity",
+                       "treatment_category": "Pharmacy",
+                       "case_facts": ["The health plan denied a request for authorization and coverage for a Tandem Mobi external ambulatory insulin pump.",
+                                      "Denial type: Medical Necessity.", "Diagnosis category: Endocrine/Metabolic / Diabetes.",
+                                      "Treatment category: Pharmacy / Insulin Pump.", "Age range: 11 to 20.", "Gender: Female."],
+                       "missing_information": ["Details on the patient's diabetes management history"]},
+            "case": {"ReferenceID": "MN25-45854", "DiagnosisSubCategory": "Diabetes", "TreatmentSubCategory": "Insulin Pump"}}
+    draft = "\n\n".join([s3, s1, s2, *bad])
+    # quotes as the reviewer gave them: s1 without its citation, truncated like the live issue
+    r = T.confirm_red_team([{"rule": 1, "quote": s1[:160]}, {"rule": 1, "quote": s2}, {"rule": 1, "quote": s3}]
+                           + [{"rule": 1, "quote": b} for b in bad], draft, case)
+    kept = " ".join(r["issues"])
+    assert r["verdict"] == "fail" and r["dropped_unverifiable"] == 3 and len(r["issues"]) == len(bad)
+    for b in bad:
+        assert b[:40] in kept
+    assert "CSII" not in kept and "medical necessity of the requested device" not in kept
+    # without the case facts, the framing sentence is not dropped (nothing to ground it on)
+    r2 = T.confirm_red_team([{"rule": 1, "quote": s3}], draft)
+    assert r2["verdict"] == "fail"
+    # only the published facts count: the intake's missing_information is not grounding
+    assert not T.restates_case_facts(bad[3], T._case_text(case))
