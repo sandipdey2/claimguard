@@ -92,10 +92,11 @@
   }
  },
  "baselines_on_test": {
-  "majority_class_overturned": {
+  "majority_class": {
+   "label": "overturned",
    "accuracy": 0.7234,
    "roc_auc": 0.5,
-   "note": "always predicts 'overturned' (the majority in training)"
+   "note": "always predicts the majority label of train+validation"
   },
   "treatment_subcategory_rate": {
    "n": 2730,

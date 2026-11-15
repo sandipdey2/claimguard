@@ -25,7 +25,7 @@ server: claimguard_mcp_server.py
 [stdio] resources/read policy://contract -> {   "contract_version": "0.1.0",   "description": "ClaimGuard run contract. Loaded and SHA-256 hashed before t
 [stdio] prompts/get appeal_letter -> You are the Appeal Writer of ClaimGuard. Write a draft appeal letter and a denial-risk brief for a H
 [stdio] prompts/get garden_review -> You are the Gardener of ClaimGuard. Below are recurring failure patterns mined f
-[http] unauthenticated POST http://127.0.0.1:50643/mcp -> 401 (bearer token required)
+[http] unauthenticated POST http://127.0.0.1:59253/mcp -> 401 (bearer token required)
 [http] tools/list -> 14 tools; resources/list -> ['disclaimer://not-advice', 'model://overturn-card', 'dataset://manifest', 'policy://contract', 'registry://tools', 'graph://coverage-graph']; templates -> ['policy://ncd/{ncd_id}', 'imr://case/{reference_id}']; prompts/list -> ['appeal_letter', 'garden_review', 'red_team_review']
 [http] tools/call parse_denial isError=False -> {  "service": "an insulin pump as not medically necessary",  "denial_basis": "medical_necessity",  "plan_type": "unknown",  "imr_reference_ids": [],  
 [http] tools/call search_coverage_policy isError=False -> {  "backend": "local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf",  "results": [   {    "id": "NCD-280.14:9",    "doc_id":

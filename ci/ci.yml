@@ -1,0 +1,38 @@
+# Copy this file to .github/workflows/ci.yml in the GitHub web UI (see ci/README.md).
+name: CI
+on:
+  push: {branches: [main]}
+  pull_request:
+permissions: {contents: read}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:                       # no secrets: every LLM call in the suite is mocked, Azure adapters are tested against mocked HTTP
+      CG_RUNTIME_DIR: /tmp/claimguard-runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13", cache: pip}
+      - name: Install
+        run: pip install -r requirements-dev.txt
+      - name: Snapshot checksums
+        run: python -m claimguard verify-snapshot
+      - name: pytest
+        run: python -m pytest -q
+      - name: MCP server (stdio + streamable HTTP)
+        run: python scripts/verify_mcp.py
+      - name: Lint (ruff)
+        run: ruff check .
+      - name: Types (mypy)
+        run: mypy
+      - name: Secret scan
+        run: python scripts/secret_scan.py
+  bicep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bicep build + lint (offline validation, no Azure login)
+        run: |
+          curl -sSLo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64 && chmod +x bicep
+          ./bicep build infra/main.bicep --stdout > /dev/null
+          ./bicep lint infra/main.bicep
