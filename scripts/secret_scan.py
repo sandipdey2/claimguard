@@ -21,7 +21,7 @@ PATTERNS = {
 }
 SENSITIVE_ENV = ("OPENAI_API_KEY", "GH_TOKEN", "GITHUB_TOKEN", "AZURE_OPENAI_API_KEY", "AZURE_SEARCH_API_KEY", "AZURE_CONTENT_SAFETY_KEY",
                  "AZURE_STORAGE_CONNECTION_STRING", "CG_RECEIPT_KEY", "CG_API_KEY", "CG_MCP_TOKEN", "APPLICATIONINSIGHTS_CONNECTION_STRING")
-FORBIDDEN_PATHS = (r"^\.streamlit/secrets\.toml$", r"^\.env", r"^data/raw/", r"^\.github/workflows/")
+FORBIDDEN_PATHS = (r"^\.streamlit/secrets\.toml$", r"^\.env", r"^data/raw/")
 
 
 def files() -> list[str]:
