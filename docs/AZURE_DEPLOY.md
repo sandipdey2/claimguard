@@ -19,7 +19,7 @@ The lab account can't create resource groups, so it used the RG-scoped entry poi
 | Storage + `receipts` container | deployed | API receipts are written here via managed identity |
 | Key Vault (RBAC) | deployed, purge protection off for the lab | `CG-RECEIPT-KEY`, `CG-API-KEY`, read by the apps as Key Vault references |
 | Content Safety Prompt Shields | active (same Foundry endpoint) | |
-| ACR (Basic) + `az acr build` | deployed | no Docker needed; image `claimguard:d4fa1f7` |
+| ACR (Basic) + `az acr build` | deployed | no Docker needed; image `claimguard:111d226` (both apps) |
 | Container Apps environment + 2 apps | deployed | Streamlit (port 8501) and FastAPI (port 8000), consumption plan, scale 0-3 / 0-2 |
 | Log Analytics + Application Insights | deployed | |
 | Blocked | none | Only the GlobalStandard/Standard model SKUs above were refused. |
@@ -46,7 +46,9 @@ az deployment group create --subscription "$SUB" -g $RG -f infra/lab/main.bicep 
 
 `GET /health`: `provider: azure`, adapters `azure_openai`, `ai_search`, `blob`, `content_safety`, `app_insights` and `key_vault` all true. The Streamlit URL returns 200.
 
-Three real runs of case MN25-45854 through `POST /v1/appeals` on the Azure API (Foundry gpt-4o-mini, Azure AI Search, Prompt Shields, Blob receipts). All are reported, including the failed ones:
+Real runs through `POST /v1/appeals` on the Azure API (Foundry gpt-4o-mini, Azure AI Search, Prompt Shields, Blob receipts). Every run is reported, including the failed ones.
+
+**First deployment (image d4fa1f7):**
 
 | Run | Request text | Status | Checks | Latency | LLM calls | Cost |
 |---|---|---|---|---|---|---|
@@ -54,7 +56,28 @@ Three real runs of case MN25-45854 through `POST /v1/appeals` on the Azure API (
 | 072c6c63 | API default (short) | not_finalized | 11/12, `red_team_pass` FAIL | 40.0 s | 10 | $0.0045 |
 | 2dba9a64 | full request (as in `scripts/live_run.py`) | awaiting_human_signoff | 12/12 PASS | 26.9 s | 8 | $0.0033 |
 
-Each receipt has `provider: azure`, `model: gpt-4o-mini`, `git_sha: d4fa1f7` and key id `CG_RECEIPT_KEY:dcccbcd5`, and `/v1/receipts/verify` returned `valid: true`. A local run against the same Foundry deployment and Search index (`eval/logs/live_MN25-45854_40c47e8f.json`) also passed 12/12 (47.3 s, $0.0036). Open issue: with the short default API request the red-team reviewer failed the draft twice; the cause has not been investigated yet.
+Each receipt has `provider: azure`, `model: gpt-4o-mini`, `git_sha: d4fa1f7` and key id `CG_RECEIPT_KEY:dcccbcd5`, and `/v1/receipts/verify` returned `valid: true`. A local run against the same Foundry deployment and Search index (`eval/logs/live_MN25-45854_40c47e8f.json`) also passed 12/12 (47.3 s, $0.0036).
+
+**Root cause of the two failures.** The API logs keep no red-team details, so the short request was re-run locally against the same Foundry deployment and Search index (runs 7a7c4ba8, 7aa9aab6, 8578806a; 2 of 3 failed the same way). The reviewer filed rule 1 ("invented clinical facts") on (a) cited restatements of the NCD 280.14 coverage criteria ("CSII ... covered ... for patients who ...", "the patient must have completed a comprehensive diabetes education program ... [NCD-280.14:3]") and (b) the framing sentence "This appeal is based on the medical necessity of the requested device for effective diabetes management." The code confirmation for rule 1 only knew about absence statements, so these were confirmed. Commit 111d226 confirms rule 1 in code: it drops (a) when the cited excerpt backs the sentence (criteria wording, all numbers present, 60% or more of content words present) and (b) when an uncited, number-free sentence uses only published case-fact words and generic appeal wording. Invented patient facts stay confirmed (regression test `test_red_team_rule1_policy_restatement_and_case_framing_regression`). Gate mutation eval: 48/48 caught. Injection eval: 16/16 blocked, 0 false positives on 2,652 real requests.
+
+**After the fix (image 111d226), 2026-11-15:**
+
+| Run | Case | Request text | Status | Checks | Latency | LLM calls | Cost |
+|---|---|---|---|---|---|---|---|
+| 77a30cfb | MN25-45854 | API default (short) | awaiting_human_signoff | 12/12 PASS | 65.8 s (cold start) | 8 | $0.0036 |
+| fc6059de | MN25-45854 | API default (short) | awaiting_human_signoff | 12/12 PASS | 27.5 s | 8 | $0.0036 |
+| 4567ee4e | MN25-45854 | API default (short) | awaiting_human_signoff | 12/12 PASS | 28.8 s | 8 | $0.0033 |
+| 6e18f24f | MN25-45854 | full request | awaiting_human_signoff | 12/12 PASS | 26.1 s | 8 | $0.0031 |
+| 2294b6df | MN25-44606 | API default (short) | not_finalized | 11/12, `red_team_pass` FAIL | 36.8 s | 10 | $0.0052 |
+| e7fc5189 | EI25-46125 | API default (short) | awaiting_human_signoff | 12/12 PASS | 36.4 s | 10 | $0.0052 |
+
+All receipts carry `provider: azure`, `git_sha: 111d226` and were stored in Blob, and every `/v1/receipts/verify` call returned `valid: true`. These six runs cost $0.024 in total.
+
+**Open issue: MN25-44606 (HBO for cerebral palsy).** Two local re-runs failed differently:
+- One failed `red_team_pass`. The reviewer filed rule 1 on "needs assessment/documentation" sentences ("It is essential to assess whether the patient's diagnosis of cerebral palsy may qualify ...", "it is necessary to document ..."). The absence pattern doesn't cover this wording.
+- Both failed `numbers_grounded` on `270.4`. That is the section reference "§270.4(A)" inside a verbatim NCD 20.29 quote, and it does appear in the retrieved text.
+
+Both look like false positives, but neither has been fixed, so these runs stay blocked for now.
 
 ### Cost and teardown
 

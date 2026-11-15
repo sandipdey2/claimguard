@@ -158,7 +158,7 @@ Set `CG_LLM_PROVIDER=azure` to use Azure OpenAI gpt-4o-mini. Authentication is E
 
 [`infra/`](infra) holds the Bicep that provisions the full stack: Foundry resource and project, a gpt-4o-mini DataZoneStandard deployment, AI Search, Storage, Key Vault, ACR, Container Apps and App Insights. `azure.yaml` deploys it with `azd up`.
 
-Deployment status: **live in a Udacity Vocareum lab subscription (westus)** through the RG-scoped [`infra/lab/main.bicep`](infra/lab/main.bicep). A real case on the Azure API passed 12/12 checks in 26.9 s for $0.0033; two runs with the short default API request failed `red_team_pass`, and both are reported. See [docs/AZURE_DEPLOY.md](docs/AZURE_DEPLOY.md).
+Deployment status: **live in a Udacity Vocareum lab subscription (westus)** through the RG-scoped [`infra/lab/main.bicep`](infra/lab/main.bicep). After the red-team rule-1 fix (111d226), 5 of 6 live runs on the Azure API passed 12/12: MN25-45854 with the short request (3 of 3) and the full request, plus EI25-46125. Latency was 26-66 s and cost $0.003-0.005 per run. MN25-44606 still fails, and every run is reported. See [docs/AZURE_DEPLOY.md](docs/AZURE_DEPLOY.md).
 
 ## Limits (read before using)
 
