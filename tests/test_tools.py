@@ -52,3 +52,18 @@ def test_server_policy_refuses():
     assert "refused" in json.loads(f(query="x", k=50))["error"] and f(query="x", k=2) == "ok"
     g = p.guard("get_imr_case")(lambda **kw: "ok")
     assert "refused" in g(reference_id="MN25-45854", include_outcome=True) and len(p.refusals) == 2
+
+
+def test_red_team_rule1_absence_and_rule2_code_support():
+    from claimguard.retrieval import get_index
+    t = get_index().by_id["NCD-20.29:1"]["text"]
+    real = " ".join(t.split()[:14])
+    draft = (f'The NCD states "{real}" [NCD-20.29:1].\nThe NCD states "HBO is covered for every condition without limits" [NCD-20.29:1].\n'
+             "There is no documentation provided about prior wound care.\nThe patient had three failed skin grafts last year.\n")
+    r = T.confirm_red_team([{"rule": 2, "quote": f'The NCD states "{real}" [NCD-20.29:1].'},
+                            {"rule": 2, "quote": 'The NCD states "HBO is covered for every condition without limits" [NCD-20.29:1].'},
+                            {"rule": 1, "quote": "There is no documentation provided about prior wound care."},
+                            {"rule": 1, "quote": "The patient had three failed skin grafts last year."}], draft)
+    kept = " ".join(r["issues"])
+    assert r["dropped_unverifiable"] == 2 and "every condition" in kept and "skin grafts" in kept
+    assert T.citation_unsupported("See [NCD-999.9:1].") and not T.citation_unsupported("no citation here")

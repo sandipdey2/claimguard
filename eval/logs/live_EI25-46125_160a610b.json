@@ -1,0 +1,1011 @@
+{
+ "kind": "live_e2e",
+ "reference_id": "EI25-46125",
+ "provider": "vocareum",
+ "model": "gpt-4o-mini",
+ "status": "awaiting_human_signoff",
+ "reason": null,
+ "latency_s": 57.06,
+ "cost": {
+  "model": "gpt-4o-mini",
+  "llm_calls": 10,
+  "tool_calls": 13,
+  "input_tokens": 19688,
+  "output_tokens": 3423,
+  "cached_input_tokens": 2816,
+  "cost_usd": 0.004796,
+  "rates_usd_per_1m": {
+   "input": 0.15,
+   "output": 0.6
+  },
+  "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+ },
+ "check_status": {
+  "disclaimer_present": "PASS",
+  "citations_exist": "PASS",
+  "citations_retrieved": "PASS",
+  "quotes_verbatim": "PASS",
+  "numbers_grounded": "PASS",
+  "risk_matches_model": "PASS",
+  "checklist_complete": "PASS",
+  "no_phi_in_output": "PASS",
+  "no_authority_or_guarantee": "PASS",
+  "injection_scan_clean": "PASS",
+  "red_team_pass": "PASS",
+  "within_budget": "PASS"
+ },
+ "failed": [],
+ "unrun": [],
+ "details": {
+  "citations": [
+   "IMR-EI21-35319",
+   "IMR-EI23-38524",
+   "IMR-EI24-42703",
+   "IMR-MN19-31817",
+   "NCD-190.20:1",
+   "NCD-40.2:3",
+   "NCD-40.2:4"
+  ],
+  "unknown_citations": [],
+  "citations_not_retrieved": [],
+  "bad_quotes": [],
+  "ungrounded_numbers": [],
+  "missing_checklist_items": [],
+  "phi_types": [],
+  "authority_or_guarantee": [],
+  "output_injection_patterns": [],
+  "red_team_issues": [],
+  "stage": "final",
+  "not_run": []
+ },
+ "receipt": {
+  "product": "ClaimGuard",
+  "version": "0.1.0",
+  "run_id": "160a610b7a704b16a6a3b2d70318089f",
+  "status": "awaiting_human_signoff",
+  "block_reason": null,
+  "contract_sha256": "bac632d67bb442bcae8f747036236a001ad71e4555d040710746b6c7e3089391",
+  "git_sha": "eb15f66cb885a4c7ca6d9203037b097d66fe5260",
+  "git_dirty": false,
+  "feed_versions": {
+   "dfs.parquet": "be70b8cff0ebe988",
+   "imr_findings_recent.parquet": "ed48a6c08fe952fd",
+   "imr_slim.parquet": "4a256478c9e25246",
+   "ncd.parquet": "f998522455c83362"
+  },
+  "provider": "vocareum",
+  "model": "gpt-4o-mini",
+  "input_sha256": "651137ed5266a98af3e9e6542d0c727be13a28589cc21c693b26f832ce96f2e9",
+  "draft_sha256": "ef151152965db5a3db5698f349977e5c5651884180f2a580d82a91c26eb50f83",
+  "trace_sha256": "7a6783ad15a841fb9e4a71eb09b36860d5aef5bfb2121527e692959a2d390aed",
+  "check_status": {
+   "disclaimer_present": "PASS",
+   "citations_exist": "PASS",
+   "citations_retrieved": "PASS",
+   "quotes_verbatim": "PASS",
+   "numbers_grounded": "PASS",
+   "risk_matches_model": "PASS",
+   "checklist_complete": "PASS",
+   "no_phi_in_output": "PASS",
+   "no_authority_or_guarantee": "PASS",
+   "injection_scan_clean": "PASS",
+   "red_team_pass": "PASS",
+   "within_budget": "PASS"
+  },
+  "unrun_checks": [],
+  "failed_checks": [],
+  "human_signoff": null,
+  "cost": {
+   "model": "gpt-4o-mini",
+   "llm_calls": 10,
+   "tool_calls": 13,
+   "input_tokens": 19688,
+   "output_tokens": 3423,
+   "cached_input_tokens": 2816,
+   "cost_usd": 0.004796,
+   "rates_usd_per_1m": {
+    "input": 0.15,
+    "output": 0.6
+   },
+   "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+  },
+  "latency_s": 56.55,
+  "case_reference": "EI25-46125",
+  "key_id": "CG_RECEIPT_KEY:dcccbcd5",
+  "algorithm": "HMAC-SHA256",
+  "signed_at": "2026-11-15T13:50:40+0000",
+  "signature": "299a53cb70ff67b13454621a23d1176aeede39fbe587a799b6ab389f1d51c6da"
+ },
+ "receipt_verifies": true,
+ "risk": {
+  "overturn_probability": 0.7253,
+  "overturn_percent": 72.5,
+  "band": "above_typical",
+  "train_overturn_rate": 0.4983,
+  "model": "hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation",
+  "test_roc_auc": 0.7556,
+  "test_brier": 0.1814,
+  "treatment_category_unseen": false,
+  "limit": "Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing."
+ },
+ "signals": {
+  "text_model": {
+   "overturn_probability_text": 0.8945,
+   "top_terms": [
+    {
+     "term": "continuous",
+     "weight": 0.57
+    },
+    {
+     "term": "continuous glucose",
+     "weight": 0.321
+    },
+    {
+     "term": "monitoring",
+     "weight": 0.277
+    },
+    {
+     "term": "glucose",
+     "weight": 0.261
+    },
+    {
+     "term": "eversense",
+     "weight": 0.23
+    },
+    {
+     "term": "glucose monitoring",
+     "weight": 0.202
+    }
+   ],
+   "test_roc_auc": 0.7476,
+   "note": "TF-IDF + LR on the request sentence only; a signal, not a verdict"
+  },
+  "cohort": {
+   "filters": {
+    "before_year": 2025,
+    "TreatmentCategory": "DME",
+    "Type": "Experimental/Investigational"
+   },
+   "n": 670,
+   "overturned": 299,
+   "overturn_rate": 0.4463,
+   "overturn_percent": 44.6,
+   "wilson_ci95": [
+    0.409,
+    0.4841
+   ],
+   "years": [
+    2002,
+    2024
+   ],
+   "last_3_years": {
+    "n": 94,
+    "overturn_percent": 61.7
+   },
+   "headline": "299 of 670 published IMRs (TreatmentCategory = DME, Type = Experimental/Investigational, decided before 2025) overturned the plan (44.6%).",
+   "caveat": "descriptive rate of past published reviews; not a prediction for any one case"
+  },
+  "features": {
+   "DiagnosisCategory": "Endocrine/Metabolic",
+   "DiagnosisSubCategory": "Diabetes",
+   "TreatmentCategory": "DME",
+   "TreatmentSubCategory": "Glucose Monitor",
+   "Type": "Experimental/Investigational",
+   "IMRType": "Standard",
+   "AgeRange": "41 to 50",
+   "PatientGender": "Male"
+  }
+ },
+ "precedents": [
+  "MN19-31817",
+  "EI24-42703",
+  "EI21-35319",
+  "EI23-38524"
+ ],
+ "precedent_rows": [
+  {
+   "reference_id": "MN19-31817",
+   "year": 2019,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "DME / Cont Glucose Monitor",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for Eversense continuous glucose monitor (CGM)",
+   "similarity": 0.587,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "EI24-42703",
+   "year": 2024,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "DME / Glucose Monitor",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Experimental/Investigational",
+   "request": "reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM), to include sensor removal and replacement every six months",
+   "similarity": 0.542,
+   "findings_excerpt": "Findings:  The physician reviewer found that an enrollee has requested reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM), to include sensor removal and replacement every six months. The U.S. Food and Drug Administration (FDA) approved the Eversense CGM in 2018 as the first fully implantable glucose sensor for patients with diabetes. The Promise Study evaluated the 180-day use of the Eversense CGM. In this prospective multicenter study, there were 181 patients with both type 1 and type 2 diabetes mellitus. The authors concluded that the Ever..."
+  },
+  {
+   "reference_id": "EI21-35319",
+   "year": 2021,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "DME / Glucose Monitor",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Experimental/Investigational",
+   "request": "authorization and coverage for an Eversense continuous glucose monitor (CPT 0448T) with sensor implantation every 90 days",
+   "similarity": 0.523,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "EI23-38524",
+   "year": 2023,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "DME / Glucose Monitor",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Experimental/Investigational",
+   "request": "reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services",
+   "similarity": 0.507,
+   "findings_excerpt": "Nature of Statutory Criteria/Case Summary: An enrollee has requested reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services.Findings: Two out of three physician reviewers found that the Eversense Implantable Continuous Glucose Monitor services at issue and requested services were, and are, likely to be more beneficial than any other available standard therapy to treat the patient's condition.The Eversense CGM System was approved by the U.S. Food & Drug Administration (FDA) on June 6, 2019, and has been available in the European Union and Euro..."
+  }
+ ],
+ "policy_selected": [
+  {
+   "chunk_id": "NCD-40.2:3",
+   "relevance": "This excerpt outlines the conditions under which special blood glucose monitoring systems are covered under Medicare."
+  },
+  {
+   "chunk_id": "NCD-40.2:4",
+   "relevance": "This excerpt specifies the additional conditions for coverage of blood glucose monitoring systems for patients with visual impairments."
+  },
+  {
+   "chunk_id": "NCD-190.20:1",
+   "relevance": "This excerpt describes the general policy for blood glucose testing, which is relevant to continuous glucose monitoring."
+  },
+  {
+   "chunk_id": "NCD-190.20:3",
+   "relevance": "This excerpt discusses the implications of blood glucose testing and its coverage under Medicare."
+  }
+ ],
+ "criteria": {
+  "criteria": [
+   {
+    "chunk_id": "NCD-40.2:3",
+    "criterion_quote": "These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:",
+    "status": "supported_by_case_facts",
+    "note": "The case involves a glucose monitoring system."
+   },
+   {
+    "chunk_id": "NCD-40.2:4",
+    "criterion_quote": "The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and",
+    "status": "supported_by_case_facts",
+    "note": "The case involves a request for coverage of a glucose monitor."
+   },
+   {
+    "chunk_id": "NCD-190.20:1",
+    "criterion_quote": "The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma.",
+    "status": "supported_by_case_facts",
+    "note": "The case involves a glucose monitoring system."
+   },
+   {
+    "chunk_id": "NCD-190.20:3",
+    "criterion_quote": "Many medical conditions may be a consequence of a sustained elevated or depressed glucose level.",
+    "status": "needs_documentation",
+    "note": "No specific medical condition is documented."
+   },
+   {
+    "chunk_id": "NCD-190.20:3",
+    "criterion_quote": "Evaluation of glucose may also be indicated in patients on medications known to affect carbohydrate metabolism.",
+    "status": "needs_documentation",
+    "note": "No medication history is provided."
+   },
+   {
+    "chunk_id": "NCD-190.20:3",
+    "criterion_quote": "Effective January 1, 2005, the Medicare law expanded coverage to diabetic screening services.",
+    "status": "needs_documentation",
+    "note": "No details on diabetic screening services are provided."
+   },
+   {
+    "chunk_id": "NCD-190.20:3",
+    "criterion_quote": "Some forms of blood glucose testing covered under this national coverage determination may be covered for screening purposes subject to specified frequencies.",
+    "status": "supported_by_case_facts",
+    "note": "The case involves a glucose monitoring system."
+   },
+   {
+    "chunk_id": "NCD-190.20:3",
+    "criterion_quote": "In stable, non-hospitalized patients who are unable or unwilling to do home monitoring, it may be reasonable and necessary to measure quantitative blood glucose up to four times annually.",
+    "status": "needs_documentation",
+    "note": "No information on the patient's ability to monitor at home is provided."
+   }
+  ]
+ },
+ "route": [
+  "policy_retriever",
+  "criteria_matcher",
+  "risk_analyst",
+  "appeal_writer",
+  "verifier",
+  "appeal_writer",
+  "verifier",
+  "FINISH"
+ ],
+ "revisions": 1,
+ "red_team": {
+  "verdict": "pass",
+  "issues": [],
+  "dropped_unverifiable": 2,
+  "dropped": [
+   "rule 3: \"I am writing to appeal the denial of authorization and coverage for an Eversense continuous glucose monitoring system. T\"",
+   "rule 8: \"ClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Med\""
+  ],
+  "llm_verdict": "fail"
+ },
+ "draft_md": "# Appeal letter (DRAFT for human review)\n\n**Re:** Appeal for Authorization and Coverage of Eversense Continuous Glucose Monitoring System\n\n**Requested service:** Authorization and coverage for an Eversense continuous glucose monitoring system\n\n**Denial basis:** Experimental/Investigational\n\nI am writing to appeal the denial of authorization and coverage for an Eversense continuous glucose monitoring system. This appeal is submitted on behalf of the patient who requires this device for effective diabetes management.\n\nThe health plan denied the request for authorization and coverage for the Eversense continuous glucose monitoring system based on the classification of the device as experimental/investigational. However, the policy states, \"These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:\" [NCD-40.2:3]. This indicates that there are specific criteria under which coverage may be granted, and it is essential to evaluate whether these criteria have been met in this case.\n\nAdditionally, the policy outlines that the method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma [NCD-190.20:1]. The Eversense system is designed for home use and fits within these parameters, suggesting that it should be considered for coverage under the existing guidelines.\n\nFurthermore, the case facts indicate that the request involves a glucose monitoring system, which is supported by the criteria that state, \"The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and\" [NCD-40.2:4]. This reinforces the argument that the Eversense system should be evaluated for its potential benefits in managing diabetes.\n\n**Coverage criteria cited:**\n- \"These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:\" [NCD-40.2:3] - This indicates that there are specific criteria under which coverage may be granted.\n- \"The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and\" [NCD-40.2:4] - This reinforces the argument that the Eversense system should be evaluated for its potential benefits.\n- \"The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma.\" [NCD-190.20:1] - The Eversense system is designed for home use and fits within these parameters.\n\n**Published independent-review precedents:**\n- [IMR-MN19-31817] Overturned Decision of Health Plan for authorization and coverage for Eversense continuous glucose monitor (CGM).\n- [IMR-EI24-42703] Overturned Decision of Health Plan for reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM).\n- [IMR-EI21-35319] Overturned Decision of Health Plan for authorization and coverage for Eversense continuous glucose monitor.\n- [IMR-EI23-38524] Overturned Decision of Health Plan for reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services.\n\n**Requested action:** I request that the health plan reconsider the denial and approve the authorization and coverage for the Eversense continuous glucose monitoring system based on the provided arguments and supporting policy points.\n\nSincerely,\n[Patient or authorized representative - to be completed by the human reviewer]\n\n## Denial-risk brief\n\n**Model signal:** The overturn model gives 72.5% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.\n\n- **Text-model signal (P4, request sentence only):** 89.5% (TF-IDF + logistic regression, test ROC-AUC 0.7476)\n- **Published cohort (P2):** 299 of 670 published IMRs (TreatmentCategory = DME, Type = Experimental/Investigational, decided before 2025) overturned the plan (44.6%). Wilson 95% CI 40.9% to 48.4%.\n- **Overturn model (P3):** hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation, test ROC-AUC 0.7556, Brier 0.1814.\n- **Closest published precedents:** 4 retrieved (decided before 2025): 4 overturned, 0 upheld.\n- **Policy basis:** NCD-190.20 Blood Glucose Testing; NCD-40.2 Home Blood Glucose Monitors\n- **Limits:** association statistics from past published reviews in California commercial plans; they do not know the clinical record and are not a prediction for this appeal.\n\n## Questions for the human reviewer\n\n- What clinical evidence supports the efficacy of the Eversense system in diabetes management?\n- What are the details on previous treatments and their outcomes for the patient?\n- Is there documentation of the patient's ability to monitor glucose levels at home?\n- What specific medical condition is documented that necessitates the use of the Eversense system?\n- What medications is the patient currently taking that may affect carbohydrate metabolism?\n\n## Disclaimer\n\nClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Medicare contractor, and it does not file, submit or send appeals. A qualified human (the patient or their authorized representative, with their clinician or a licensed advocate) must review and edit this draft before it is used. Statistics describe past published reviews and do not predict the outcome of any individual appeal.\n",
+ "intake": {
+  "service": "authorization and coverage for an Eversense continuous glucose monitoring system",
+  "denial_basis": "experimental_investigational",
+  "treatment_category": "DME",
+  "case_facts": [
+   "The health plan denied a request for authorization and coverage for an Eversense continuous glucose monitoring system.",
+   "Denial type: Experimental/Investigational.",
+   "Diagnosis category: Endocrine/Metabolic / Diabetes.",
+   "Treatment category: DME / Glucose Monitor.",
+   "Age range: 41 to 50.",
+   "Gender: Male."
+  ],
+  "search_queries": [
+   "Medicare coverage policy for continuous glucose monitoring systems",
+   "Medicare NCD for DME related to diabetes",
+   "Medicare coverage for experimental treatments in diabetes management"
+  ],
+  "missing_information": [
+   "Clinical evidence supporting the efficacy of the Eversense system in diabetes management.",
+   "Details on previous treatments and their outcomes for the patient."
+  ]
+ },
+ "plan": {
+  "steps": [
+   {
+    "agent": "policy_retriever",
+    "goal": "Retrieve the Medicare coverage policy for continuous glucose monitoring systems."
+   },
+   {
+    "agent": "criteria_matcher",
+    "goal": "Match the retrieved policy against the denial basis of experimental/investigational."
+   },
+   {
+    "agent": "risk_analyst",
+    "goal": "Analyze the risks associated with the denial and identify any potential clinical evidence that supports the Eversense system."
+   },
+   {
+    "agent": "appeal_writer",
+    "goal": "Draft an appeal letter incorporating clinical evidence and details on previous treatments."
+   },
+   {
+    "agent": "verifier",
+    "goal": "Verify the appeal letter for accuracy and completeness before submission."
+   }
+  ],
+  "watch_outs": [
+   "Insufficient clinical evidence may weaken the appeal.",
+   "Previous treatments may not align with the current request.",
+   "Potential changes in Medicare policy regarding DME coverage."
+  ]
+ },
+ "trace": [
+  {
+   "agent": "input_guard",
+   "type": "guard",
+   "allowed": true,
+   "reason": "ok",
+   "prompt_shields": "NOT_CONFIGURED"
+  },
+  {
+   "agent": "intake",
+   "type": "structured",
+   "output": {
+    "service": "authorization and coverage for an Eversense continuous glucose monitoring system",
+    "denial_basis": "experimental_investigational",
+    "treatment_category": "DME",
+    "case_facts": [
+     "The health plan denied a request for authorization and coverage for an Eversense continuous glucose monitoring system.",
+     "Denial type: Experimental/Investigational.",
+     "Diagnosis category: Endocrine/Metabolic / Diabetes.",
+     "Treatment category: DME / Glucose Monitor.",
+     "Age range: 41 to 50.",
+     "Gender: Male."
+    ],
+    "search_queries": [
+     "Medicare coverage policy for continuous glucose monitoring systems",
+     "Medicare NCD for DME related to diabetes",
+     "Medicare coverage for experimental treatments in diabetes management"
+    ],
+    "missing_information": [
+     "Clinical evidence supporting the efficacy of the Eversense system in diabetes management.",
+     "Details on previous treatments and their outcomes for the patient."
+    ]
+   }
+  },
+  {
+   "agent": "planner",
+   "type": "plan",
+   "plan": {
+    "steps": [
+     {
+      "agent": "policy_retriever",
+      "goal": "Retrieve the Medicare coverage policy for continuous glucose monitoring systems."
+     },
+     {
+      "agent": "criteria_matcher",
+      "goal": "Match the retrieved policy against the denial basis of experimental/investigational."
+     },
+     {
+      "agent": "risk_analyst",
+      "goal": "Analyze the risks associated with the denial and identify any potential clinical evidence that supports the Eversense system."
+     },
+     {
+      "agent": "appeal_writer",
+      "goal": "Draft an appeal letter incorporating clinical evidence and details on previous treatments."
+     },
+     {
+      "agent": "verifier",
+      "goal": "Verify the appeal letter for accuracy and completeness before submission."
+     }
+    ],
+    "watch_outs": [
+     "Insufficient clinical evidence may weaken the appeal.",
+     "Previous treatments may not align with the current request.",
+     "Potential changes in Medicare policy regarding DME coverage."
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "policy_retriever",
+   "eligible": [
+    "policy_retriever",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage policy for continuous glucose monitoring systems\", \"k\": 4})",
+   "observation": [
+    "NCD-40.2:3",
+    "NCD-40.2:4",
+    "NCD-190.20:1",
+    "NCD-190.20:3"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare NCD for DME related to diabetes\", \"k\": 4})",
+   "observation": [
+    "NCD-280.1:1",
+    "NCD-100.1:8",
+    "NCD-280.1:2",
+    "NCD-280.3:10"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage for experimental treatments in diabetes management\", \"k\": 4})",
+   "observation": [
+    "NCD-40.1:1",
+    "NCD-180.1:1",
+    "NCD-230.14:1",
+    "NCD-310.1:1"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 2,
+   "thought": "Here are the relevant excerpts from the National Coverage Determinations (NCDs) regarding the coverage criteria for continuous glucose monitoring systems and related diabetes management:\n\n1. **Home Blood Glucose Monitors (NCD-40.2)**:\n   - [Link to NCD-40.2](https://www.cms.gov/medicare-coverage-dat",
+   "action": "final_answer"
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "selected",
+   "selected": [
+    {
+     "chunk_id": "NCD-40.2:3",
+     "relevance": "This excerpt outlines the conditions under which special blood glucose monitoring systems are covered under Medicare."
+    },
+    {
+     "chunk_id": "NCD-40.2:4",
+     "relevance": "This excerpt specifies the additional conditions for coverage of blood glucose monitoring systems for patients with visual impairments."
+    },
+    {
+     "chunk_id": "NCD-190.20:1",
+     "relevance": "This excerpt describes the general policy for blood glucose testing, which is relevant to continuous glucose monitoring."
+    },
+    {
+     "chunk_id": "NCD-190.20:3",
+     "relevance": "This excerpt discusses the implications of blood glucose testing and its coverage under Medicare."
+    }
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "criteria_matcher",
+   "eligible": [
+    "criteria_matcher",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "criteria_matcher",
+   "type": "structured",
+   "output": {
+    "criteria": [
+     {
+      "chunk_id": "NCD-40.2:3",
+      "criterion_quote": "These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:",
+      "status": "supported_by_case_facts",
+      "note": "The case involves a glucose monitoring system."
+     },
+     {
+      "chunk_id": "NCD-40.2:4",
+      "criterion_quote": "The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and",
+      "status": "supported_by_case_facts",
+      "note": "The case involves a request for coverage of a glucose monitor."
+     },
+     {
+      "chunk_id": "NCD-190.20:1",
+      "criterion_quote": "The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma.",
+      "status": "supported_by_case_facts",
+      "note": "The case involves a glucose monitoring system."
+     },
+     {
+      "chunk_id": "NCD-190.20:3",
+      "criterion_quote": "Many medical conditions may be a consequence of a sustained elevated or depressed glucose level.",
+      "status": "needs_documentation",
+      "note": "No specific medical condition is documented."
+     },
+     {
+      "chunk_id": "NCD-190.20:3",
+      "criterion_quote": "Evaluation of glucose may also be indicated in patients on medications known to affect carbohydrate metabolism.",
+      "status": "needs_documentation",
+      "note": "No medication history is provided."
+     },
+     {
+      "chunk_id": "NCD-190.20:3",
+      "criterion_quote": "Effective January 1, 2005, the Medicare law expanded coverage to diabetic screening services.",
+      "status": "needs_documentation",
+      "note": "No details on diabetic screening services are provided."
+     },
+     {
+      "chunk_id": "NCD-190.20:3",
+      "criterion_quote": "Some forms of blood glucose testing covered under this national coverage determination may be covered for screening purposes subject to specified frequencies.",
+      "status": "supported_by_case_facts",
+      "note": "The case involves a glucose monitoring system."
+     },
+     {
+      "chunk_id": "NCD-190.20:3",
+      "criterion_quote": "In stable, non-hospitalized patients who are unable or unwilling to do home monitoring, it may be reasonable and necessary to measure quantitative blood glucose up to four times annually.",
+      "status": "needs_documentation",
+      "note": "No information on the patient's ability to monitor at home is provided."
+     }
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "risk_analyst",
+   "eligible": [
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "risk_analyst",
+   "type": "tools",
+   "overturn_percent": 72.5,
+   "text_p": 0.8945,
+   "cohort": "299 of 670 published IMRs (TreatmentCategory = DME, Type = Experimental/Investigational, decided before 2025) overturned the plan (44.6%).",
+   "precedents": [
+    "MN19-31817",
+    "EI24-42703",
+    "EI21-35319",
+    "EI23-38524"
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "appeal_writer",
+   "eligible": [
+    "appeal_writer"
+   ]
+  },
+  {
+   "agent": "appeal_writer",
+   "type": "draft",
+   "chars": 4968,
+   "precheck_failed": [],
+   "precheck_unrun": []
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "verifier",
+   "eligible": [
+    "verifier"
+   ]
+  },
+  {
+   "agent": "verifier",
+   "type": "verify",
+   "passed": false,
+   "failed": [
+    "red_team_pass"
+   ],
+   "unrun": [],
+   "red_team": "fail",
+   "dropped_unverifiable": 1
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "appeal_writer",
+   "eligible": [
+    "appeal_writer"
+   ]
+  },
+  {
+   "agent": "appeal_writer",
+   "type": "draft",
+   "chars": 5675,
+   "precheck_failed": [],
+   "precheck_unrun": []
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "verifier",
+   "eligible": [
+    "verifier"
+   ]
+  },
+  {
+   "agent": "verifier",
+   "type": "verify",
+   "passed": true,
+   "failed": [],
+   "unrun": [],
+   "red_team": "pass",
+   "dropped_unverifiable": 2
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "FINISH",
+   "eligible": [
+    "FINISH"
+   ]
+  },
+  {
+   "agent": "gate",
+   "type": "finalize",
+   "status": "awaiting_human_signoff",
+   "reason": null
+  }
+ ],
+ "held_out_outcome": {
+  "Determination": "Upheld Decision of Health Plan",
+  "overturned": 0
+ },
+ "denial_text": "Published CA DMHC Independent Medical Review case EI25-46125 (2025). The health plan denied a request for authorization and coverage for an Eversense continuous glucose monitoring system. Denial type: Experimental/Investigational (the plan considered it experimental or investigational). Diagnosis category: Endocrine/Metabolic / Diabetes. Treatment category: DME / Glucose Monitor. Review type: Standard. Age range: 41 to 50. Gender: Male.",
+ "gate_inputs": {
+  "quotes": [
+   {
+    "citation_id": "NCD-40.2:3",
+    "quote": "These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:"
+   },
+   {
+    "citation_id": "NCD-40.2:4",
+    "quote": "The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and"
+   },
+   {
+    "citation_id": "NCD-190.20:1",
+    "quote": "The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma."
+   }
+  ],
+  "risk_statement": "The overturn model gives 72.5% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.",
+  "retrieved": {
+   "NCD-40.2:3": "- The patient\u2019s physician states that the patient is capable of being trained to use the particular device prescribed in an appropriate manner. In some cases, the patient may not be able to perform this function, but a responsible individual can be trained to use the equipment and monitor the patient to assure that the intended effect is achieved. This is permissible if the record is properly documented by the patient\u2019s physician; and\n\n- The device is designed for home rather than clinical use.\n\n There is also a blood glucose monitoring system designed especially for use by those with visual impairments. The monitors used in such systems are identical in terms of reliability and sensitivity to the standard blood glucose monitors described above. They differ by having such features as voice synthesizers, automatic timers, and specially designed arrangements of supplies and materials to enable the visually impaired to use the equipment without assistance.\n\n These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:",
+   "NCD-40.2:4": "- The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and\n\n- The patient's physician certifies that he or she has a visual impairment severe enough to require use of this special monitoring system.\n\n The additional features and equipment of these special systems justify a higher reimbursement amount than allowed for standard blood glucose monitors. Separately identify claims for such devices and establish a separate reimbursement amount for them.",
+   "NCD-190.20:1": "This policy is intended to apply to blood samples used to determine glucose levels. Blood glucose determination may be done using whole blood, serum or plasma. It may be sampled by capillary puncture, as in the fingerstick method, or by vein puncture or arterial sampling. The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma. The convenience of the meter or stick color method allows a patient to have access to blood glucose values in less than a minute or so and has become a standard of care for control of blood glucose, even in the inpatient setting.\n\nIndications",
+   "NCD-190.20:3": "Many medical conditions may be a consequence of a sustained elevated or depressed glucose level. These include comas, seizures or epilepsy, confusion, abnormal hunger, abnormal weight loss or gain, and loss of sensation. Evaluation of glucose may also be indicated in patients on medications known to affect carbohydrate metabolism.\n\n Effective January 1, 2005, the Medicare law expanded coverage to diabetic screening services. Some forms of blood glucose testing covered under this national coverage determination may be covered for screening purposes subject to specified frequencies. See 42 CFR 410.18 and section 90, chapter 18, of the Claims Processing Manual , for a full description of this screening benefit.\n\n Limitations\n\n Frequent home blood glucose testing by diabetic patients should be encouraged. In stable, non-hospitalized patients who are unable or unwilling to do home monitoring, it may be reasonable and necessary to measure quantitative blood glucose up to four times annually.",
+   "NCD-280.1:1": "The durable medical equipment (DME) list that follows is designed to facilitate the A/B MAC (HHH) and DME MACs processing of DME claims. This section is designed as a quick reference tool for determining the coverage status of certain pieces of DME and especially for those items commonly referred to by both brand and generic names. The information contained herein is applicable (where appropriate) to all DME national coverage determinations (NCDs) discussed in the DME portion of this manual. The list is organized into two columns. The first column lists alphabetically various generic categories of equipment on which NCDs have been made by the Centers for Medicare & Medicaid Services (CMS); the second column notes the coverage status.",
+   "NCD-100.1:8": "The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.\n\n Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on a case-by-case basis or pursuant to a local coverage determination. The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.",
+   "NCD-280.1:2": "In the case of equipment categories that have been determined by CMS to be covered under the DME benefit, the list outlines the conditions of coverage that must be met if payment is to be allowed for the rental or purchase of the DME by a particular patient, or cross-refers to another section of the manual where the applicable coverage criteria are described in more detail. With respect to equipment categories that cannot be covered as DME, the list includes a brief\nexplanation of why the equipment is not covered. This DME list will be updated periodically to reflect any additional NCDs that CMS may make with regard to other categories of equipment.\n\n When the A/B MAC (HHH) or DME MAC receives a claim for an item of equipment which does not appear to fall logically into any of the generic categories listed or has not been addressed in the processes outlined in regulations at 42 CFR \u00a7\u00a7414.114 and 414.240, the A/B MAC (HHH) or DME MAC has the authority and responsibility for deciding whether those items are covered under the DME benefit.\n\n These decisions must be made by each A/B MAC (HHH) and DME MAC based on the advice of its medical consultants, taking into account:",
+   "NCD-280.3:10": "All other durable medical equipment (DME) not meeting the definition of MAE as described in this instruction will continue to be covered, or noncovered, as is currently described in the NCD Manual, in Section 280, Medical and Surgical Supplies. Also, all other sections not altered here and the corresponding policies regarding MAEs which have not been discussed here remain unchanged.\n\n (This NCD last reviewed May 2005).",
+   "NCD-40.1:1": "Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.",
+   "NCD-180.1:1": "A. General\n\n Section 1861(s)(2)(V) of the Social Security Act authorizes Medicare part B coverage of medical nutrition therapy services (MNT) for certain beneficiaries who have diabetes or a renal disease. Regulations for MNT were established on January 2, 2002, at 42 CFR 410.130 - 410.134 . This national coverage determination (NCD) establishes the duration and frequency limits for the MNT benefit and coordinates MNT and diabetes outpatient self-management training (DSMT) as an NCD.\n\nB. Nationally Covered",
+   "NCD-230.14:1": "The Ultrafiltration Monitor is designed to reduce the clinical risks of overfiltration and underfiltration during hemodialysis. Overfiltration is the removal of too much fluid from body tissues and underfiltration is removal of too little fluid.\n\nCovered\n\n Ultrafiltration and ultrafiltration monitoring as a component of hemodialysis has an established and critical role in maintaining the well-being of ESRD patients and is a covered service. The Ultrafiltration Monitor is covered under the Medicare program when it is used to calculate fluid rates for those recipients who present difficult fluid management problems. Determine the medical necessity of this device on a case-by-case basis.\n\n Not Covered\n\n Ultrafiltration, independent of conventional dialysis, is considered experimental, and technology exclusively designed for this purpose is not covered under Medicare.",
+   "NCD-310.1:1": "Effective for items and services furnished on or after July 9, 2007, Medicare covers the routine costs of qualifying clinical trials, as such costs are defined below, as well as reasonable and necessary items and services used to diagnose and treat complications arising from participation in all clinical trials. All other Medicare rules apply.\n\n Routine costs of a clinical trial include all items and services that are otherwise generally available to Medicare beneficiaries (i.e., there exists a benefit category, it is not statutorily excluded, and there is not a national non-coverage decision) that are provided in either the experimental or the control arms of a clinical trial except:\n\n- The investigational item or service, itself unless otherwise covered outside of the clinical trial;\n\n- Items and services provided solely to satisfy data collection and analysis needs and that are not used in the direct clinical management of the patient (e.g., monthly CT scans for a condition usually requiring only a single scan); and\n\n- Items and services customarily provided by the research sponsors free-of-charge for any enrollee in the trial.\n\n Routine costs in clinical trials include:",
+   "IMR-MN19-31817": "authorization and coverage for Eversense continuous glucose monitor (CGM) Overturned Decision of Health Plan ",
+   "IMR-EI24-42703": "reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM), to include sensor removal and replacement every six months Overturned Decision of Health Plan Findings:  The physician reviewer found that an enrollee has requested reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM), to include sensor removal and replacement every six months. The U.S. Food and Drug Administration (FDA) approved the Eversense CGM in 2018 as the first fully implantable glucose sensor for patients with diabetes. The Promise Study evaluated the 180-day use of the Eversense CGM. In this prospective multicenter study, there were 181 patients with both type 1 and type 2 diabetes mellitus. The authors concluded that the Ever...",
+   "IMR-EI21-35319": "authorization and coverage for an Eversense continuous glucose monitor (CPT 0448T) with sensor implantation every 90 days Overturned Decision of Health Plan ",
+   "IMR-EI23-38524": "reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services Overturned Decision of Health Plan Nature of Statutory Criteria/Case Summary: An enrollee has requested reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services.Findings: Two out of three physician reviewers found that the Eversense Implantable Continuous Glucose Monitor services at issue and requested services were, and are, likely to be more beneficial than any other available standard therapy to treat the patient's condition.The Eversense CGM System was approved by the U.S. Food & Drug Administration (FDA) on June 6, 2019, and has been available in the European Union and Euro..."
+  },
+  "evidence_text": "{\"service\": \"authorization and coverage for an Eversense continuous glucose monitoring system\", \"denial_basis\": \"experimental_investigational\", \"plan_type\": \"commercial_ca_dmhc\", \"imr_reference_ids\": [\"EI25-46125\"], \"ncd_mentions\": [], \"lcd_mentions\": [], \"code_mentions\": {\"icd10\": [], \"hcpcs_level2\": []}, \"method\": \"regex first pass; the intake agent confirms with structured output\"}\n{\"ReferenceID\": \"EI25-46125\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Endocrine/Metabolic\", \"DiagnosisSubCategory\": \"Diabetes\", \"TreatmentCategory\": \"DME\", \"TreatmentSubCategory\": \"Glucose Monitor\", \"Type\": \"Experimental/Investigational\", \"AgeRange\": \"41 to 50\", \"PatientGender\": \"Male\", \"IMRType\": \"Standard\", \"request_text\": \"authorization and coverage for an Eversense continuous glucose monitoring system\", \"source_url\": \"https://wpso.dmhc.ca.gov/imr/\", \"note\": \"outcome and reviewer Findings withheld (the agents must not see the decision of the case they are drafting for)\"}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-40.2:3\", \"doc_id\": \"NCD-40.2\", \"title\": \"Home Blood Glucose Monitors\", \"effective\": \"2006-06-19\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=222\", \"score\": 0.03279, \"text\": \"- The patient\\u2019s physician states that the patient is capable of being trained to use the particular device prescribed in an appropriate manner. In some cases, the patient may not be able to perform this function, but a responsible individual can be trained to use the equipment and monitor the patient to assure that the intended effect is achieved. This is permissible if the record is properly documented by the patient\\u2019s physician; and\\n\\n- The device is designed for home rather than clinical use.\\n\\n There is also a blood glucose monitoring system designed especially for use by those with visual impairments. The monitors used in such systems are identical in terms of reliability and sensitivity to the standard blood glucose monitors described above. They differ by having such features as voice synthesizers, automatic timers, and specially designed arrangements of supplies and materials to enable the visually impaired to use the equipment without assistance.\\n\\n These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:\"}, {\"id\": \"NCD-40.2:4\", \"doc_id\": \"NCD-40.2\", \"title\": \"Home Blood Glucose Monitors\", \"effective\": \"2006-06-19\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=222\", \"score\": 0.03226, \"text\": \"- The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and\\n\\n- The patient's physician certifies that he or she has a visual impairment severe enough to require use of this special monitoring system.\\n\\n The additional features and equipment of these special systems justify a higher reimbursement amount than allowed for standard blood glucose monitors. Separately identify claims for such devices and establish a separate reimbursement amount for them.\"}, {\"id\": \"NCD-190.20:1\", \"doc_id\": \"NCD-190.20\", \"title\": \"Blood Glucose Testing\", \"effective\": \"2005-01-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=98\", \"score\": 0.03126, \"text\": \"This policy is intended to apply to blood samples used to determine glucose levels. Blood glucose determination may be done using whole blood, serum or plasma. It may be sampled by capillary puncture, as in the fingerstick method, or by vein puncture or arterial sampling. The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma. The convenience of the meter or stick color method allows a patient to have access to blood glucose values in less than a minute or so and has become a standard of care for control of blood glucose, even in the inpatient setting.\\n\\nIndications\"}, {\"id\": \"NCD-190.20:3\", \"doc_id\": \"NCD-190.20\", \"title\": \"Blood Glucose Testing\", \"effective\": \"2005-01-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=98\", \"score\": 0.03078, \"text\": \"Many medical conditions may be a consequence of a sustained elevated or depressed glucose level. These include comas, seizures or epilepsy, confusion, abnormal hunger, abnormal weight loss or gain, and loss of sensation. Evaluation of glucose may also be indicated in patients on medications known to affect carbohydrate metabolism.\\n\\n Effective January 1, 2005, the Medicare law expanded coverage to diabetic screening services. Some forms of blood glucose testing covered under this national coverage determination may be covered for screening purposes subject to specified frequencies. See 42 CFR 410.18 and section 90, chapter 18, of the Claims Processing Manual , for a full description of this screening benefit.\\n\\n Limitations\\n\\n Frequent home blood glucose testing by diabetic patients should be encouraged. In stable, non-hospitalized patients who are unable or unwilling to do home monitoring, it may be reasonable and necessary to measure quantitative blood glucose up to four times annually.\"}]}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-280.1:1\", \"doc_id\": \"NCD-280.1\", \"title\": \"Durable Medical Equipment Reference List\", \"effective\": \"2025-06-09\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=190\", \"score\": 0.03202, \"text\": \"The durable medical equipment (DME) list that follows is designed to facilitate the A/B MAC (HHH) and DME MACs processing of DME claims. This section is designed as a quick reference tool for determining the coverage status of certain pieces of DME and especially for those items commonly referred to by both brand and generic names. The information contained herein is applicable (where appropriate) to all DME national coverage determinations (NCDs) discussed in the DME portion of this manual. The list is organized into two columns. The first column lists alphabetically various generic categories of equipment on which NCDs have been made by the Centers for Medicare & Medicaid Services (CMS); the second column notes the coverage status.\"}, {\"id\": \"NCD-100.1:8\", \"doc_id\": \"NCD-100.1\", \"title\": \"Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=57\", \"score\": 0.03083, \"text\": \"The determination of coverage for any bariatric surgery procedures that are not specifically identified in an NCD as covered or non-covered, for Medicare beneficiaries who have a body-mass index \\u2265 35, have at least one co-morbidity related to obesity, and have been previously unsuccessful with medical treatment for obesity, is left to the local MACs.\\n\\n Where weight loss is necessary before surgery in order to ameliorate the complications posed by obesity when it coexists with pathological conditions such as cardiac and respiratory diseases, diabetes, or hypertension (and other more conservative techniques to achieve this end are not regarded as appropriate), supplemented fasting with adequate monitoring of the patient is eligible for coverage on a case-by-case basis or pursuant to a local coverage determination. The risks associated with the achievement of rapid weight loss must be carefully balanced against the risk posed by the condition requiring surgical treatment.\"}, {\"id\": \"NCD-280.1:2\", \"doc_id\": \"NCD-280.1\", \"title\": \"Durable Medical Equipment Reference List\", \"effective\": \"2025-06-09\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=190\", \"score\": 0.03062, \"text\": \"In the case of equipment categories that have been determined by CMS to be covered under the DME benefit, the list outlines the conditions of coverage that must be met if payment is to be allowed for the rental or purchase of the DME by a particular patient, or cross-refers to another section of the manual where the applicable coverage criteria are described in more detail. With respect to equipment categories that cannot be covered as DME, the list includes a brief\\nexplanation of why the equipment is not covered. This DME list will be updated periodically to reflect any additional NCDs that CMS may make with regard to other categories of equipment.\\n\\n When the A/B MAC (HHH) or DME MAC receives a claim for an item of equipment which does not appear to fall logically into any of the generic categories listed or has not been addressed in the processes outlined in regulations at 42 CFR \\u00a7\\u00a7414.114 and 414.240, the A/B MAC (HHH) or DME MAC has the authority and responsibility for deciding whether those items are covered under the DME benefit.\\n\\n These decisions must be made by each A/B MAC (HHH) and DME MAC based on the advice of its medical consultants, taking into account:\"}, {\"id\": \"NCD-280.3:10\", \"doc_id\": \"NCD-280.3\", \"title\": \"Mobility Assistive Equipment (MAE)\", \"effective\": \"2005-05-05\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=219\", \"score\": 0.03055, \"text\": \"All other durable medical equipment (DME) not meeting the definition of MAE as described in this instruction will continue to be covered, or noncovered, as is currently described in the NCD Manual, in Section 280, Medical and Surgical Supplies. Also, all other sections not altered here and the corresponding policies regarding MAEs which have not been discussed here remain unchanged.\\n\\n (This NCD last reviewed May 2005).\"}]}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-40.1:1\", \"doc_id\": \"NCD-40.1\", \"title\": \"Diabetes Outpatient Self-Management Training\", \"effective\": \"2001-02-27\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=251\", \"score\": 0.03279, \"text\": \"Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.\"}, {\"id\": \"NCD-180.1:1\", \"doc_id\": \"NCD-180.1\", \"title\": \"Medical Nutrition Therapy\", \"effective\": \"2022-01-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=252\", \"score\": 0.03226, \"text\": \"A. General\\n\\n Section 1861(s)(2)(V) of the Social Security Act authorizes Medicare part B coverage of medical nutrition therapy services (MNT) for certain beneficiaries who have diabetes or a renal disease. Regulations for MNT were established on January 2, 2002, at 42 CFR 410.130 - 410.134 . This national coverage determination (NCD) establishes the duration and frequency limits for the MNT benefit and coordinates MNT and diabetes outpatient self-management training (DSMT) as an NCD.\\n\\nB. Nationally Covered\"}, {\"id\": \"NCD-230.14:1\", \"doc_id\": \"NCD-230.14\", \"title\": \"Ultrafiltration Monitor\", \"effective\": \"1983-07-11\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=203\", \"score\": 0.02971, \"text\": \"The Ultrafiltration Monitor is designed to reduce the clinical risks of overfiltration and underfiltration during hemodialysis. Overfiltration is the removal of too much fluid from body tissues and underfiltration is removal of too little fluid.\\n\\nCovered\\n\\n Ultrafiltration and ultrafiltration monitoring as a component of hemodialysis has an established and critical role in maintaining the well-being of ESRD patients and is a covered service. The Ultrafiltration Monitor is covered under the Medicare program when it is used to calculate fluid rates for those recipients who present difficult fluid management problems. Determine the medical necessity of this device on a case-by-case basis.\\n\\n Not Covered\\n\\n Ultrafiltration, independent of conventional dialysis, is considered experimental, and technology exclusively designed for this purpose is not covered under Medicare.\"}, {\"id\": \"NCD-310.1:1\", \"doc_id\": \"NCD-310.1\", \"title\": \"Routine Costs in Clinical Trials\", \"effective\": \"2024-05-27\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=1\", \"score\": 0.02904, \"text\": \"Effective for items and services furnished on or after July 9, 2007, Medicare covers the routine costs of qualifying clinical trials, as such costs are defined below, as well as reasonable and necessary items and services used to diagnose and treat complications arising from participation in all clinical trials. All other Medicare rules apply.\\n\\n Routine costs of a clinical trial include all items and services that are otherwise generally available to Medicare beneficiaries (i.e., there exists a benefit category, it is not statutorily excluded, and there is not a national non-coverage decision) that are provided in either the experimental or the control arms of a clinical trial except:\\n\\n- The investigational item or service, itself unless otherwise covered outside of the clinical trial;\\n\\n- Items and services provided solely to satisfy data collection and analysis needs and that are not used in the direct clinical management of the patient (e.g., monthly CT scans for a condition usually requiring only a single scan); and\\n\\n- Items and services customarily provided by the research sponsors free-of-charge for any enrollee in the trial.\\n\\n Routine costs in clinical trials include:\"}]}\n{\"scanned\": 4, \"flagged_local\": [], \"prompt_shields\": {\"status\": \"NOT_CONFIGURED\", \"service\": \"azure_content_safety_prompt_shields\"}, \"clean\": true}\n{\"criteria\": [{\"chunk_id\": \"NCD-40.2:3\", \"criterion\": \"These special blood glucose monitoring systems are covered under Medicare if the following conditions are met:\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"glucose\", \"monitoring\"]}, {\"chunk_id\": \"NCD-40.2:4\", \"criterion\": \"The patient and device meet the three conditions listed above for coverage of standard home blood glucose monitors; and\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"coverage\", \"glucose\"]}, {\"chunk_id\": \"NCD-190.20:1\", \"criterion\": \"The method for assay may be by color comparison of an indicator stick, by meter assay of whole blood or a filtrate of whole blood, using a device approved for home monitoring, or by using a laboratory assay system using serum or plasma.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"monitoring\", \"system\"]}, {\"chunk_id\": \"NCD-190.20:3\", \"criterion\": \"Many medical conditions may be a consequence of a sustained elevated or depressed glucose level.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"glucose\"]}, {\"chunk_id\": \"NCD-190.20:3\", \"criterion\": \"Evaluation of glucose may also be indicated in patients on medications known to affect carbohydrate metabolism.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"glucose\"]}, {\"chunk_id\": \"NCD-190.20:3\", \"criterion\": \"Effective January 1, 2005, the Medicare law expanded coverage to diabetic screening services.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"coverage\"]}, {\"chunk_id\": \"NCD-190.20:3\", \"criterion\": \"Some forms of blood glucose testing covered under this national coverage determination may be covered for screening purposes subject to specified frequencies.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"coverage\", \"glucose\"]}, {\"chunk_id\": \"NCD-190.20:3\", \"criterion\": \"In stable, non-hospitalized patients who are unable or unwilling to do home monitoring, it may be reasonable and necessary to measure quantitative blood glucose up to four times annually.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"glucose\", \"monitoring\"]}], \"unknown_chunk_ids\": [], \"rule\": \"related_case_fact = the case facts mention >= 2 of the criterion's key terms; this is NOT a determination that it is met\"}\n{\"overturn_probability\": 0.7253, \"overturn_percent\": 72.5, \"band\": \"above_typical\", \"train_overturn_rate\": 0.4983, \"model\": \"hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation\", \"test_roc_auc\": 0.7556, \"test_brier\": 0.1814, \"treatment_category_unseen\": false, \"limit\": \"Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing.\"}\n{\"overturn_probability_text\": 0.8945, \"top_terms\": [{\"term\": \"continuous\", \"weight\": 0.57}, {\"term\": \"continuous glucose\", \"weight\": 0.321}, {\"term\": \"monitoring\", \"weight\": 0.277}, {\"term\": \"glucose\", \"weight\": 0.261}, {\"term\": \"eversense\", \"weight\": 0.23}, {\"term\": \"glucose monitoring\", \"weight\": 0.202}], \"test_roc_auc\": 0.7476, \"note\": \"TF-IDF + LR on the request sentence only; a signal, not a verdict\"}\n{\"filters\": {\"before_year\": 2025, \"TreatmentCategory\": \"DME\", \"Type\": \"Experimental/Investigational\"}, \"n\": 670, \"overturned\": 299, \"overturn_rate\": 0.4463, \"overturn_percent\": 44.6, \"wilson_ci95\": [0.409, 0.4841], \"years\": [2002, 2024], \"last_3_years\": {\"n\": 94, \"overturn_percent\": 61.7}, \"headline\": \"299 of 670 published IMRs (TreatmentCategory = DME, Type = Experimental/Investigational, decided before 2025) overturned the plan (44.6%).\", \"caveat\": \"descriptive rate of past published reviews; not a prediction for any one case\"}\n{\"results\": [{\"reference_id\": \"MN19-31817\", \"year\": 2019, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"DME / Cont Glucose Monitor\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for Eversense continuous glucose monitor (CGM)\", \"similarity\": 0.587, \"findings_excerpt\": null}, {\"reference_id\": \"EI24-42703\", \"year\": 2024, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"DME / Glucose Monitor\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Experimental/Investigational\", \"request\": \"reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM), to include sensor removal and replacement every six months\", \"similarity\": 0.542, \"findings_excerpt\": \"Findings:  The physician reviewer found that an enrollee has requested reimbursement and prospective authorization and coverage for Eversense continuous glucose monitor (CGM), to include sensor removal and replacement every six months. The U.S. Food and Drug Administration (FDA) approved the Eversense CGM in 2018 as the first fully implantable glucose sensor for patients with diabetes. The Promise Study evaluated the 180-day use of the Eversense CGM. In this prospective multicenter study, there were 181 patients with both type 1 and type 2 diabetes mellitus. The authors concluded that the Ever...\"}, {\"reference_id\": \"EI21-35319\", \"year\": 2021, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"DME / Glucose Monitor\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Experimental/Investigational\", \"request\": \"authorization and coverage for an Eversense continuous glucose monitor (CPT 0448T) with sensor implantation every 90 days\", \"similarity\": 0.523, \"findings_excerpt\": null}, {\"reference_id\": \"EI23-38524\", \"year\": 2023, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"DME / Glucose Monitor\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Experimental/Investigational\", \"request\": \"reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services\", \"similarity\": 0.507, \"findings_excerpt\": \"Nature of Statutory Criteria/Case Summary: An enrollee has requested reimbursement and authorization and coverage for Eversense Implantable Continuous Glucose Monitor services.Findings: Two out of three physician reviewers found that the Eversense Implantable Continuous Glucose Monitor services at issue and requested services were, and are, likely to be more beneficial than any other available standard therapy to treat the patient's condition.The Eversense CGM System was approved by the U.S. Food & Drug Administration (FDA) on June 6, 2019, and has been available in the European Union and Euro...\"}], \"filters\": {\"before_year\": 2025, \"exclude_id\": \"EI25-46125\", \"treatment_category\": null}, \"note\": \"published, de-identified CA DMHC IMR decisions; cite as [IMR-<reference_id>]\"}\nPublished CA DMHC Independent Medical Review case EI25-46125 (2025). The health plan denied a request for authorization and coverage for an Eversense continuous glucose monitoring system. Denial type: Experimental/Investigational (the plan considered it experimental or investigational). Diagnosis category: Endocrine/Metabolic / Diabetes. Treatment category: DME / Glucose Monitor. Review type: Standard. Age range: 41 to 50. Gender: Male.\n{\"ReferenceID\": \"EI25-46125\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Endocrine/Metabolic\", \"DiagnosisSubCategory\": \"Diabetes\", \"TreatmentCategory\": \"DME\", \"TreatmentSubCategory\": \"Glucose Monitor\", \"Type\": \"Experimental/Investigational\", \"IMRType\": \"Standard\", \"AgeRange\": \"41 to 50\", \"PatientGender\": \"Male\", \"request_text\": \"authorization and coverage for an Eversense continuous glucose monitoring system\"}\nprecedent counts (code-derived): 4 4 0",
+  "injection": {
+   "input_clean": true,
+   "documents_clean": true
+  },
+  "red_team": {
+   "verdict": "pass",
+   "issues": [],
+   "dropped_unverifiable": 2,
+   "dropped": [
+    "rule 3: \"I am writing to appeal the denial of authorization and coverage for an Eversense continuous glucose monitoring system. T\"",
+    "rule 8: \"ClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Med\""
+   ]
+  }
+ },
+ "spans": [
+  {
+   "name": "mcp.tools/call.parse_denial",
+   "start": 1794750584.5320554,
+   "end": 1794750584.5360308,
+   "attrs": {
+    "agent": "intake",
+    "tool": "parse_denial",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.get_imr_case",
+   "start": 1794750584.5360808,
+   "end": 1794750584.645654,
+   "attrs": {
+    "agent": "intake",
+    "tool": "get_imr_case",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.intake",
+   "start": 1794750584.6478875,
+   "end": 1794750587.8970337,
+   "attrs": {
+    "agent": "intake",
+    "model": "gpt-4o-mini",
+    "input_tokens": 929,
+    "output_tokens": 168,
+    "cost_usd": 0.0002401
+   }
+  },
+  {
+   "name": "llm.planner",
+   "start": 1794750587.89978,
+   "end": 1794750590.839939,
+   "attrs": {
+    "agent": "planner",
+    "model": "gpt-4o-mini",
+    "input_tokens": 423,
+    "output_tokens": 157,
+    "cost_usd": 0.0001577
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750590.8418138,
+   "end": 1794750592.803259,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 287,
+    "output_tokens": 89,
+    "cost_usd": 9.64e-05
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750592.803307,
+   "end": 1794750593.9571376,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750593.9573174,
+   "end": 1794750594.0240228,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750594.024163,
+   "end": 1794750594.0871727,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750594.0873973,
+   "end": 1794750601.2687297,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 3363,
+    "output_tokens": 546,
+    "cost_usd": 0.000832
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750601.2705116,
+   "end": 1794750603.8512733,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 4094,
+    "output_tokens": 147,
+    "cost_usd": 0.0007023
+   }
+  },
+  {
+   "name": "mcp.tools/call.scan_documents",
+   "start": 1794750603.8513715,
+   "end": 1794750603.8615777,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "scan_documents",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.match_coverage_criteria",
+   "start": 1794750603.86349,
+   "end": 1794750603.8681471,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "tool": "match_coverage_criteria",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.criteria_matcher",
+   "start": 1794750603.8691032,
+   "end": 1794750610.2378957,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "model": "gpt-4o-mini",
+    "input_tokens": 857,
+    "output_tokens": 473,
+    "cost_usd": 0.0004124
+   }
+  },
+  {
+   "name": "mcp.tools/call.score_overturn_likelihood",
+   "start": 1794750610.2394383,
+   "end": 1794750610.3926873,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "score_overturn_likelihood",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.classify_request_text",
+   "start": 1794750610.39272,
+   "end": 1794750610.4515154,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "classify_request_text",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.cohort_stats",
+   "start": 1794750610.4515555,
+   "end": 1794750610.4995582,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "cohort_stats",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_imr_precedent",
+   "start": 1794750610.4996004,
+   "end": 1794750611.098553,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "search_imr_precedent",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.appeal_writer",
+   "start": 1794750611.1044106,
+   "end": 1794750621.6795044,
+   "attrs": {
+    "agent": "appeal_writer",
+    "model": "gpt-4o-mini",
+    "input_tokens": 2970,
+    "output_tokens": 705,
+    "cost_usd": 0.0008685
+   }
+  },
+  {
+   "name": "llm.verifier",
+   "start": 1794750621.721496,
+   "end": 1794750624.5911238,
+   "attrs": {
+    "agent": "verifier",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1738,
+    "output_tokens": 190,
+    "cost_usd": 0.0003747
+   }
+  },
+  {
+   "name": "mcp.tools/call.confirm_red_team",
+   "start": 1794750624.5912552,
+   "end": 1794750624.5961502,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "confirm_red_team",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.appeal_writer",
+   "start": 1794750624.6343322,
+   "end": 1794750637.908354,
+   "attrs": {
+    "agent": "appeal_writer",
+    "model": "gpt-4o-mini",
+    "input_tokens": 3154,
+    "output_tokens": 846,
+    "cost_usd": 0.0007695
+   }
+  },
+  {
+   "name": "llm.verifier",
+   "start": 1794750637.9467044,
+   "end": 1794750639.980142,
+   "attrs": {
+    "agent": "verifier",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1873,
+    "output_tokens": 102,
+    "cost_usd": 0.0003421
+   }
+  },
+  {
+   "name": "mcp.tools/call.confirm_red_team",
+   "start": 1794750639.980265,
+   "end": 1794750639.9876904,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "confirm_red_team",
+    "ok": true
+   }
+  }
+ ]
+}

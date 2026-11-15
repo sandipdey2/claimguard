@@ -145,6 +145,46 @@ RULE_CONFIRM = {
 }
 
 
+ABSENCE = (r"\b(no (information|documentation|details?|evidence|records?)\b.{0,40}\b(provided|available|documented|given|included)|"
+           r"(not|never) (been )?(specified|documented|provided|stated|included)|do(es)? not (specify|state|include|mention)|"
+           r"unclear (if|whether)|to clarify whether|(must|should|needs? to|will need to) be (documented|confirmed|provided))\b")
+CITE_RX = re.compile(r"\[((?:NCD|LCD)-[A-Z]?[\d.]+(?::\d+)?|IMR-[A-Z]{2}\d{2}-\d+)\]")
+STOP = set("the a an of to and or for in on with by is are be this that as at from it its was were which when not no any all must will may can "
+           "has have had been their there these those such than then also only if under per".split())
+
+
+def _content(t: str) -> set[str]:
+    return {w for w in re.findall(r"[a-z][a-z\-]{2,}", t.lower()) if w not in STOP}
+
+
+def citation_unsupported(sentence: str) -> bool:
+    """Code check for red-team rule 2. A cited sentence is confirmed as unsupported only when a cited id does not exist, an
+    inline double-quoted span is not verbatim in the cited excerpt, or (with no inline quote) the sentence shares under 15% of
+    its content words with the cited excerpt. A sentence without any citation is not a rule-2 issue (rule 2 is about wrong ids)."""
+    ids = CITE_RX.findall(sentence)
+    if not ids:
+        return False
+    by_id = get_index().by_id
+    texts = []
+    for cid in ids:
+        if cid.startswith("IMR-"):
+            if cid[4:] not in set(load_imr().ReferenceID):
+                return True
+            continue
+        chunk = by_id.get(cid) or next((c for c in get_index().chunks if c["doc_id"] == cid), None)
+        if chunk is None:
+            return True
+        texts.append(chunk["text"] if cid in by_id else " ".join(c["text"] for c in get_index().chunks if c["doc_id"] == cid))
+    if not texts:
+        return False
+    body = norm(" ".join(texts))
+    quoted = [q for q in re.findall(r"[\"\u201c]([^\"\u201d]{15,})[\"\u201d]", sentence)]
+    if quoted:
+        return any(norm(q).rstrip(".,;: ") not in body for q in quoted)
+    words = _content(CITE_RX.sub(" ", sentence))
+    return bool(words) and len(words & _content(body)) / len(words) < 0.15
+
+
 def confirm_red_team(issues: list[dict], draft: str) -> dict:
     """LLM proposes, code confirms: keep only issues whose quote really occurs in the draft AND (for rules with an observable
     surface form) shows that form. Rule 8 (missing disclaimer) is confirmed only if the disclaimer is really missing."""
@@ -164,6 +204,10 @@ def confirm_red_team(issues: list[dict], draft: str) -> dict:
             ok = bool(re.search(RULE_CONFIRM[rule], quote, re.I))
         if ok and rule == 8:
             ok = not has_disclaimer
+        if ok and rule == 1:
+            ok = not re.search(ABSENCE, quote, re.I)        # saying a fact is missing does not invent one
+        if ok and rule == 2:
+            ok = citation_unsupported(quote)
         (kept if ok else dropped).append(i)
     return {"verdict": "fail" if kept else "pass", "issues": [f"rule {i['rule']}: \"{str(i['quote'])[:160]}\"" for i in kept],
             "dropped_unverifiable": len(dropped),

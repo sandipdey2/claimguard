@@ -1,0 +1,887 @@
+{
+ "kind": "live_e2e",
+ "reference_id": "MN25-46141",
+ "provider": "vocareum",
+ "model": "gpt-4o-mini",
+ "status": "awaiting_human_signoff",
+ "reason": null,
+ "latency_s": 38.0,
+ "cost": {
+  "model": "gpt-4o-mini",
+  "llm_calls": 8,
+  "tool_calls": 12,
+  "input_tokens": 14848,
+  "output_tokens": 1948,
+  "cached_input_tokens": 0,
+  "cost_usd": 0.003396,
+  "rates_usd_per_1m": {
+   "input": 0.15,
+   "output": 0.6
+  },
+  "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+ },
+ "check_status": {
+  "disclaimer_present": "PASS",
+  "citations_exist": "PASS",
+  "citations_retrieved": "PASS",
+  "quotes_verbatim": "PASS",
+  "numbers_grounded": "PASS",
+  "risk_matches_model": "PASS",
+  "checklist_complete": "PASS",
+  "no_phi_in_output": "PASS",
+  "no_authority_or_guarantee": "PASS",
+  "injection_scan_clean": "PASS",
+  "red_team_pass": "PASS",
+  "within_budget": "PASS"
+ },
+ "failed": [],
+ "unrun": [],
+ "details": {
+  "citations": [
+   "NCD-50.3:1",
+   "NCD-50.3:2"
+  ],
+  "unknown_citations": [],
+  "citations_not_retrieved": [],
+  "bad_quotes": [],
+  "ungrounded_numbers": [],
+  "missing_checklist_items": [],
+  "phi_types": [],
+  "authority_or_guarantee": [],
+  "output_injection_patterns": [],
+  "red_team_issues": [],
+  "stage": "final",
+  "not_run": []
+ },
+ "receipt": {
+  "product": "ClaimGuard",
+  "version": "0.1.0",
+  "run_id": "b430cd92d7bd4e7c8d664936a1831aba",
+  "status": "awaiting_human_signoff",
+  "block_reason": null,
+  "contract_sha256": "bac632d67bb442bcae8f747036236a001ad71e4555d040710746b6c7e3089391",
+  "git_sha": "eb15f66cb885a4c7ca6d9203037b097d66fe5260",
+  "git_dirty": false,
+  "feed_versions": {
+   "dfs.parquet": "be70b8cff0ebe988",
+   "imr_findings_recent.parquet": "ed48a6c08fe952fd",
+   "imr_slim.parquet": "4a256478c9e25246",
+   "ncd.parquet": "f998522455c83362"
+  },
+  "provider": "vocareum",
+  "model": "gpt-4o-mini",
+  "input_sha256": "d2a943903a0f96c80ac08490cc51268f08134ed249616535d1523af1751ea45e",
+  "draft_sha256": "23b5b34dc0f24d4a1b92d0e455a7e9950da6652566eb05df014578b6b7f5a8ea",
+  "trace_sha256": "ce2f115b154e1b34996ce6f01d1a33edc2d80b82e95276ca5975e8fef79778f8",
+  "check_status": {
+   "disclaimer_present": "PASS",
+   "citations_exist": "PASS",
+   "citations_retrieved": "PASS",
+   "quotes_verbatim": "PASS",
+   "numbers_grounded": "PASS",
+   "risk_matches_model": "PASS",
+   "checklist_complete": "PASS",
+   "no_phi_in_output": "PASS",
+   "no_authority_or_guarantee": "PASS",
+   "injection_scan_clean": "PASS",
+   "red_team_pass": "PASS",
+   "within_budget": "PASS"
+  },
+  "unrun_checks": [],
+  "failed_checks": [],
+  "human_signoff": null,
+  "cost": {
+   "model": "gpt-4o-mini",
+   "llm_calls": 8,
+   "tool_calls": 12,
+   "input_tokens": 14848,
+   "output_tokens": 1948,
+   "cached_input_tokens": 0,
+   "cost_usd": 0.003396,
+   "rates_usd_per_1m": {
+    "input": 0.15,
+    "output": 0.6
+   },
+   "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+  },
+  "latency_s": 37.56,
+  "case_reference": "MN25-46141",
+  "key_id": "CG_RECEIPT_KEY:dcccbcd5",
+  "algorithm": "HMAC-SHA256",
+  "signed_at": "2026-11-15T13:49:43+0000",
+  "signature": "67ee8cdbbf6d1c096b77f69f70c925b544393169bac056f27e36de2d0be05ccc"
+ },
+ "receipt_verifies": true,
+ "risk": {
+  "overturn_probability": 0.4069,
+  "overturn_percent": 40.7,
+  "band": "typical",
+  "train_overturn_rate": 0.4983,
+  "model": "hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation",
+  "test_roc_auc": 0.7556,
+  "test_brier": 0.1814,
+  "treatment_category_unseen": false,
+  "limit": "Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing."
+ },
+ "signals": {
+  "text_model": {
+   "overturn_probability_text": 0.3412,
+   "top_terms": [
+    {
+     "term": "implant",
+     "weight": -0.391
+    },
+    {
+     "term": "cochlear",
+     "weight": -0.204
+    },
+    {
+     "term": "coverage cochlear",
+     "weight": -0.202
+    },
+    {
+     "term": "surgical implantation",
+     "weight": 0.165
+    },
+    {
+     "term": "cochlear implant",
+     "weight": 0.143
+    },
+    {
+     "term": "procedure",
+     "weight": -0.132
+    }
+   ],
+   "test_roc_auc": 0.7476,
+   "note": "TF-IDF + LR on the request sentence only; a signal, not a verdict"
+  },
+  "cohort": {
+   "filters": {
+    "before_year": 2025,
+    "TreatmentCategory": "Ear-Nose-Thro Proc",
+    "Type": "Medical Necessity"
+   },
+   "n": 217,
+   "overturned": 114,
+   "overturn_rate": 0.5253,
+   "overturn_percent": 52.5,
+   "wilson_ci95": [
+    0.459,
+    0.5908
+   ],
+   "years": [
+    2001,
+    2024
+   ],
+   "last_3_years": {
+    "n": 69,
+    "overturn_percent": 79.7
+   },
+   "headline": "114 of 217 published IMRs (TreatmentCategory = Ear-Nose-Thro Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.5%).",
+   "caveat": "descriptive rate of past published reviews; not a prediction for any one case"
+  },
+  "features": {
+   "DiagnosisCategory": "Ears/Nose/Throat",
+   "DiagnosisSubCategory": "Hearing Problem/Loss",
+   "TreatmentCategory": "Ear-Nose-Thro Proc",
+   "TreatmentSubCategory": "Cochlear Implant",
+   "Type": "Medical Necessity",
+   "IMRType": "Expedited",
+   "AgeRange": "51 to 64",
+   "PatientGender": "Male"
+  }
+ },
+ "precedents": [
+  "MN22-38353",
+  "MN22-36974",
+  "MN21-34875",
+  "MN22-37503"
+ ],
+ "precedent_rows": [
+  {
+   "reference_id": "MN22-38353",
+   "year": 2022,
+   "determination": "Upheld Decision of Health Plan",
+   "treatment": "Ear-Nose-Thro Proc / Cochlear Implant",
+   "diagnosis": "Ears/Nose/Throat / Hearing Problem/Loss",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage a cochlear implant consultation",
+   "similarity": 0.494,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "MN22-36974",
+   "year": 2022,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Ear-Nose-Thro Proc / Cochlear Implant",
+   "diagnosis": "Ears/Nose/Throat / Hearing Problem/Loss",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for a cochlear implant",
+   "similarity": 0.476,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "MN21-34875",
+   "year": 2021,
+   "determination": "Upheld Decision of Health Plan",
+   "treatment": "Ear-Nose-Thro Proc / Cochlear Implant",
+   "diagnosis": "Ears/Nose/Throat / Hearing Problem/Loss",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for cochlear implant procedure on the left side (CPT 95927, 95940, 69930, 69990 and HCPCS L8614)",
+   "similarity": 0.441,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "MN22-37503",
+   "year": 2022,
+   "determination": "Upheld Decision of Health Plan",
+   "treatment": "Ear-Nose-Thro Proc / Cochlear Implant",
+   "diagnosis": "Ears/Nose/Throat / Hearing Problem/Loss",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for a cochlear implant in the left ear",
+   "similarity": 0.423,
+   "findings_excerpt": null
+  }
+ ],
+ "policy_selected": [
+  {
+   "chunk_id": "NCD-50.3:1",
+   "relevance": "This excerpt outlines the general coverage criteria for cochlear implantation, including the specific conditions under which the procedure is covered."
+  },
+  {
+   "chunk_id": "NCD-50.3:2",
+   "relevance": "This excerpt details additional criteria necessary for coverage, including cognitive ability, freedom from infections, and FDA compliance."
+  }
+ ],
+ "criteria": {
+  "criteria": [
+   {
+    "chunk_id": "NCD-50.3:1",
+    "criterion_quote": "Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification.",
+    "status": "supported_by_case_facts",
+    "note": "The case mentions a hearing problem/loss relevant to cochlear implantation."
+   },
+   {
+    "chunk_id": "NCD-50.3:1",
+    "criterion_quote": "Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition.",
+    "status": "needs_documentation",
+    "note": "No documentation of test scores is provided."
+   },
+   {
+    "chunk_id": "NCD-50.3:1",
+    "criterion_quote": "Patients must meet all of the following criteria.",
+    "status": "needs_documentation",
+    "note": "Specific patient criteria are not documented."
+   },
+   {
+    "chunk_id": "NCD-50.3:2",
+    "criterion_quote": "The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling.",
+    "status": "needs_documentation",
+    "note": "No information on FDA-approved labeling is provided."
+   },
+   {
+    "chunk_id": "NCD-50.3:2",
+    "criterion_quote": "Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.",
+    "status": "supported_by_case_facts",
+    "note": "The case indicates a denial based on coverage criteria."
+   },
+   {
+    "chunk_id": "NCD-50.3:2",
+    "criterion_quote": "CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials as defined at 42 CFR 405.201 or as a routine cost in clinical trials under section 310.1 of the National Coverage Determinations Manual titled Routine Costs in Clinical Trials.",
+    "status": "supported_by_case_facts",
+    "note": "The case facts do not mention clinical trials."
+   }
+  ]
+ },
+ "route": [
+  "policy_retriever",
+  "criteria_matcher",
+  "risk_analyst",
+  "appeal_writer",
+  "verifier",
+  "FINISH"
+ ],
+ "revisions": 0,
+ "red_team": {
+  "verdict": "pass",
+  "issues": [],
+  "dropped_unverifiable": 0,
+  "dropped": [],
+  "llm_verdict": "pass"
+ },
+ "draft_md": "# Appeal letter (DRAFT for human review)\n\n**Re:** Appeal for Cochlear Implant Authorization\n\n**Requested service:** Authorization and coverage for a cochlear implant device and a surgical implantation procedure\n\n**Denial basis:** Medical Necessity\n\nI am writing to appeal the denial of authorization and coverage for a cochlear implant device and a surgical implantation procedure. The request was denied based on medical necessity criteria, and I believe that the decision should be reconsidered based on the relevant policy guidelines.\n\nThe policy states that \"Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification\" [NCD-50.3:1]. The case facts indicate a diagnosis of hearing problem/loss, which is relevant to the criteria for cochlear implantation.\n\nHowever, specific clinical criteria used to determine medical necessity have not been documented. It is essential to provide details on the patient's hearing loss severity and previous treatments attempted for hearing loss to fully assess eligibility for coverage. Can the reviewer confirm if this documentation is available?\n\nAdditionally, the policy specifies that \"Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition\" [NCD-50.3:1]. Without documentation of these test scores, it is unclear if the patient meets this critical criterion for coverage.\n\nThe policy also indicates that \"The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling\" [NCD-50.3:2]. Can the reviewer provide information regarding the FDA-approved labeling for the cochlear implant in question?\n\n**Coverage criteria cited:**\n- \"Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification.\" [NCD-50.3:1] - This excerpt outlines the coverage criteria for cochlear implantation.\n- \"Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.\" [NCD-50.3:2] - This excerpt confirms that the denial was based on not meeting coverage criteria.\n\n**Published independent-review precedents:**\n- There is no close published precedent among the CA DMHC IMR decisions retrieved for this service.\n\n**Requested action:** Reconsider the denial and approve the authorization and coverage for the cochlear implant device and surgical implantation procedure.\n\nSincerely,\n[Patient or authorized representative - to be completed by the human reviewer]\n\n## Denial-risk brief\n\n**Model signal:** The overturn model gives 40.7% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.\n\n- **Text-model signal (P4, request sentence only):** 34.1% (TF-IDF + logistic regression, test ROC-AUC 0.7476)\n- **Published cohort (P2):** 114 of 217 published IMRs (TreatmentCategory = Ear-Nose-Thro Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.5%). Wilson 95% CI 45.9% to 59.1%.\n- **Overturn model (P3):** hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation, test ROC-AUC 0.7556, Brier 0.1814.\n- **Closest published precedents:** 4 retrieved (decided before 2025): 1 overturned, 3 upheld.\n- **Policy basis:** NCD-50.3 Cochlear Implantation\n- **Limits:** association statistics from past published reviews in California commercial plans; they do not know the clinical record and are not a prediction for this appeal.\n\n## Questions for the human reviewer\n\n- Is there documentation of the patient's hearing loss severity?\n- What specific clinical criteria were used to determine medical necessity?\n- Can the reviewer confirm if test scores for amplification benefit are available?\n- Is there information regarding FDA-approved labeling for the cochlear implant?\n\n## Disclaimer\n\nClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Medicare contractor, and it does not file, submit or send appeals. A qualified human (the patient or their authorized representative, with their clinician or a licensed advocate) must review and edit this draft before it is used. Statistics describe past published reviews and do not predict the outcome of any individual appeal.\n",
+ "intake": {
+  "service": "authorization and coverage for a cochlear implant device and a surgical implantation procedure",
+  "denial_basis": "medical_necessity",
+  "treatment_category": "Ear-Nose-Thro Proc",
+  "case_facts": [
+   "The health plan denied a request for authorization and coverage for a cochlear implant device and a surgical implantation procedure.",
+   "Denial type: Medical Necessity.",
+   "Diagnosis category: Ears/Nose/Throat / Hearing Problem/Loss.",
+   "Treatment category: Ear-Nose-Thro Proc / Cochlear Implant.",
+   "Review type: Expedited.",
+   "Age range: 51 to 64.",
+   "Gender: Male."
+  ],
+  "search_queries": [
+   "Medicare coverage policy for cochlear implants",
+   "Cochlear implant medical necessity criteria",
+   "Medicare guidelines for hearing loss treatment"
+  ],
+  "missing_information": [
+   "Specific clinical criteria used to determine medical necessity",
+   "Details on the patient's hearing loss severity",
+   "Previous treatments attempted for hearing loss"
+  ]
+ },
+ "plan": {
+  "steps": [
+   {
+    "agent": "policy_retriever",
+    "goal": "Retrieve the Medicare coverage policy for cochlear implants."
+   },
+   {
+    "agent": "criteria_matcher",
+    "goal": "Match the case facts with the medical necessity criteria for cochlear implants."
+   },
+   {
+    "agent": "risk_analyst",
+    "goal": "Analyze the risks associated with the denial based on the patient's hearing loss severity and previous treatments."
+   },
+   {
+    "agent": "appeal_writer",
+    "goal": "Draft an appeal letter addressing the denial and including supporting evidence."
+   },
+   {
+    "agent": "verifier",
+    "goal": "Verify all information and ensure the appeal is complete before submission."
+   }
+  ],
+  "watch_outs": [
+   "Lack of specific clinical criteria may weaken the appeal.",
+   "Insufficient details on the patient's hearing loss severity could lead to further denial.",
+   "Previous treatments not documented may affect the assessment of medical necessity."
+  ]
+ },
+ "trace": [
+  {
+   "agent": "input_guard",
+   "type": "guard",
+   "allowed": true,
+   "reason": "ok",
+   "prompt_shields": "NOT_CONFIGURED"
+  },
+  {
+   "agent": "intake",
+   "type": "structured",
+   "output": {
+    "service": "authorization and coverage for a cochlear implant device and a surgical implantation procedure",
+    "denial_basis": "medical_necessity",
+    "treatment_category": "Ear-Nose-Thro Proc",
+    "case_facts": [
+     "The health plan denied a request for authorization and coverage for a cochlear implant device and a surgical implantation procedure.",
+     "Denial type: Medical Necessity.",
+     "Diagnosis category: Ears/Nose/Throat / Hearing Problem/Loss.",
+     "Treatment category: Ear-Nose-Thro Proc / Cochlear Implant.",
+     "Review type: Expedited.",
+     "Age range: 51 to 64.",
+     "Gender: Male."
+    ],
+    "search_queries": [
+     "Medicare coverage policy for cochlear implants",
+     "Cochlear implant medical necessity criteria",
+     "Medicare guidelines for hearing loss treatment"
+    ],
+    "missing_information": [
+     "Specific clinical criteria used to determine medical necessity",
+     "Details on the patient's hearing loss severity",
+     "Previous treatments attempted for hearing loss"
+    ]
+   }
+  },
+  {
+   "agent": "planner",
+   "type": "plan",
+   "plan": {
+    "steps": [
+     {
+      "agent": "policy_retriever",
+      "goal": "Retrieve the Medicare coverage policy for cochlear implants."
+     },
+     {
+      "agent": "criteria_matcher",
+      "goal": "Match the case facts with the medical necessity criteria for cochlear implants."
+     },
+     {
+      "agent": "risk_analyst",
+      "goal": "Analyze the risks associated with the denial based on the patient's hearing loss severity and previous treatments."
+     },
+     {
+      "agent": "appeal_writer",
+      "goal": "Draft an appeal letter addressing the denial and including supporting evidence."
+     },
+     {
+      "agent": "verifier",
+      "goal": "Verify all information and ensure the appeal is complete before submission."
+     }
+    ],
+    "watch_outs": [
+     "Lack of specific clinical criteria may weaken the appeal.",
+     "Insufficient details on the patient's hearing loss severity could lead to further denial.",
+     "Previous treatments not documented may affect the assessment of medical necessity."
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "policy_retriever",
+   "eligible": [
+    "policy_retriever",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage policy for cochlear implants\", \"k\": 4})",
+   "observation": [
+    "NCD-50.3:2",
+    "NCD-50.3:1",
+    "NCD-310.1:3",
+    "NCD-150.3:1"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Cochlear implant medical necessity criteria\", \"k\": 4})",
+   "observation": [
+    "NCD-50.3:1",
+    "NCD-50.3:2",
+    "NCD-150.12:2",
+    "NCD-220.2:9"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare guidelines for hearing loss treatment\", \"k\": 4})",
+   "observation": [
+    "NCD-50.5:1",
+    "NCD-50.3:1",
+    "NCD-70.2.1:2",
+    "NCD-20.8.1:1"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 2,
+   "thought": "Here are the relevant excerpts from the National Coverage Determination (NCD) regarding cochlear implants:\n\n1. **NCD-50.3: Cochlear Implantation**\n   - **Effective Date:** September 26, 2022\n   - **Coverage Criteria:**\n     - Cochlear implantation may be covered for treatment of bilateral pre- or po",
+   "action": "final_answer"
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "selected",
+   "selected": [
+    {
+     "chunk_id": "NCD-50.3:1",
+     "relevance": "This excerpt outlines the general coverage criteria for cochlear implantation, including the specific conditions under which the procedure is covered."
+    },
+    {
+     "chunk_id": "NCD-50.3:2",
+     "relevance": "This excerpt details additional criteria necessary for coverage, including cognitive ability, freedom from infections, and FDA compliance."
+    }
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "criteria_matcher",
+   "eligible": [
+    "criteria_matcher",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "criteria_matcher",
+   "type": "structured",
+   "output": {
+    "criteria": [
+     {
+      "chunk_id": "NCD-50.3:1",
+      "criterion_quote": "Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification.",
+      "status": "supported_by_case_facts",
+      "note": "The case mentions a hearing problem/loss relevant to cochlear implantation."
+     },
+     {
+      "chunk_id": "NCD-50.3:1",
+      "criterion_quote": "Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition.",
+      "status": "needs_documentation",
+      "note": "No documentation of test scores is provided."
+     },
+     {
+      "chunk_id": "NCD-50.3:1",
+      "criterion_quote": "Patients must meet all of the following criteria.",
+      "status": "needs_documentation",
+      "note": "Specific patient criteria are not documented."
+     },
+     {
+      "chunk_id": "NCD-50.3:2",
+      "criterion_quote": "The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling.",
+      "status": "needs_documentation",
+      "note": "No information on FDA-approved labeling is provided."
+     },
+     {
+      "chunk_id": "NCD-50.3:2",
+      "criterion_quote": "Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.",
+      "status": "supported_by_case_facts",
+      "note": "The case indicates a denial based on coverage criteria."
+     },
+     {
+      "chunk_id": "NCD-50.3:2",
+      "criterion_quote": "CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials as defined at 42 CFR 405.201 or as a routine cost in clinical trials under section 310.1 of the National Coverage Determinations Manual titled Routine Costs in Clinical Trials.",
+      "status": "supported_by_case_facts",
+      "note": "The case facts do not mention clinical trials."
+     }
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "risk_analyst",
+   "eligible": [
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "risk_analyst",
+   "type": "tools",
+   "overturn_percent": 40.7,
+   "text_p": 0.3412,
+   "cohort": "114 of 217 published IMRs (TreatmentCategory = Ear-Nose-Thro Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.5%).",
+   "precedents": [
+    "MN22-38353",
+    "MN22-36974",
+    "MN21-34875",
+    "MN22-37503"
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "appeal_writer",
+   "eligible": [
+    "appeal_writer"
+   ]
+  },
+  {
+   "agent": "appeal_writer",
+   "type": "draft",
+   "chars": 4800,
+   "precheck_failed": [],
+   "precheck_unrun": []
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "verifier",
+   "eligible": [
+    "verifier"
+   ]
+  },
+  {
+   "agent": "verifier",
+   "type": "verify",
+   "passed": true,
+   "failed": [],
+   "unrun": [],
+   "red_team": "pass",
+   "dropped_unverifiable": 0
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "FINISH",
+   "eligible": [
+    "FINISH"
+   ]
+  },
+  {
+   "agent": "gate",
+   "type": "finalize",
+   "status": "awaiting_human_signoff",
+   "reason": null
+  }
+ ],
+ "held_out_outcome": {
+  "Determination": "Overturned Decision of Health Plan",
+  "overturned": 1
+ },
+ "denial_text": "Published CA DMHC Independent Medical Review case MN25-46141 (2025). The health plan denied a request for authorization and coverage for a cochlear implant device and a surgical implantation procedure. Denial type: Medical Necessity (the plan considered it not medically necessary). Diagnosis category: Ears/Nose/Throat / Hearing Problem/Loss. Treatment category: Ear-Nose-Thro Proc / Cochlear Implant. Review type: Expedited. Age range: 51 to 64. Gender: Male.",
+ "gate_inputs": {
+  "quotes": [
+   {
+    "citation_id": "NCD-50.3:1",
+    "quote": "Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification."
+   },
+   {
+    "citation_id": "NCD-50.3:2",
+    "quote": "Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below."
+   }
+  ],
+  "risk_statement": "The overturn model gives 40.7% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.",
+  "retrieved": {
+   "NCD-50.3:2": "- Cognitive ability to use auditory clues and a willingness to undergo an extended program of rehabilitation;\n\n- Freedom from middle ear infection, an accessible cochlear lumen that is structurally suited to implantation, and freedom from lesions in the auditory nerve and acoustic areas of the central nervous system;\n\n- No contraindications to surgery; and\n\n- The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling.\n\n C. Nationally Non-Covered Indications \n\n Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.\n\n D. Other \n\n CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials as defined at 42 CFR 405.201 or as a routine cost in clinical trials under section 310.1 of the National Coverage Determinations Manual titled Routine Costs in Clinical Trials.\n\n (This NCD last reviewed September 2022)",
+   "NCD-50.3:1": "A. General \n\n A cochlear implant device is an electronic instrument, part of which is implanted surgically to stimulate auditory nerve fibers, and part of which is worn or carried by the individual to capture, analyze, and code sound. Cochlear implant devices are available in single-channel and multi-channel models. The purpose of implanting the device is to provide awareness and identification of sounds and to facilitate communication for persons who are moderately to profoundly hearing impaired.\n\nB. Nationally Covered Indications \n\n Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification. Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition. Patients must meet all of the following criteria.\n\n- Diagnosis of bilateral moderate-to-profound sensorineural hearing impairment with limited benefit from appropriate hearing (or vibrotactile) aids;",
+   "NCD-310.1:3": "For non-covered items and services, including items and services for which Medicare payment is statutorily prohibited, Medicare only covers the treatment of complications arising from the delivery of the noncovered item or service and unrelated reasonable and necessary care. However, if the item or service is not covered by virtue of a national non-coverage policy in Pub. 100-03, National Coverage Determination (NCD) Manual, and is the focus of a qualifying clinical trial, the routine costs of the clinical trial (as defined above) will be covered by Medicare but the non-covered item or service, itself, will not.\n\n A. Requirements for Medicare Coverage of Routine Costs \n\n Any clinical trial receiving Medicare coverage of routine costs must meet the following three requirements:\n\n- The subject or purpose of the trial must be the evaluation of an item or service that falls within a Medicare benefit category (e.g., physicians' service, durable medical equipment, diagnostic test) and is not statutorily excluded from coverage (e.g., cosmetic surgery, hearing aids).",
+   "NCD-150.3:1": "Conditions for coverage of BMMs are now contained in chapter 15, section 80.5 of Pub. 100-02, Medicare Benefit Policy Manual.\n\nConditions for coverage of bone mass measurements are now contained in chapter 15, section 80.5 of Pub. 100-02, Medicare Benefit Policy Manual . Claims processing instructions can be found in chapter 13, section 140 of Pub. 100-04, Medicare Claims Processing Manual .",
+   "NCD-150.12:2": "The collagen meniscus implant (also referred to as collagen scaffold (CS), CMI or Menaflex\u2122 meniscus implant throughout the published literature) is used to fill meniscal defects that result from partial meniscectomy. The collagen meniscus implant is not intended to replace the entire meniscus at it requires a meniscal rim for attachment. The literature describes the placement of the collagen meniscus implant through an arthroscopic procedure with an additional incision for capture of the repair needles and tying of the sutures. After debridement of the damaged meniscus, the implant is trimmed to the size of meniscal defect and sutured into place. The collagen meniscus implant is described as a tissue engineered scaffold to support the generation of new meniscus-like tissue. The collagen meniscus implant is manufactured from bovine collagen and should not be confused with the meniscus transplant which involves the replacement of the meniscus with a transplant meniscus from a cadaver donor. The meniscus transplant is not addressed under this national coverage determination.\n\nB. Nationally Covered Indications \n\n N/A\n\n C. Nationally Non-Covered Indications",
+   "NCD-220.2:9": "Studies have proven that MRA is effective for evaluating flow in internal carotid vessels of the head and neck. However, not all potential applications of MRA have been shown to be reasonable and necessary. All of the following criteria must apply in order for Medicare to provide coverage for MRA of the head and neck:\n\n- MRA is used to evaluate the carotid arteries, the circle of Willis, the anterior, middle or posterior cerebral arteries, the vertebral or basilar arteries or the venous sinuses;\n\n- MRA is performed on patients with conditions of the head and neck for which surgery is anticipated and may be found to be appropriate based on the MRA. These conditions include, but are not limited to, tumor, aneurysms, vascular malformations, vascular occlusion or thrombosis. Within this broad category of disorders, medical necessity is the underlying determinant of the need for an MRA in specific diseases. The medical records should clearly justify and demonstrate the existence of medical necessity; and",
+   "NCD-50.5:1": "Oxygen (95 percent) and carbon dioxide (5 percent) inhalation therapy for inner ear disease, such as endolymphatic hydrops and fluctuant hearing loss, is not reasonable and necessary. The therapeutic benefit deriving from this procedure is highly questionable.",
+   "NCD-70.2.1:2": "Effective for services furnished on or after July 1, 2002, Medicare covers, as a physician service, an evaluation (examination and treatment) of the feet no more often than every six months for individuals with a documented diagnosis of diabetic sensory neuropathy and LOPS, as long as the beneficiary has not seen a foot care specialist for some other reason in the interim. LOPS shall be diagnosed through sensory testing with the 5.07 monofilament using established guidelines, such as those developed by the National Institute of Diabetes and Digestive and Kidney Diseases guidelines. Five sites should be tested on the plantar surface of each foot, according to the National Institute of Diabetes and Digestive and Kidney Diseases guidelines. The areas must be tested randomly since the loss of protective sensation may be patchy in distribution, and the patient may get clues if the test is done rhythmically. Heavily callused areas should be avoided",
+   "NCD-20.8.1:1": "Medicare covers a variety of services for the post-implant follow-up and evaluation of implanted cardiac pacemakers. The following guidelines are designed to assist Medicare Administrative Contractors (MACs) in identifying and processing claims for such services.\n\nNOTE: These new guidelines are limited to lithium battery-powered pacemakers, because mercury-zinc battery-powered pacemakers are no longer being manufactured and virtually all have been replaced by lithium units. MACs still receiving claims for monitoring such units should continue to apply the guidelines published in 1980 to those units until they are replaced.",
+   "IMR-MN22-38353": "authorization and coverage a cochlear implant consultation Upheld Decision of Health Plan ",
+   "IMR-MN22-36974": "authorization and coverage for a cochlear implant Overturned Decision of Health Plan ",
+   "IMR-MN21-34875": "authorization and coverage for cochlear implant procedure on the left side (CPT 95927, 95940, 69930, 69990 and HCPCS L8614) Upheld Decision of Health Plan ",
+   "IMR-MN22-37503": "authorization and coverage for a cochlear implant in the left ear Upheld Decision of Health Plan "
+  },
+  "evidence_text": "{\"service\": \"authorization and coverage for a cochlear implant device and a surgical implantation procedure\", \"denial_basis\": \"medical_necessity\", \"plan_type\": \"commercial_ca_dmhc\", \"imr_reference_ids\": [\"MN25-46141\"], \"ncd_mentions\": [], \"lcd_mentions\": [], \"code_mentions\": {\"icd10\": [], \"hcpcs_level2\": []}, \"method\": \"regex first pass; the intake agent confirms with structured output\"}\n{\"ReferenceID\": \"MN25-46141\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Ears/Nose/Throat\", \"DiagnosisSubCategory\": \"Hearing Problem/Loss\", \"TreatmentCategory\": \"Ear-Nose-Thro Proc\", \"TreatmentSubCategory\": \"Cochlear Implant\", \"Type\": \"Medical Necessity\", \"AgeRange\": \"51 to 64\", \"PatientGender\": \"Male\", \"IMRType\": \"Expedited\", \"request_text\": \"authorization and coverage for a cochlear implant device and a surgical implantation procedure\", \"source_url\": \"https://wpso.dmhc.ca.gov/imr/\", \"note\": \"outcome and reviewer Findings withheld (the agents must not see the decision of the case they are drafting for)\"}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-50.3:2\", \"doc_id\": \"NCD-50.3\", \"title\": \"Cochlear Implantation\", \"effective\": \"2022-09-26\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=245\", \"score\": 0.03279, \"text\": \"- Cognitive ability to use auditory clues and a willingness to undergo an extended program of rehabilitation;\\n\\n- Freedom from middle ear infection, an accessible cochlear lumen that is structurally suited to implantation, and freedom from lesions in the auditory nerve and acoustic areas of the central nervous system;\\n\\n- No contraindications to surgery; and\\n\\n- The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling.\\n\\n C. Nationally Non-Covered Indications \\n\\n Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.\\n\\n D. Other \\n\\n CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials as defined at 42 CFR 405.201 or as a routine cost in clinical trials under section 310.1 of the National Coverage Determinations Manual titled Routine Costs in Clinical Trials.\\n\\n (This NCD last reviewed September 2022)\"}, {\"id\": \"NCD-50.3:1\", \"doc_id\": \"NCD-50.3\", \"title\": \"Cochlear Implantation\", \"effective\": \"2022-09-26\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=245\", \"score\": 0.03226, \"text\": \"A. General \\n\\n A cochlear implant device is an electronic instrument, part of which is implanted surgically to stimulate auditory nerve fibers, and part of which is worn or carried by the individual to capture, analyze, and code sound. Cochlear implant devices are available in single-channel and multi-channel models. The purpose of implanting the device is to provide awareness and identification of sounds and to facilitate communication for persons who are moderately to profoundly hearing impaired.\\n\\nB. Nationally Covered Indications \\n\\n Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification. Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition. Patients must meet all of the following criteria.\\n\\n- Diagnosis of bilateral moderate-to-profound sensorineural hearing impairment with limited benefit from appropriate hearing (or vibrotactile) aids;\"}, {\"id\": \"NCD-310.1:3\", \"doc_id\": \"NCD-310.1\", \"title\": \"Routine Costs in Clinical Trials\", \"effective\": \"2024-05-27\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=1\", \"score\": 0.03055, \"text\": \"For non-covered items and services, including items and services for which Medicare payment is statutorily prohibited, Medicare only covers the treatment of complications arising from the delivery of the noncovered item or service and unrelated reasonable and necessary care. However, if the item or service is not covered by virtue of a national non-coverage policy in Pub. 100-03, National Coverage Determination (NCD) Manual, and is the focus of a qualifying clinical trial, the routine costs of the clinical trial (as defined above) will be covered by Medicare but the non-covered item or service, itself, will not.\\n\\n A. Requirements for Medicare Coverage of Routine Costs \\n\\n Any clinical trial receiving Medicare coverage of routine costs must meet the following three requirements:\\n\\n- The subject or purpose of the trial must be the evaluation of an item or service that falls within a Medicare benefit category (e.g., physicians' service, durable medical equipment, diagnostic test) and is not statutorily excluded from coverage (e.g., cosmetic surgery, hearing aids).\"}, {\"id\": \"NCD-150.3:1\", \"doc_id\": \"NCD-150.3\", \"title\": \"Bone (Mineral) Density Studies\", \"effective\": \"2007-01-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=256\", \"score\": 0.02903, \"text\": \"Conditions for coverage of BMMs are now contained in chapter 15, section 80.5 of Pub. 100-02, Medicare Benefit Policy Manual.\\n\\nConditions for coverage of bone mass measurements are now contained in chapter 15, section 80.5 of Pub. 100-02, Medicare Benefit Policy Manual . Claims processing instructions can be found in chapter 13, section 140 of Pub. 100-04, Medicare Claims Processing Manual .\"}]}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-50.3:1\", \"doc_id\": \"NCD-50.3\", \"title\": \"Cochlear Implantation\", \"effective\": \"2022-09-26\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=245\", \"score\": 0.03279, \"text\": \"A. General \\n\\n A cochlear implant device is an electronic instrument, part of which is implanted surgically to stimulate auditory nerve fibers, and part of which is worn or carried by the individual to capture, analyze, and code sound. Cochlear implant devices are available in single-channel and multi-channel models. The purpose of implanting the device is to provide awareness and identification of sounds and to facilitate communication for persons who are moderately to profoundly hearing impaired.\\n\\nB. Nationally Covered Indications \\n\\n Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification. Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition. Patients must meet all of the following criteria.\\n\\n- Diagnosis of bilateral moderate-to-profound sensorineural hearing impairment with limited benefit from appropriate hearing (or vibrotactile) aids;\"}, {\"id\": \"NCD-50.3:2\", \"doc_id\": \"NCD-50.3\", \"title\": \"Cochlear Implantation\", \"effective\": \"2022-09-26\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=245\", \"score\": 0.03226, \"text\": \"- Cognitive ability to use auditory clues and a willingness to undergo an extended program of rehabilitation;\\n\\n- Freedom from middle ear infection, an accessible cochlear lumen that is structurally suited to implantation, and freedom from lesions in the auditory nerve and acoustic areas of the central nervous system;\\n\\n- No contraindications to surgery; and\\n\\n- The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling.\\n\\n C. Nationally Non-Covered Indications \\n\\n Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.\\n\\n D. Other \\n\\n CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials as defined at 42 CFR 405.201 or as a routine cost in clinical trials under section 310.1 of the National Coverage Determinations Manual titled Routine Costs in Clinical Trials.\\n\\n (This NCD last reviewed September 2022)\"}, {\"id\": \"NCD-150.12:2\", \"doc_id\": \"NCD-150.12\", \"title\": \"Collagen Meniscus Implant\", \"effective\": \"2010-05-25\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=337\", \"score\": 0.0315, \"text\": \"The collagen meniscus implant (also referred to as collagen scaffold (CS), CMI or Menaflex\\u2122 meniscus implant throughout the published literature) is used to fill meniscal defects that result from partial meniscectomy. The collagen meniscus implant is not intended to replace the entire meniscus at it requires a meniscal rim for attachment. The literature describes the placement of the collagen meniscus implant through an arthroscopic procedure with an additional incision for capture of the repair needles and tying of the sutures. After debridement of the damaged meniscus, the implant is trimmed to the size of meniscal defect and sutured into place. The collagen meniscus implant is described as a tissue engineered scaffold to support the generation of new meniscus-like tissue. The collagen meniscus implant is manufactured from bovine collagen and should not be confused with the meniscus transplant which involves the replacement of the meniscus with a transplant meniscus from a cadaver donor. The meniscus transplant is not addressed under this national coverage determination.\\n\\nB. Nationally Covered Indications \\n\\n N/A\\n\\n C. Nationally Non-Covered Indications\"}, {\"id\": \"NCD-220.2:9\", \"doc_id\": \"NCD-220.2\", \"title\": \"Magnetic Resonance Imaging\", \"effective\": \"2018-04-10\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=177\", \"score\": 0.03126, \"text\": \"Studies have proven that MRA is effective for evaluating flow in internal carotid vessels of the head and neck. However, not all potential applications of MRA have been shown to be reasonable and necessary. All of the following criteria must apply in order for Medicare to provide coverage for MRA of the head and neck:\\n\\n- MRA is used to evaluate the carotid arteries, the circle of Willis, the anterior, middle or posterior cerebral arteries, the vertebral or basilar arteries or the venous sinuses;\\n\\n- MRA is performed on patients with conditions of the head and neck for which surgery is anticipated and may be found to be appropriate based on the MRA. These conditions include, but are not limited to, tumor, aneurysms, vascular malformations, vascular occlusion or thrombosis. Within this broad category of disorders, medical necessity is the underlying determinant of the need for an MRA in specific diseases. The medical records should clearly justify and demonstrate the existence of medical necessity; and\"}]}\n{\"backend\": \"local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf\", \"results\": [{\"id\": \"NCD-50.5:1\", \"doc_id\": \"NCD-50.5\", \"title\": \"Oxygen Treatment of Inner Ear/Carbon Therapy\", \"effective\": \"1978-08-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=43\", \"score\": 0.03279, \"text\": \"Oxygen (95 percent) and carbon dioxide (5 percent) inhalation therapy for inner ear disease, such as endolymphatic hydrops and fluctuant hearing loss, is not reasonable and necessary. The therapeutic benefit deriving from this procedure is highly questionable.\"}, {\"id\": \"NCD-50.3:1\", \"doc_id\": \"NCD-50.3\", \"title\": \"Cochlear Implantation\", \"effective\": \"2022-09-26\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=245\", \"score\": 0.03226, \"text\": \"A. General \\n\\n A cochlear implant device is an electronic instrument, part of which is implanted surgically to stimulate auditory nerve fibers, and part of which is worn or carried by the individual to capture, analyze, and code sound. Cochlear implant devices are available in single-channel and multi-channel models. The purpose of implanting the device is to provide awareness and identification of sounds and to facilitate communication for persons who are moderately to profoundly hearing impaired.\\n\\nB. Nationally Covered Indications \\n\\n Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification. Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition. Patients must meet all of the following criteria.\\n\\n- Diagnosis of bilateral moderate-to-profound sensorineural hearing impairment with limited benefit from appropriate hearing (or vibrotactile) aids;\"}, {\"id\": \"NCD-70.2.1:2\", \"doc_id\": \"NCD-70.2.1\", \"title\": \"Services Provided for the Diagnosis and Treatment of Diabetic Sensory Neuropathy with Loss of Protective Sensation (aka Diabetic Peripheral Neuropathy)\", \"effective\": \"2002-07-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=171\", \"score\": 0.03126, \"text\": \"Effective for services furnished on or after July 1, 2002, Medicare covers, as a physician service, an evaluation (examination and treatment) of the feet no more often than every six months for individuals with a documented diagnosis of diabetic sensory neuropathy and LOPS, as long as the beneficiary has not seen a foot care specialist for some other reason in the interim. LOPS shall be diagnosed through sensory testing with the 5.07 monofilament using established guidelines, such as those developed by the National Institute of Diabetes and Digestive and Kidney Diseases guidelines. Five sites should be tested on the plantar surface of each foot, according to the National Institute of Diabetes and Digestive and Kidney Diseases guidelines. The areas must be tested randomly since the loss of protective sensation may be patchy in distribution, and the patient may get clues if the test is done rhythmically. Heavily callused areas should be avoided\"}, {\"id\": \"NCD-20.8.1:1\", \"doc_id\": \"NCD-20.8.1\", \"title\": \"Cardiac Pacemaker Evaluation Services\", \"effective\": \"1984-10-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=160\", \"score\": 0.03126, \"text\": \"Medicare covers a variety of services for the post-implant follow-up and evaluation of implanted cardiac pacemakers. The following guidelines are designed to assist Medicare Administrative Contractors (MACs) in identifying and processing claims for such services.\\n\\nNOTE: These new guidelines are limited to lithium battery-powered pacemakers, because mercury-zinc battery-powered pacemakers are no longer being manufactured and virtually all have been replaced by lithium units. MACs still receiving claims for monitoring such units should continue to apply the guidelines published in 1980 to those units until they are replaced.\"}]}\n{\"scanned\": 2, \"flagged_local\": [], \"prompt_shields\": {\"status\": \"NOT_CONFIGURED\", \"service\": \"azure_content_safety_prompt_shields\"}, \"clean\": true}\n{\"criteria\": [{\"chunk_id\": \"NCD-50.3:1\", \"criterion\": \"Effective for services performed on or after September 26, 2022, cochlear implantation may be covered for treatment of bilateral pre- or post-linguistic, sensorineural, moderate-to-profound hearing loss in individuals who demonstrate limited benefit from amplification.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"cochlear\", \"hearing\", \"implantation\", \"loss\", \"treatment\"]}, {\"chunk_id\": \"NCD-50.3:1\", \"criterion\": \"Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition.\", \"status\": \"needs_documentation\", \"overlap_terms\": []}, {\"chunk_id\": \"NCD-50.3:1\", \"criterion\": \"Patients must meet all of the following criteria.\", \"status\": \"needs_documentation\", \"overlap_terms\": []}, {\"chunk_id\": \"NCD-50.3:2\", \"criterion\": \"The device must be used in accordance with Food and Drug Administration (FDA)-approved labeling.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"device\"]}, {\"chunk_id\": \"NCD-50.3:2\", \"criterion\": \"Medicare beneficiaries not meeting all of the coverage criteria for cochlear implantation listed in Section B are deemed not eligible for Medicare coverage except as described in Section D below.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"cochlear\", \"coverage\", \"implantation\"]}, {\"chunk_id\": \"NCD-50.3:2\", \"criterion\": \"CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials as defined at 42 CFR 405.201 or as a routine cost in clinical trials under section 310.1 of the National Coverage Determinations Manual titled Routine Costs in Clinical Trials.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"category\", \"cochlear\", \"coverage\", \"device\"]}], \"unknown_chunk_ids\": [], \"rule\": \"related_case_fact = the case facts mention >= 2 of the criterion's key terms; this is NOT a determination that it is met\"}\n{\"overturn_probability\": 0.4069, \"overturn_percent\": 40.7, \"band\": \"typical\", \"train_overturn_rate\": 0.4983, \"model\": \"hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation\", \"test_roc_auc\": 0.7556, \"test_brier\": 0.1814, \"treatment_category_unseen\": false, \"limit\": \"Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing.\"}\n{\"overturn_probability_text\": 0.3412, \"top_terms\": [{\"term\": \"implant\", \"weight\": -0.391}, {\"term\": \"cochlear\", \"weight\": -0.204}, {\"term\": \"coverage cochlear\", \"weight\": -0.202}, {\"term\": \"surgical implantation\", \"weight\": 0.165}, {\"term\": \"cochlear implant\", \"weight\": 0.143}, {\"term\": \"procedure\", \"weight\": -0.132}], \"test_roc_auc\": 0.7476, \"note\": \"TF-IDF + LR on the request sentence only; a signal, not a verdict\"}\n{\"filters\": {\"before_year\": 2025, \"TreatmentCategory\": \"Ear-Nose-Thro Proc\", \"Type\": \"Medical Necessity\"}, \"n\": 217, \"overturned\": 114, \"overturn_rate\": 0.5253, \"overturn_percent\": 52.5, \"wilson_ci95\": [0.459, 0.5908], \"years\": [2001, 2024], \"last_3_years\": {\"n\": 69, \"overturn_percent\": 79.7}, \"headline\": \"114 of 217 published IMRs (TreatmentCategory = Ear-Nose-Thro Proc, Type = Medical Necessity, decided before 2025) overturned the plan (52.5%).\", \"caveat\": \"descriptive rate of past published reviews; not a prediction for any one case\"}\n{\"results\": [{\"reference_id\": \"MN22-38353\", \"year\": 2022, \"determination\": \"Upheld Decision of Health Plan\", \"treatment\": \"Ear-Nose-Thro Proc / Cochlear Implant\", \"diagnosis\": \"Ears/Nose/Throat / Hearing Problem/Loss\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage a cochlear implant consultation\", \"similarity\": 0.494, \"findings_excerpt\": null}, {\"reference_id\": \"MN22-36974\", \"year\": 2022, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Ear-Nose-Thro Proc / Cochlear Implant\", \"diagnosis\": \"Ears/Nose/Throat / Hearing Problem/Loss\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for a cochlear implant\", \"similarity\": 0.476, \"findings_excerpt\": null}, {\"reference_id\": \"MN21-34875\", \"year\": 2021, \"determination\": \"Upheld Decision of Health Plan\", \"treatment\": \"Ear-Nose-Thro Proc / Cochlear Implant\", \"diagnosis\": \"Ears/Nose/Throat / Hearing Problem/Loss\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for cochlear implant procedure on the left side (CPT 95927, 95940, 69930, 69990 and HCPCS L8614)\", \"similarity\": 0.441, \"findings_excerpt\": null}, {\"reference_id\": \"MN22-37503\", \"year\": 2022, \"determination\": \"Upheld Decision of Health Plan\", \"treatment\": \"Ear-Nose-Thro Proc / Cochlear Implant\", \"diagnosis\": \"Ears/Nose/Throat / Hearing Problem/Loss\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for a cochlear implant in the left ear\", \"similarity\": 0.423, \"findings_excerpt\": null}], \"filters\": {\"before_year\": 2025, \"exclude_id\": \"MN25-46141\", \"treatment_category\": null}, \"note\": \"published, de-identified CA DMHC IMR decisions; cite as [IMR-<reference_id>]\"}\nPublished CA DMHC Independent Medical Review case MN25-46141 (2025). The health plan denied a request for authorization and coverage for a cochlear implant device and a surgical implantation procedure. Denial type: Medical Necessity (the plan considered it not medically necessary). Diagnosis category: Ears/Nose/Throat / Hearing Problem/Loss. Treatment category: Ear-Nose-Thro Proc / Cochlear Implant. Review type: Expedited. Age range: 51 to 64. Gender: Male.\n{\"ReferenceID\": \"MN25-46141\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Ears/Nose/Throat\", \"DiagnosisSubCategory\": \"Hearing Problem/Loss\", \"TreatmentCategory\": \"Ear-Nose-Thro Proc\", \"TreatmentSubCategory\": \"Cochlear Implant\", \"Type\": \"Medical Necessity\", \"IMRType\": \"Expedited\", \"AgeRange\": \"51 to 64\", \"PatientGender\": \"Male\", \"request_text\": \"authorization and coverage for a cochlear implant device and a surgical implantation procedure\"}\nprecedent counts (code-derived): 4 1 3",
+  "injection": {
+   "input_clean": true,
+   "documents_clean": true
+  },
+  "red_team": {
+   "verdict": "pass",
+   "issues": [],
+   "dropped_unverifiable": 0,
+   "dropped": []
+  }
+ },
+ "spans": [
+  {
+   "name": "mcp.tools/call.parse_denial",
+   "start": 1794750546.490035,
+   "end": 1794750546.4939735,
+   "attrs": {
+    "agent": "intake",
+    "tool": "parse_denial",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.get_imr_case",
+   "start": 1794750546.4940183,
+   "end": 1794750546.6077716,
+   "attrs": {
+    "agent": "intake",
+    "tool": "get_imr_case",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.intake",
+   "start": 1794750546.6105568,
+   "end": 1794750549.9784038,
+   "attrs": {
+    "agent": "intake",
+    "model": "gpt-4o-mini",
+    "input_tokens": 950,
+    "output_tokens": 179,
+    "cost_usd": 0.0002499
+   }
+  },
+  {
+   "name": "llm.planner",
+   "start": 1794750549.9812539,
+   "end": 1794750552.9858046,
+   "attrs": {
+    "agent": "planner",
+    "model": "gpt-4o-mini",
+    "input_tokens": 436,
+    "output_tokens": 161,
+    "cost_usd": 0.000162
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750552.9876626,
+   "end": 1794750555.4327073,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 282,
+    "output_tokens": 83,
+    "cost_usd": 9.21e-05
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750555.4327562,
+   "end": 1794750556.6623223,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750556.662511,
+   "end": 1794750556.7225356,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794750556.7227046,
+   "end": 1794750556.7805932,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750556.7807412,
+   "end": 1794750563.3575778,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 3789,
+    "output_tokens": 366,
+    "cost_usd": 0.000788
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794750563.359072,
+   "end": 1794750565.3753371,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 4314,
+    "output_tokens": 88,
+    "cost_usd": 0.0006999
+   }
+  },
+  {
+   "name": "mcp.tools/call.scan_documents",
+   "start": 1794750565.3754191,
+   "end": 1794750565.3838716,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "scan_documents",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.match_coverage_criteria",
+   "start": 1794750565.38566,
+   "end": 1794750565.3900304,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "tool": "match_coverage_criteria",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.criteria_matcher",
+   "start": 1794750565.39089,
+   "end": 1794750570.6979918,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "model": "gpt-4o-mini",
+    "input_tokens": 838,
+    "output_tokens": 432,
+    "cost_usd": 0.0003849
+   }
+  },
+  {
+   "name": "mcp.tools/call.score_overturn_likelihood",
+   "start": 1794750570.7010448,
+   "end": 1794750570.8542364,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "score_overturn_likelihood",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.classify_request_text",
+   "start": 1794750570.8542812,
+   "end": 1794750570.9129748,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "classify_request_text",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.cohort_stats",
+   "start": 1794750570.9130154,
+   "end": 1794750570.9575772,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "cohort_stats",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_imr_precedent",
+   "start": 1794750570.9576163,
+   "end": 1794750571.5465388,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "search_imr_precedent",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.appeal_writer",
+   "start": 1794750571.5523295,
+   "end": 1794750581.8469052,
+   "attrs": {
+    "agent": "appeal_writer",
+    "model": "gpt-4o-mini",
+    "input_tokens": 2539,
+    "output_tokens": 630,
+    "cost_usd": 0.0007588
+   }
+  },
+  {
+   "name": "llm.verifier",
+   "start": 1794750581.8863387,
+   "end": 1794750583.0133886,
+   "attrs": {
+    "agent": "verifier",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1700,
+    "output_tokens": 9,
+    "cost_usd": 0.0002604
+   }
+  },
+  {
+   "name": "mcp.tools/call.confirm_red_team",
+   "start": 1794750583.013482,
+   "end": 1794750583.0179217,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "confirm_red_team",
+    "ok": true
+   }
+  }
+ ]
+}
