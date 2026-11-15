@@ -6,7 +6,24 @@ param tags object
 param token string
 param appImage string
 param openAiCapacity int
+@description('gpt-4o-mini 2024-07-18 rejects new GlobalStandard (ServiceModelDeprecating) and Standard (ServiceModelDeprecated) deployments since 2026; DataZoneStandard still accepts them')
+@allowed(['DataZoneStandard', 'GlobalStandard', 'Standard'])
+param openAiSku string = 'DataZoneStandard'
 param principalId string
+
+@description('false where gpt-4o-mini cannot be deployed (e.g. ServiceModelDeprecating): the app then calls gpt-4o-mini through the OpenAI-compatible Vocareum endpoint, key in Key Vault secret OPENAI-API-KEY')
+param deployOpenAi bool = true
+@description('OpenAI-compatible base URL used when deployOpenAi is false')
+param openAiCompatibleBase string = 'https://openai.vocareum.com/v1'
+@allowed(['free', 'basic', 'standard'])
+param searchSku string = 'basic'
+@description('false on the first pass so Key Vault secrets can be written before the Container Apps reference them')
+param deployApps bool = true
+@description('also deploy the FastAPI service as a second public Container App (X-API-Key auth)')
+param deployApi bool = true
+@description('Container image for the API app (same image, uvicorn command)')
+param apiImage string = appImage
+param purgeProtection bool = true
 
 var roles = {
   openAiUser: '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'      // Cognitive Services OpenAI User
@@ -64,10 +81,11 @@ resource project 'Microsoft.CognitiveServices/accounts/projects@2025-06-01' = {
   properties: { displayName: 'ClaimGuard', description: 'Cited appeal drafts and denial-risk briefs (gpt-4o-mini)' }
 }
 
-resource gpt4oMini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+resource gpt4oMini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = if (deployOpenAi) {
   parent: foundry
   name: 'gpt-4o-mini'
-  sku: { name: 'GlobalStandard', capacity: openAiCapacity }
+  dependsOn: [project]   // two concurrent writes on the same Foundry account fail with RequestConflict
+  sku: { name: openAiSku, capacity: openAiCapacity }
   properties: {
     model: { format: 'OpenAI', name: 'gpt-4o-mini', version: '2024-07-18' }
     versionUpgradeOption: 'NoAutoUpgrade'
@@ -78,11 +96,11 @@ resource search 'Microsoft.Search/searchServices@2023-11-01' = {
   name: 'srch-claimguard-${token}'
   location: location
   tags: tags
-  sku: { name: 'basic' }
+  sku: { name: searchSku }
   properties: {
     replicaCount: 1
     partitionCount: 1
-    semanticSearch: 'free'
+    semanticSearch: searchSku == 'free' ? null : 'free'
     authOptions: { aadOrApiKey: { aadAuthFailureMode: 'http401WithBearerChallenge' } }
   }
 }
@@ -122,7 +140,7 @@ resource vault 'Microsoft.KeyVault/vaults@2023-07-01' = {
     enableRbacAuthorization: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 7
-    enablePurgeProtection: true
+    enablePurgeProtection: purgeProtection ? true : null
   }
 }
 
@@ -178,7 +196,7 @@ resource raUserSearch 'Microsoft.Authorization/roleAssignments@2022-04-01' = if 
 }
 
 // ---- Container Apps: Streamlit app (public) with the API and HTTP MCP server reachable inside the environment
-resource env 'Microsoft.App/managedEnvironments@2024-03-01' = {
+resource env 'Microsoft.App/managedEnvironments@2024-03-01' = if (deployApps) {
   name: 'cae-claimguard-${token}'
   location: location
   tags: tags
@@ -190,12 +208,18 @@ resource env 'Microsoft.App/managedEnvironments@2024-03-01' = {
   }
 }
 
-var commonEnv = [
+var llmEnv = deployOpenAi ? [
   { name: 'CG_LLM_PROVIDER', value: 'azure' }
   { name: 'AZURE_OPENAI_ENDPOINT', value: foundry.properties.endpoints['OpenAI Language Model Instance API'] }
-  { name: 'AZURE_OPENAI_DEPLOYMENT', value: gpt4oMini.name }
+  { name: 'AZURE_OPENAI_DEPLOYMENT', value: 'gpt-4o-mini' }
   { name: 'AZURE_OPENAI_MODEL', value: 'gpt-4o-mini' }
   { name: 'AZURE_OPENAI_API_VERSION', value: '2024-10-21' }
+] : [
+  { name: 'CG_LLM_PROVIDER', value: 'vocareum' }
+  { name: 'OPENAI_API_BASE', value: openAiCompatibleBase }
+  { name: 'OPENAI_API_KEY', secretRef: 'openai-api-key' }
+]
+var commonEnv = concat(llmEnv, [
   { name: 'AZURE_CONTENT_SAFETY_ENDPOINT', value: foundry.properties.endpoint }
   { name: 'AZURE_SEARCH_ENDPOINT', value: 'https://${search.name}.search.windows.net' }
   { name: 'AZURE_SEARCH_INDEX', value: 'claimguard-policy' }
@@ -206,14 +230,16 @@ var commonEnv = [
   { name: 'APPLICATIONINSIGHTS_CONNECTION_STRING', secretRef: 'appinsights-connection-string' }
   { name: 'CG_RECEIPT_KEY', secretRef: 'cg-receipt-key' }
   { name: 'CG_API_KEY', secretRef: 'cg-api-key' }
-]
-var commonSecrets = [
+])
+var commonSecrets = concat([
   { name: 'appinsights-connection-string', value: appInsights.properties.ConnectionString }
   { name: 'cg-receipt-key', keyVaultUrl: '${vault.properties.vaultUri}secrets/CG-RECEIPT-KEY', identity: identity.id }
   { name: 'cg-api-key', keyVaultUrl: '${vault.properties.vaultUri}secrets/CG-API-KEY', identity: identity.id }
-]
+], deployOpenAi ? [] : [
+  { name: 'openai-api-key', keyVaultUrl: '${vault.properties.vaultUri}secrets/OPENAI-API-KEY', identity: identity.id }
+])
 
-resource app 'Microsoft.App/containerApps@2024-03-01' = {
+resource app 'Microsoft.App/containerApps@2024-03-01' = if (deployApps) {
   name: 'ca-cg-${token}'
   location: location
   tags: union(tags, { 'azd-service-name': 'app' })
@@ -240,11 +266,42 @@ resource app 'Microsoft.App/containerApps@2024-03-01' = {
   }
 }
 
+// FastAPI service (same image): POST /v1/appeals runs a case end to end; X-API-Key = Key Vault secret CG-API-KEY
+resource api 'Microsoft.App/containerApps@2024-03-01' = if (deployApps && deployApi) {
+  name: 'ca-cg-api-${token}'
+  location: location
+  tags: union(tags, { 'azd-service-name': 'api' })
+  identity: { type: 'UserAssigned', userAssignedIdentities: { '${identity.id}': {} } }
+  dependsOn: [raKv, raAcr]
+  properties: {
+    managedEnvironmentId: env.id
+    configuration: {
+      ingress: { external: true, targetPort: 8000, transport: 'auto' }
+      registries: [{ server: registry.properties.loginServer, identity: identity.id }]
+      secrets: commonSecrets
+    }
+    template: {
+      containers: [
+        {
+          name: 'api'
+          image: apiImage
+          command: ['uvicorn', 'api.main:app', '--host', '0.0.0.0', '--port', '8000']
+          resources: { cpu: json('1.0'), memory: '2Gi' }
+          env: commonEnv
+        }
+      ]
+      scale: { minReplicas: 0, maxReplicas: 2, rules: [{ name: 'http', http: { metadata: { concurrentRequests: '10' } } }] }
+    }
+  }
+}
+
 output openAiEndpoint string = foundry.properties.endpoints['OpenAI Language Model Instance API']
-output openAiDeployment string = gpt4oMini.name
+output openAiDeployment string = deployOpenAi ? 'gpt-4o-mini' : ''
 output projectName string = project.name
 output searchEndpoint string = 'https://${search.name}.search.windows.net'
 output blobEndpoint string = storage.properties.primaryEndpoints.blob
 output keyVaultUri string = vault.properties.vaultUri
 output registryLoginServer string = registry.properties.loginServer
-output appUrl string = 'https://${app.properties.configuration.ingress.fqdn}'
+output appUrl string = deployApps ? 'https://${app!.properties.configuration.ingress.fqdn}' : ''
+output apiUrl string = deployApps && deployApi ? 'https://${api!.properties.configuration.ingress.fqdn}' : ''
+output identityPrincipalId string = identity.properties.principalId

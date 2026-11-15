@@ -1,0 +1,909 @@
+{
+ "kind": "live_e2e",
+ "reference_id": "MN25-45854",
+ "provider": "azure",
+ "model": "gpt-4o-mini",
+ "status": "awaiting_human_signoff",
+ "reason": null,
+ "latency_s": 47.33,
+ "cost": {
+  "model": "gpt-4o-mini",
+  "llm_calls": 8,
+  "tool_calls": 12,
+  "input_tokens": 14970,
+  "output_tokens": 2343,
+  "cached_input_tokens": 1024,
+  "cost_usd": 0.003574,
+  "rates_usd_per_1m": {
+   "input": 0.15,
+   "output": 0.6
+  },
+  "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+ },
+ "check_status": {
+  "disclaimer_present": "PASS",
+  "citations_exist": "PASS",
+  "citations_retrieved": "PASS",
+  "quotes_verbatim": "PASS",
+  "numbers_grounded": "PASS",
+  "risk_matches_model": "PASS",
+  "checklist_complete": "PASS",
+  "no_phi_in_output": "PASS",
+  "no_authority_or_guarantee": "PASS",
+  "injection_scan_clean": "PASS",
+  "red_team_pass": "PASS",
+  "within_budget": "PASS"
+ },
+ "failed": [],
+ "unrun": [],
+ "details": {
+  "citations": [
+   "IMR-MN23-40259",
+   "IMR-MN24-43130",
+   "NCD-280.14:2",
+   "NCD-280.14:5"
+  ],
+  "unknown_citations": [],
+  "citations_not_retrieved": [],
+  "bad_quotes": [],
+  "ungrounded_numbers": [],
+  "missing_checklist_items": [],
+  "phi_types": [],
+  "authority_or_guarantee": [],
+  "output_injection_patterns": [],
+  "red_team_issues": [],
+  "stage": "final",
+  "not_run": []
+ },
+ "receipt": {
+  "product": "ClaimGuard",
+  "version": "0.1.0",
+  "run_id": "40c47e8f4c4646abbe9ace1d8113094e",
+  "status": "awaiting_human_signoff",
+  "block_reason": null,
+  "contract_sha256": "bac632d67bb442bcae8f747036236a001ad71e4555d040710746b6c7e3089391",
+  "git_sha": "d4fa1f77ea676aa903baae89917f3ffcd5dd208d",
+  "git_dirty": true,
+  "feed_versions": {
+   "dfs.parquet": "be70b8cff0ebe988",
+   "imr_findings_recent.parquet": "ed48a6c08fe952fd",
+   "imr_slim.parquet": "4a256478c9e25246",
+   "ncd.parquet": "f998522455c83362"
+  },
+  "provider": "azure",
+  "model": "gpt-4o-mini",
+  "input_sha256": "57d70402a5067cd9ac00c8dba2e9269732b1c055738fbf0ee6764ad6c10f26b7",
+  "draft_sha256": "e27ee5959def9c135c37447e1cdca2beba468613dff55dc3b758f92f0bb7cb99",
+  "trace_sha256": "6cf8d5d52909e91a8796833ab004f7f29b98cc6bb2fbdcf9e636c76e25fd6273",
+  "check_status": {
+   "disclaimer_present": "PASS",
+   "citations_exist": "PASS",
+   "citations_retrieved": "PASS",
+   "quotes_verbatim": "PASS",
+   "numbers_grounded": "PASS",
+   "risk_matches_model": "PASS",
+   "checklist_complete": "PASS",
+   "no_phi_in_output": "PASS",
+   "no_authority_or_guarantee": "PASS",
+   "injection_scan_clean": "PASS",
+   "red_team_pass": "PASS",
+   "within_budget": "PASS"
+  },
+  "unrun_checks": [],
+  "failed_checks": [],
+  "human_signoff": null,
+  "cost": {
+   "model": "gpt-4o-mini",
+   "llm_calls": 8,
+   "tool_calls": 12,
+   "input_tokens": 14970,
+   "output_tokens": 2343,
+   "cached_input_tokens": 1024,
+   "cost_usd": 0.003574,
+   "rates_usd_per_1m": {
+    "input": 0.15,
+    "output": 0.6
+   },
+   "pricing_source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy"
+  },
+  "latency_s": 46.9,
+  "case_reference": "MN25-45854",
+  "key_id": "ephemeral:9602367b",
+  "algorithm": "HMAC-SHA256",
+  "signed_at": "2026-11-15T16:09:47+0000",
+  "signature": "05c4183a4a93f218281534968d2c4855624dc41bc947d84891702be530567a21"
+ },
+ "receipt_verifies": true,
+ "risk": {
+  "overturn_probability": 0.6767,
+  "overturn_percent": 67.7,
+  "band": "above_typical",
+  "train_overturn_rate": 0.4983,
+  "model": "hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation",
+  "test_roc_auc": 0.7556,
+  "test_brier": 0.1814,
+  "treatment_category_unseen": false,
+  "limit": "Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing."
+ },
+ "signals": {
+  "text_model": {
+   "overturn_probability_text": 0.789,
+   "top_terms": [
+    {
+     "term": "tandem",
+     "weight": 0.356
+    },
+    {
+     "term": "coverage tandem",
+     "weight": 0.287
+    },
+    {
+     "term": "insulin pump",
+     "weight": 0.284
+    },
+    {
+     "term": "mobi",
+     "weight": 0.171
+    },
+    {
+     "term": "ambulatory",
+     "weight": 0.126
+    },
+    {
+     "term": "external",
+     "weight": -0.122
+    }
+   ],
+   "test_roc_auc": 0.7476,
+   "note": "TF-IDF + LR on the request sentence only; a signal, not a verdict"
+  },
+  "cohort": {
+   "filters": {
+    "before_year": 2025,
+    "TreatmentCategory": "Pharmacy",
+    "Type": "Medical Necessity"
+   },
+   "n": 9248,
+   "overturned": 5422,
+   "overturn_rate": 0.5863,
+   "overturn_percent": 58.6,
+   "wilson_ci95": [
+    0.5762,
+    0.5963
+   ],
+   "years": [
+    2001,
+    2024
+   ],
+   "last_3_years": {
+    "n": 2155,
+    "overturn_percent": 73.6
+   },
+   "headline": "5422 of 9248 published IMRs (TreatmentCategory = Pharmacy, Type = Medical Necessity, decided before 2025) overturned the plan (58.6%).",
+   "caveat": "descriptive rate of past published reviews; not a prediction for any one case"
+  },
+  "features": {
+   "DiagnosisCategory": "Endocrine/Metabolic",
+   "DiagnosisSubCategory": "Diabetes",
+   "TreatmentCategory": "Pharmacy",
+   "TreatmentSubCategory": "Insulin Pump",
+   "Type": "Medical Necessity",
+   "IMRType": "Expedited",
+   "AgeRange": "11 to 20",
+   "PatientGender": "Female"
+  }
+ },
+ "precedents": [
+  "MN21-35560",
+  "MN23-40259",
+  "MN24-43130",
+  "MN21-35225"
+ ],
+ "precedent_rows": [
+  {
+   "reference_id": "MN21-35560",
+   "year": 2021,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Pharmacy / Insulin Pump",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for Tandem insulin pump",
+   "similarity": 0.538,
+   "findings_excerpt": null
+  },
+  {
+   "reference_id": "MN23-40259",
+   "year": 2023,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Pharmacy / Insulin Pump",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for Tandem X2 insulin pump and accessories",
+   "similarity": 0.521,
+   "findings_excerpt": "Findings:  The physician reviewer found that The patient has requested authorization and coverage for Tandem X2 insulin pump and accessories. In a study comparing the metabolic control of pediatric patients with type 1 diabetes treated with continuous subcutaneous insulin infusion (CSII) versus MDI, the authors noted that the patients who were treated with CSII achieved relatively good metabolic control. Another study compared the rates of microvascular complications in pediatric patients with type 1 diabetes treated with CSII versus MDI. The authors found that \u201cCSII use is associated with low..."
+  },
+  {
+   "reference_id": "MN24-43130",
+   "year": 2024,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "DME / Glucose Monitor",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump",
+   "similarity": 0.462,
+   "findings_excerpt": "Findings:  The physician reviewer found that Nature of Statutory Criteria/Case Summary: A patient has requested authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump. The Tandem Mobi pump is a U.S. Food and Drug Administration (FDA)-approved device which is widely used to manage type 1 diabetes. While this patient\u2019s type 1 diabetes is controlled, she has reported hypoglycemia and hypoglycemia symptoms. She prefers the convenience of an insulin pump, and her provider has recommended one to mitigate risk of hypoglycemia. According to both the Americ..."
+  },
+  {
+   "reference_id": "MN21-35225",
+   "year": 2021,
+   "determination": "Overturned Decision of Health Plan",
+   "treatment": "Pharmacy / Insulin Pump",
+   "diagnosis": "Endocrine/Metabolic / Diabetes",
+   "type": "Medical Necessity",
+   "request": "authorization and coverage for Tandem T:Slim X2 Insulin Pump",
+   "similarity": 0.449,
+   "findings_excerpt": null
+  }
+ ],
+ "policy_selected": [
+  {
+   "chunk_id": "NCD-280.14:2",
+   "relevance": "This excerpt outlines the coverage criteria for continuous subcutaneous insulin infusion (CSII) pumps, which are relevant for the Tandem Mobi external ambulatory insulin pump."
+  },
+  {
+   "chunk_id": "NCD-280.14:5",
+   "relevance": "This excerpt specifies the requirement for physician management and a knowledgeable care team for patients using CSII, which is critical for coverage."
+  },
+  {
+   "chunk_id": "NCD-40.7:3",
+   "relevance": "This excerpt discusses the non-coverage of outpatient intravenous insulin treatment, providing context for the coverage of other insulin delivery methods."
+  },
+  {
+   "chunk_id": "NCD-40.1:1",
+   "relevance": "This excerpt refers to the conditions for Medicare coverage of diabetes outpatient self-management training, which may relate to the overall management of diabetes treatment."
+  }
+ ],
+ "criteria": {
+  "criteria": [
+   {
+    "chunk_id": "NCD-280.14:2",
+    "criterion_quote": "Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who:",
+    "status": "supported_by_case_facts",
+    "note": "The case facts mention diabetes and insulin pump treatment."
+   },
+   {
+    "chunk_id": "NCD-280.14:2",
+    "criterion_quote": "(1) either meet the updated fasting C-Peptide testing requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as described below.",
+    "status": "needs_documentation",
+    "note": "Documentation is needed to confirm specific criteria for insulin pump therapy."
+   },
+   {
+    "chunk_id": "NCD-280.14:5",
+    "criterion_quote": "The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII.",
+    "status": "supported_by_case_facts",
+    "note": "The case facts imply a need for physician management of the insulin pump."
+   },
+   {
+    "chunk_id": "NCD-280.14:5",
+    "criterion_quote": "Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment.",
+    "status": "supported_by_case_facts",
+    "note": "The case facts indicate treatment with an insulin pump."
+   },
+   {
+    "chunk_id": "NCD-40.1:1",
+    "criterion_quote": "Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.",
+    "status": "needs_documentation",
+    "note": "Documentation is needed to verify conditions for Medicare coverage."
+   }
+  ]
+ },
+ "route": [
+  "policy_retriever",
+  "criteria_matcher",
+  "risk_analyst",
+  "appeal_writer",
+  "verifier",
+  "FINISH"
+ ],
+ "revisions": 0,
+ "red_team": {
+  "verdict": "pass",
+  "issues": [],
+  "dropped_unverifiable": 4,
+  "dropped": [
+   "rule 2: \"[NCD-280.14:2]\"",
+   "rule 2: \"[NCD-280.14:2]\"",
+   "rule 2: \"[NCD-280.14:5]\"",
+   "rule 2: \"[NCD-280.14:5]\""
+  ],
+  "llm_verdict": "fail"
+ },
+ "draft_md": "# Appeal letter (DRAFT for human review)\n\n**Re:** Appeal for Authorization and Coverage of Tandem Mobi External Ambulatory Insulin Pump\n\n**Requested service:** Authorization and coverage for a Tandem Mobi external ambulatory insulin pump\n\n**Denial basis:** Medical Necessity\n\nI am writing to appeal the denial of authorization and coverage for a Tandem Mobi external ambulatory insulin pump. This appeal is submitted on behalf of the patient, who requires this device for effective diabetes management.\n\nThe policy states that continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who: (1) either meet the updated fasting C-Peptide testing requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as described below. [NCD-280.14:2]\n\nIt is essential to document whether the patient meets the updated fasting C-Peptide testing requirement or is beta cell autoantibody positive, as this is a critical criterion for coverage. [NCD-280.14:2]\n\nThe policy also requires that the pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII. [NCD-280.14:5]\n\nAdditionally, payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment. [NCD-280.14:5]\n\n**Coverage criteria cited:**\n- \"Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who:\" [NCD-280.14:2] - This policy supports the need for the insulin pump as part of diabetes management.\n- \"The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII.\" [NCD-280.14:5] - This policy emphasizes the importance of physician management for the insulin pump.\n- \"Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment.\" [NCD-280.14:5] - This policy indicates that necessary drugs for the pump are covered.\n\n**Published independent-review precedents:**\n- [IMR-MN24-43130] Overturned Decision of Health Plan for authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump.\n- [IMR-MN23-40259] Overturned Decision of Health Plan for authorization and coverage for Tandem X2 insulin pump and accessories.\n\n**Requested action:** I request that the health plan review the treating clinician's documentation against the criteria for coverage of the Tandem Mobi external ambulatory insulin pump.\n\nSincerely,\n[Patient or authorized representative - to be completed by the human reviewer]\n\n## Denial-risk brief\n\n**Model signal:** The overturn model gives 67.7% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.\n\n- **Text-model signal (P4, request sentence only):** 78.9% (TF-IDF + logistic regression, test ROC-AUC 0.7476)\n- **Published cohort (P2):** 5422 of 9248 published IMRs (TreatmentCategory = Pharmacy, Type = Medical Necessity, decided before 2025) overturned the plan (58.6%). Wilson 95% CI 57.6% to 59.6%.\n- **Overturn model (P3):** hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation, test ROC-AUC 0.7556, Brier 0.1814.\n- **Closest published precedents:** 4 retrieved (decided before 2025): 4 overturned, 0 upheld.\n- **Policy basis:** NCD-280.14 Infusion Pumps; NCD-40.1 Diabetes Outpatient Self-Management Training; NCD-40.7 Outpatient Intravenous Insulin Treatment\n- **Limits:** association statistics from past published reviews in California commercial plans; they do not know the clinical record and are not a prediction for this appeal.\n\n## Questions for the human reviewer\n\n- What specific clinical criteria were used to determine medical necessity for this case?\n- What are the details of the patient's diabetes management plan?\n- Is there evidence of previous treatments and their outcomes?\n- Does the treating clinician's documentation confirm that the patient meets the updated fasting C-Peptide testing requirement or is beta cell autoantibody positive?\n- Is there documentation that the pump is ordered by a qualified physician managing multiple patients with CSII?\n\n## Disclaimer\n\nClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provider or a Medicare contractor, and it does not file, submit or send appeals. A qualified human (the patient or their authorized representative, with their clinician or a licensed advocate) must review and edit this draft before it is used. Statistics describe past published reviews and do not predict the outcome of any individual appeal.\n",
+ "intake": {
+  "service": "authorization and coverage for a Tandem Mobi external ambulatory insulin pump",
+  "denial_basis": "medical_necessity",
+  "treatment_category": "Pharmacy",
+  "case_facts": [
+   "The health plan denied a request for authorization and coverage for a Tandem Mobi external ambulatory insulin pump.",
+   "Denial type: Medical Necessity.",
+   "Diagnosis category: Endocrine/Metabolic / Diabetes.",
+   "Treatment category: Pharmacy / Insulin Pump.",
+   "Review type: Expedited.",
+   "Age range: 11 to 20.",
+   "Gender: Female."
+  ],
+  "search_queries": [
+   "Medicare coverage policy for insulin pumps",
+   "Medicare NCD for diabetes treatment",
+   "Medicare coverage for ambulatory insulin delivery systems"
+  ],
+  "missing_information": [
+   "Specific clinical criteria used to determine medical necessity",
+   "Details on the patient's diabetes management plan",
+   "Evidence of previous treatments and their outcomes"
+  ]
+ },
+ "plan": {
+  "steps": [
+   {
+    "agent": "policy_retriever",
+    "goal": "Retrieve the relevant Medicare coverage policy for insulin pumps."
+   },
+   {
+    "agent": "criteria_matcher",
+    "goal": "Match the case facts with the specific clinical criteria for medical necessity."
+   },
+   {
+    "agent": "risk_analyst",
+    "goal": "Analyze the risks associated with the denial based on the patient's diabetes management plan and previous treatments."
+   },
+   {
+    "agent": "appeal_writer",
+    "goal": "Draft an appeal letter addressing the denial and including supporting evidence."
+   },
+   {
+    "agent": "verifier",
+    "goal": "Verify all information and ensure the appeal is complete before submission."
+   }
+  ],
+  "watch_outs": [
+   "Missing specific clinical criteria may weaken the appeal.",
+   "Insufficient evidence of previous treatments may lead to further denial.",
+   "Ensure compliance with expedited review timelines."
+  ]
+ },
+ "trace": [
+  {
+   "agent": "input_guard",
+   "type": "guard",
+   "allowed": true,
+   "reason": "ok",
+   "prompt_shields": "NOT_CONFIGURED"
+  },
+  {
+   "agent": "intake",
+   "type": "structured",
+   "output": {
+    "service": "authorization and coverage for a Tandem Mobi external ambulatory insulin pump",
+    "denial_basis": "medical_necessity",
+    "treatment_category": "Pharmacy",
+    "case_facts": [
+     "The health plan denied a request for authorization and coverage for a Tandem Mobi external ambulatory insulin pump.",
+     "Denial type: Medical Necessity.",
+     "Diagnosis category: Endocrine/Metabolic / Diabetes.",
+     "Treatment category: Pharmacy / Insulin Pump.",
+     "Review type: Expedited.",
+     "Age range: 11 to 20.",
+     "Gender: Female."
+    ],
+    "search_queries": [
+     "Medicare coverage policy for insulin pumps",
+     "Medicare NCD for diabetes treatment",
+     "Medicare coverage for ambulatory insulin delivery systems"
+    ],
+    "missing_information": [
+     "Specific clinical criteria used to determine medical necessity",
+     "Details on the patient's diabetes management plan",
+     "Evidence of previous treatments and their outcomes"
+    ]
+   }
+  },
+  {
+   "agent": "planner",
+   "type": "plan",
+   "plan": {
+    "steps": [
+     {
+      "agent": "policy_retriever",
+      "goal": "Retrieve the relevant Medicare coverage policy for insulin pumps."
+     },
+     {
+      "agent": "criteria_matcher",
+      "goal": "Match the case facts with the specific clinical criteria for medical necessity."
+     },
+     {
+      "agent": "risk_analyst",
+      "goal": "Analyze the risks associated with the denial based on the patient's diabetes management plan and previous treatments."
+     },
+     {
+      "agent": "appeal_writer",
+      "goal": "Draft an appeal letter addressing the denial and including supporting evidence."
+     },
+     {
+      "agent": "verifier",
+      "goal": "Verify all information and ensure the appeal is complete before submission."
+     }
+    ],
+    "watch_outs": [
+     "Missing specific clinical criteria may weaken the appeal.",
+     "Insufficient evidence of previous treatments may lead to further denial.",
+     "Ensure compliance with expedited review timelines."
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "policy_retriever",
+   "eligible": [
+    "policy_retriever",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage policy for insulin pumps\", \"k\": 4})",
+   "observation": [
+    "NCD-280.14:9",
+    "NCD-280.14:2",
+    "NCD-280.14:5",
+    "NCD-40.7:3"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare NCD for diabetes treatment\", \"k\": 4})",
+   "observation": [
+    "NCD-180.1:1",
+    "NCD-40.1:1",
+    "NCD-40.5:1",
+    "NCD-210.2.1:2"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 1,
+   "thought": "(no thought text)",
+   "action": "search_coverage_policy({\"query\": \"Medicare coverage for ambulatory insulin delivery systems\", \"k\": 4})",
+   "observation": [
+    "NCD-40.7:1",
+    "NCD-40.7:2",
+    "NCD-40.7:3",
+    "NCD-40.7:4"
+   ]
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "react_step",
+   "step": 2,
+   "thought": "Here are the relevant excerpts from the National Coverage Determinations (NCD) that state the coverage criteria for insulin pumps, particularly in relation to the denied service of a Tandem Mobi external ambulatory insulin pump:\n\n1. **NCD-280.14: Continuous Subcutaneous Insulin Infusion (CSII) Pumps",
+   "action": "final_answer"
+  },
+  {
+   "agent": "policy_retriever",
+   "type": "selected",
+   "selected": [
+    {
+     "chunk_id": "NCD-280.14:2",
+     "relevance": "This excerpt outlines the coverage criteria for continuous subcutaneous insulin infusion (CSII) pumps, which are relevant for the Tandem Mobi external ambulatory insulin pump."
+    },
+    {
+     "chunk_id": "NCD-280.14:5",
+     "relevance": "This excerpt specifies the requirement for physician management and a knowledgeable care team for patients using CSII, which is critical for coverage."
+    },
+    {
+     "chunk_id": "NCD-40.7:3",
+     "relevance": "This excerpt discusses the non-coverage of outpatient intravenous insulin treatment, providing context for the coverage of other insulin delivery methods."
+    },
+    {
+     "chunk_id": "NCD-40.1:1",
+     "relevance": "This excerpt refers to the conditions for Medicare coverage of diabetes outpatient self-management training, which may relate to the overall management of diabetes treatment."
+    }
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "criteria_matcher",
+   "eligible": [
+    "criteria_matcher",
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "criteria_matcher",
+   "type": "structured",
+   "output": {
+    "criteria": [
+     {
+      "chunk_id": "NCD-280.14:2",
+      "criterion_quote": "Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who:",
+      "status": "supported_by_case_facts",
+      "note": "The case facts mention diabetes and insulin pump treatment."
+     },
+     {
+      "chunk_id": "NCD-280.14:2",
+      "criterion_quote": "(1) either meet the updated fasting C-Peptide testing requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as described below.",
+      "status": "needs_documentation",
+      "note": "Documentation is needed to confirm specific criteria for insulin pump therapy."
+     },
+     {
+      "chunk_id": "NCD-280.14:5",
+      "criterion_quote": "The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII.",
+      "status": "supported_by_case_facts",
+      "note": "The case facts imply a need for physician management of the insulin pump."
+     },
+     {
+      "chunk_id": "NCD-280.14:5",
+      "criterion_quote": "Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment.",
+      "status": "supported_by_case_facts",
+      "note": "The case facts indicate treatment with an insulin pump."
+     },
+     {
+      "chunk_id": "NCD-40.1:1",
+      "criterion_quote": "Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.",
+      "status": "needs_documentation",
+      "note": "Documentation is needed to verify conditions for Medicare coverage."
+     }
+    ]
+   }
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "risk_analyst",
+   "eligible": [
+    "risk_analyst"
+   ]
+  },
+  {
+   "agent": "risk_analyst",
+   "type": "tools",
+   "overturn_percent": 67.7,
+   "text_p": 0.789,
+   "cohort": "5422 of 9248 published IMRs (TreatmentCategory = Pharmacy, Type = Medical Necessity, decided before 2025) overturned the plan (58.6%).",
+   "precedents": [
+    "MN21-35560",
+    "MN23-40259",
+    "MN24-43130",
+    "MN21-35225"
+   ]
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "appeal_writer",
+   "eligible": [
+    "appeal_writer"
+   ]
+  },
+  {
+   "agent": "appeal_writer",
+   "type": "draft",
+   "chars": 5377,
+   "precheck_failed": [],
+   "precheck_unrun": []
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "verifier",
+   "eligible": [
+    "verifier"
+   ]
+  },
+  {
+   "agent": "verifier",
+   "type": "verify",
+   "passed": true,
+   "failed": [],
+   "unrun": [],
+   "red_team": "pass",
+   "dropped_unverifiable": 4
+  },
+  {
+   "agent": "orchestrator",
+   "type": "route",
+   "next": "FINISH",
+   "eligible": [
+    "FINISH"
+   ]
+  },
+  {
+   "agent": "gate",
+   "type": "finalize",
+   "status": "awaiting_human_signoff",
+   "reason": null
+  }
+ ],
+ "held_out_outcome": {
+  "Determination": "Overturned Decision of Health Plan",
+  "overturned": 1
+ },
+ "denial_text": "Published CA DMHC Independent Medical Review case MN25-45854 (2025). The health plan denied a request for authorization and coverage for a Tandem Mobi external ambulatory insulin pump. Denial type: Medical Necessity (the plan considered it not medically necessary). Diagnosis category: Endocrine/Metabolic / Diabetes. Treatment category: Pharmacy / Insulin Pump. Review type: Expedited. Age range: 11 to 20. Gender: Female.",
+ "gate_inputs": {
+  "quotes": [
+   {
+    "citation_id": "NCD-280.14:2",
+    "quote": "Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who:"
+   },
+   {
+    "citation_id": "NCD-280.14:5",
+    "quote": "The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII."
+   },
+   {
+    "citation_id": "NCD-280.14:5",
+    "quote": "Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment."
+   }
+  ],
+  "risk_statement": "The overturn model gives 67.7% for published reviews with similar categories; this is a signal from past published reviews, not a prediction for this appeal.",
+  "retrieved": {
+   "NCD-280.14:9": "Vancomycin (Effective for Services Beginning On or After September 1, 1996)\n\n Medicare coverage of vancomycin as a durable medical equipment infusion pump benefit is not covered. There is insufficient evidence to support the necessity of using an external infusion pump, instead of a disposable elastomeric pump or the gravity drip method, to administer vancomycin in a safe and appropriate manner.\n\n 2. Implantable Infusion Pump\n\n a. Thromboembolic Disease (Effective for Services Performed On or After September 26, 1984)\n\n There is insufficient published clinical data to support the safety and effectiveness of the heparin implantable pump. Therefore, the use of an implantable infusion pump for infusion of heparin in the treatment of recurrent thromboembolic disease is not covered.\n\n b. Diabetes\n\n An implanted infusion pump for the infusion of insulin to treat diabetes is not covered. The data does not demonstrate that the pump provides effective administration of insulin.\n\n D. Other \n\n Not applicable.\n\n (This NCD last reviewed January 2005.)",
+   "NCD-280.14:2": "d. Morphine for Intractable Cancer Pain (Effective for Services Performed On or After April 22, 1985)\n\n Morphine infusion via an external infusion pump is covered when used in the treatment of intractable pain caused by cancer (in either an inpatient or outpatient setting, including a hospice).\n\n e. Continuous Subcutaneous Insulin Infusion (CSII) Pumps (Effective for Services Performed On or after December 17, 2004)\n\n Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who: (1) either meet the updated fasting C-Peptide testing requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as described below. Patients must meet either Criterion A or B as follows:",
+   "NCD-280.14:5": "The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII.\n\n Other Uses of CSII\n\n The Centers for Medicare & Medicaid Services will continue to allow coverage of all other uses of CSII in accordance with the Category B investigational device exemption clinical trials regulation (42 CFR 405.201) or as a routine cost under the clinical trials policy (Medicare National Coverage Determinations Manual 310.1 ).\n\n f. Other Uses\n\n Other uses of external infusion pumps are covered if the Medicare Administrative Contractor (MAC) medical staff verifies the appropriateness of the therapy and the prescribed pump for the individual patient.\n\n NOTE: Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment.\n\n 2. Implantable Infusion Pumps\n\n a. Chemotherapy for Liver Cancer (Effective for Services Performed On or After September 26, 1984)",
+   "NCD-40.7:3": "Effective for claims with dates of service on and after December 23, 2009, the Centers for Medicare and Medicaid Services (CMS) determines that the evidence is adequate to conclude that OIVIT does not improve health outcomes in Medicare beneficiaries. Therefore, CMS determines that OIVIT is not reasonable and necessary for any indication under section 1862(a)(1)(A) of the Social Security Act. Services comprising an Outpatient Intravenous Insulin Therapy regimen are nationally non-covered under Medicare when furnished pursuant to an OIVIT regimen (see subsection A. above).\n\n D. Other \n\n Individual components of OIVIT may have medical uses in conventional treatment regimens for diabetes and other conditions. Coverage for such other uses may be determined by other local or national Medicare determinations, and do not pertain to OIVIT. For example, see Pub. 100-03, NCD Manual, Section 40.2 , Home Blood Glucose Monitors, Section 40.3 , Closed-loop Blood Glucose Control Devices (CBGCD), Section 190.20 , Blood Glucose Testing, and Section 280.14 , Infusion Pumps, as well as Pub. 100-04, Claims Processing Manual , Chapter 18, Section 90, Diabetics Screening.",
+   "NCD-180.1:1": "A. General\n\n Section 1861(s)(2)(V) of the Social Security Act authorizes Medicare part B coverage of medical nutrition therapy services (MNT) for certain beneficiaries who have diabetes or a renal disease. Regulations for MNT were established on January 2, 2002, at 42 CFR 410.130 - 410.134 . This national coverage determination (NCD) establishes the duration and frequency limits for the MNT benefit and coordinates MNT and diabetes outpatient self-management training (DSMT) as an NCD.\n\nB. Nationally Covered",
+   "NCD-40.1:1": "Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.",
+   "NCD-40.5:1": "Please note section 40.5 has been removed from the NCD Manual and incorporated into NCD 100.1 .",
+   "NCD-210.2.1:2": "Unless specifically covered in this NCD, any other NCD, by statute or regulation, preventive services are non-covered by Medicare.\n\n D. Other\n\n N/A\n\n (This NCD last reviewed July 2015.)",
+   "NCD-40.7:1": "A. General \n\n The term outpatient intravenous (IV) insulin therapy (OIVIT) refers to an outpatient regimen that integrates pulsatile or continuous intravenous infusion of insulin via any means, guided by the results of measurement of:\n\n- respiratory quotient; and/or\n\n- urine urea nitrogen (UUN); and/or\n\n- arterial, venous, or capillary glucose; and/or\n\n- potassium concentration; and\n\n performed in scheduled recurring periodic intermittent episodes.\n\n This regimen is also sometimes termed Cellular Activation Therapy (CAT), Chronic Intermittent Intravenous Insulin Therapy (CIIT), Hepatic Activation Therapy (HAT), Intercellular Activation Therapy (iCAT), Metabolic Activation Therapy (MAT), Pulsatile Intravenous Insulin Treatment (PIVIT), Pulse Insulin Therapy (PIT), and Pulsatile Therapy (PT).",
+   "NCD-40.7:2": "In OIVIT, insulin is intravenously administered in the outpatient setting for a variety of indications. Most commonly, it is delivered in pulses, but it may be delivered as a more conventional drip solution. The insulin administration is adjunctive to the patient's routine diabetic management regimen (oral agent or insulin-based) or other disease management regimen, typically performed on an intermittent basis (often weekly), and frequently performed chronically without duration limits. Glucose or other carbohydrate is available ad libitum (in accordance with patient desire).\n\nB. Nationally Covered Indications \n\n N/A \n\n C. Nationally Non-Covered Indications",
+   "NCD-40.7:4": "(This NCD last reviewed December 2009.)",
+   "IMR-MN21-35560": "authorization and coverage for Tandem insulin pump Overturned Decision of Health Plan ",
+   "IMR-MN23-40259": "authorization and coverage for Tandem X2 insulin pump and accessories Overturned Decision of Health Plan Findings:  The physician reviewer found that The patient has requested authorization and coverage for Tandem X2 insulin pump and accessories. In a study comparing the metabolic control of pediatric patients with type 1 diabetes treated with continuous subcutaneous insulin infusion (CSII) versus MDI, the authors noted that the patients who were treated with CSII achieved relatively good metabolic control. Another study compared the rates of microvascular complications in pediatric patients with type 1 diabetes treated with CSII versus MDI. The authors found that \u201cCSII use is associated with low...",
+   "IMR-MN24-43130": "authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump Overturned Decision of Health Plan Findings:  The physician reviewer found that Nature of Statutory Criteria/Case Summary: A patient has requested authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump. The Tandem Mobi pump is a U.S. Food and Drug Administration (FDA)-approved device which is widely used to manage type 1 diabetes. While this patient\u2019s type 1 diabetes is controlled, she has reported hypoglycemia and hypoglycemia symptoms. She prefers the convenience of an insulin pump, and her provider has recommended one to mitigate risk of hypoglycemia. According to both the Americ...",
+   "IMR-MN21-35225": "authorization and coverage for Tandem T:Slim X2 Insulin Pump Overturned Decision of Health Plan "
+  },
+  "evidence_text": "{\"service\": \"authorization and coverage for a Tandem Mobi external ambulatory insulin pump\", \"denial_basis\": \"medical_necessity\", \"plan_type\": \"commercial_ca_dmhc\", \"imr_reference_ids\": [\"MN25-45854\"], \"ncd_mentions\": [], \"lcd_mentions\": [], \"code_mentions\": {\"icd10\": [], \"hcpcs_level2\": []}, \"method\": \"regex first pass; the intake agent confirms with structured output\"}\n{\"ReferenceID\": \"MN25-45854\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Endocrine/Metabolic\", \"DiagnosisSubCategory\": \"Diabetes\", \"TreatmentCategory\": \"Pharmacy\", \"TreatmentSubCategory\": \"Insulin Pump\", \"Type\": \"Medical Necessity\", \"AgeRange\": \"11 to 20\", \"PatientGender\": \"Female\", \"IMRType\": \"Expedited\", \"request_text\": \"authorization and coverage for a Tandem Mobi external ambulatory insulin pump\", \"source_url\": \"https://wpso.dmhc.ca.gov/imr/\", \"note\": \"outcome and reviewer Findings withheld (the agents must not see the decision of the case they are drafting for)\"}\n{\"backend\": \"azure_ai_search\", \"results\": [{\"id\": \"NCD-280.14:9\", \"doc_id\": \"NCD-280.14\", \"title\": \"Infusion Pumps\", \"effective\": \"2004-12-17\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=223\", \"score\": 0.03333333507180214, \"text\": \"Vancomycin (Effective for Services Beginning On or After September 1, 1996)\\n\\n Medicare coverage of vancomycin as a durable medical equipment infusion pump benefit is not covered. There is insufficient evidence to support the necessity of using an external infusion pump, instead of a disposable elastomeric pump or the gravity drip method, to administer vancomycin in a safe and appropriate manner.\\n\\n 2. Implantable Infusion Pump\\n\\n a. Thromboembolic Disease (Effective for Services Performed On or After September 26, 1984)\\n\\n There is insufficient published clinical data to support the safety and effectiveness of the heparin implantable pump. Therefore, the use of an implantable infusion pump for infusion of heparin in the treatment of recurrent thromboembolic disease is not covered.\\n\\n b. Diabetes\\n\\n An implanted infusion pump for the infusion of insulin to treat diabetes is not covered. The data does not demonstrate that the pump provides effective administration of insulin.\\n\\n D. Other \\n\\n Not applicable.\\n\\n (This NCD last reviewed January 2005.)\"}, {\"id\": \"NCD-280.14:2\", \"doc_id\": \"NCD-280.14\", \"title\": \"Infusion Pumps\", \"effective\": \"2004-12-17\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=223\", \"score\": 0.032522473484277725, \"text\": \"d. Morphine for Intractable Cancer Pain (Effective for Services Performed On or After April 22, 1985)\\n\\n Morphine infusion via an external infusion pump is covered when used in the treatment of intractable pain caused by cancer (in either an inpatient or outpatient setting, including a hospice).\\n\\n e. Continuous Subcutaneous Insulin Infusion (CSII) Pumps (Effective for Services Performed On or after December 17, 2004)\\n\\n Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who: (1) either meet the updated fasting C-Peptide testing requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as described below. Patients must meet either Criterion A or B as follows:\"}, {\"id\": \"NCD-280.14:5\", \"doc_id\": \"NCD-280.14\", \"title\": \"Infusion Pumps\", \"effective\": \"2004-12-17\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=223\", \"score\": 0.0320020467042923, \"text\": \"The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII.\\n\\n Other Uses of CSII\\n\\n The Centers for Medicare & Medicaid Services will continue to allow coverage of all other uses of CSII in accordance with the Category B investigational device exemption clinical trials regulation (42 CFR 405.201) or as a routine cost under the clinical trials policy (Medicare National Coverage Determinations Manual 310.1 ).\\n\\n f. Other Uses\\n\\n Other uses of external infusion pumps are covered if the Medicare Administrative Contractor (MAC) medical staff verifies the appropriateness of the therapy and the prescribed pump for the individual patient.\\n\\n NOTE: Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment.\\n\\n 2. Implantable Infusion Pumps\\n\\n a. Chemotherapy for Liver Cancer (Effective for Services Performed On or After September 26, 1984)\"}, {\"id\": \"NCD-40.7:3\", \"doc_id\": \"NCD-40.7\", \"title\": \"Outpatient Intravenous Insulin Treatment\", \"effective\": \"2009-12-23\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=334\", \"score\": 0.03102453239262104, \"text\": \"Effective for claims with dates of service on and after December 23, 2009, the Centers for Medicare and Medicaid Services (CMS) determines that the evidence is adequate to conclude that OIVIT does not improve health outcomes in Medicare beneficiaries. Therefore, CMS determines that OIVIT is not reasonable and necessary for any indication under section 1862(a)(1)(A) of the Social Security Act. Services comprising an Outpatient Intravenous Insulin Therapy regimen are nationally non-covered under Medicare when furnished pursuant to an OIVIT regimen (see subsection A. above).\\n\\n D. Other \\n\\n Individual components of OIVIT may have medical uses in conventional treatment regimens for diabetes and other conditions. Coverage for such other uses may be determined by other local or national Medicare determinations, and do not pertain to OIVIT. For example, see Pub. 100-03, NCD Manual, Section 40.2 , Home Blood Glucose Monitors, Section 40.3 , Closed-loop Blood Glucose Control Devices (CBGCD), Section 190.20 , Blood Glucose Testing, and Section 280.14 , Infusion Pumps, as well as Pub. 100-04, Claims Processing Manual , Chapter 18, Section 90, Diabetics Screening.\"}]}\n{\"backend\": \"azure_ai_search\", \"results\": [{\"id\": \"NCD-180.1:1\", \"doc_id\": \"NCD-180.1\", \"title\": \"Medical Nutrition Therapy\", \"effective\": \"2022-01-01\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=252\", \"score\": 0.03128054738044739, \"text\": \"A. General\\n\\n Section 1861(s)(2)(V) of the Social Security Act authorizes Medicare part B coverage of medical nutrition therapy services (MNT) for certain beneficiaries who have diabetes or a renal disease. Regulations for MNT were established on January 2, 2002, at 42 CFR 410.130 - 410.134 . This national coverage determination (NCD) establishes the duration and frequency limits for the MNT benefit and coordinates MNT and diabetes outpatient self-management training (DSMT) as an NCD.\\n\\nB. Nationally Covered\"}, {\"id\": \"NCD-40.1:1\", \"doc_id\": \"NCD-40.1\", \"title\": \"Diabetes Outpatient Self-Management Training\", \"effective\": \"2001-02-27\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=251\", \"score\": 0.03015873208642006, \"text\": \"Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.\"}, {\"id\": \"NCD-40.5:1\", \"doc_id\": \"NCD-40.5\", \"title\": \"Treatment of Obesity\", \"effective\": \"2013-09-24\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=38\", \"score\": 0.0277777798473835, \"text\": \"Please note section 40.5 has been removed from the NCD Manual and incorporated into NCD 100.1 .\"}, {\"id\": \"NCD-210.2.1:2\", \"doc_id\": \"NCD-210.2.1\", \"title\": \"Screening for Cervical Cancer with Human Papillomavirus (HPV)\", \"effective\": \"2015-07-09\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=365\", \"score\": 0.026197362691164017, \"text\": \"Unless specifically covered in this NCD, any other NCD, by statute or regulation, preventive services are non-covered by Medicare.\\n\\n D. Other\\n\\n N/A\\n\\n (This NCD last reviewed July 2015.)\"}]}\n{\"backend\": \"azure_ai_search\", \"results\": [{\"id\": \"NCD-40.7:1\", \"doc_id\": \"NCD-40.7\", \"title\": \"Outpatient Intravenous Insulin Treatment\", \"effective\": \"2009-12-23\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=334\", \"score\": 0.03226646035909653, \"text\": \"A. General \\n\\n The term outpatient intravenous (IV) insulin therapy (OIVIT) refers to an outpatient regimen that integrates pulsatile or continuous intravenous infusion of insulin via any means, guided by the results of measurement of:\\n\\n- respiratory quotient; and/or\\n\\n- urine urea nitrogen (UUN); and/or\\n\\n- arterial, venous, or capillary glucose; and/or\\n\\n- potassium concentration; and\\n\\n performed in scheduled recurring periodic intermittent episodes.\\n\\n This regimen is also sometimes termed Cellular Activation Therapy (CAT), Chronic Intermittent Intravenous Insulin Therapy (CIIT), Hepatic Activation Therapy (HAT), Intercellular Activation Therapy (iCAT), Metabolic Activation Therapy (MAT), Pulsatile Intravenous Insulin Treatment (PIVIT), Pulse Insulin Therapy (PIT), and Pulsatile Therapy (PT).\"}, {\"id\": \"NCD-40.7:2\", \"doc_id\": \"NCD-40.7\", \"title\": \"Outpatient Intravenous Insulin Treatment\", \"effective\": \"2009-12-23\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=334\", \"score\": 0.032258063554763794, \"text\": \"In OIVIT, insulin is intravenously administered in the outpatient setting for a variety of indications. Most commonly, it is delivered in pulses, but it may be delivered as a more conventional drip solution. The insulin administration is adjunctive to the patient's routine diabetic management regimen (oral agent or insulin-based) or other disease management regimen, typically performed on an intermittent basis (often weekly), and frequently performed chronically without duration limits. Glucose or other carbohydrate is available ad libitum (in accordance with patient desire).\\n\\nB. Nationally Covered Indications \\n\\n N/A \\n\\n C. Nationally Non-Covered Indications\"}, {\"id\": \"NCD-40.7:3\", \"doc_id\": \"NCD-40.7\", \"title\": \"Outpatient Intravenous Insulin Treatment\", \"effective\": \"2009-12-23\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=334\", \"score\": 0.03181818127632141, \"text\": \"Effective for claims with dates of service on and after December 23, 2009, the Centers for Medicare and Medicaid Services (CMS) determines that the evidence is adequate to conclude that OIVIT does not improve health outcomes in Medicare beneficiaries. Therefore, CMS determines that OIVIT is not reasonable and necessary for any indication under section 1862(a)(1)(A) of the Social Security Act. Services comprising an Outpatient Intravenous Insulin Therapy regimen are nationally non-covered under Medicare when furnished pursuant to an OIVIT regimen (see subsection A. above).\\n\\n D. Other \\n\\n Individual components of OIVIT may have medical uses in conventional treatment regimens for diabetes and other conditions. Coverage for such other uses may be determined by other local or national Medicare determinations, and do not pertain to OIVIT. For example, see Pub. 100-03, NCD Manual, Section 40.2 , Home Blood Glucose Monitors, Section 40.3 , Closed-loop Blood Glucose Control Devices (CBGCD), Section 190.20 , Blood Glucose Testing, and Section 280.14 , Infusion Pumps, as well as Pub. 100-04, Claims Processing Manual , Chapter 18, Section 90, Diabetics Screening.\"}, {\"id\": \"NCD-40.7:4\", \"doc_id\": \"NCD-40.7\", \"title\": \"Outpatient Intravenous Insulin Treatment\", \"effective\": \"2009-12-23\", \"url\": \"https://www.cms.gov/medicare-coverage-database/view/ncd.aspx?ncdid=334\", \"score\": 0.027757078409194946, \"text\": \"(This NCD last reviewed December 2009.)\"}]}\n{\"scanned\": 4, \"flagged_local\": [], \"prompt_shields\": {\"status\": \"NOT_CONFIGURED\", \"service\": \"azure_content_safety_prompt_shields\"}, \"clean\": true}\n{\"criteria\": [{\"chunk_id\": \"NCD-280.14:2\", \"criterion\": \"Morphine infusion via an external infusion pump is covered when used in the treatment of intractable pain caused by cancer (in either an inpatient or outpatient setting, including a hospice).\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"external\", \"pump\", \"treatment\"]}, {\"chunk_id\": \"NCD-280.14:2\", \"criterion\": \"Continuous subcutaneous insulin infusion (CSII) and related drugs/supplies are covered as medically reasonable and necessary in the home setting for the treatment of diabetic patients who:\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"insulin\", \"treatment\"]}, {\"chunk_id\": \"NCD-280.14:2\", \"criterion\": \"(1) either meet the updated fasting C-Peptide testing requirement, or, are beta cell autoantibody positive; and, (2) satisfy the remaining criteria for insulin pump therapy as described below.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"insulin\", \"pump\"]}, {\"chunk_id\": \"NCD-280.14:2\", \"criterion\": \"Patients must meet either Criterion A or B as follows:\", \"status\": \"needs_documentation\", \"overlap_terms\": []}, {\"chunk_id\": \"NCD-280.14:5\", \"criterion\": \"The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII and who works closely with a team including nurses, diabetes educators, and dietitians who are knowledgeable in the use of CSII.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"diabetes\", \"pump\"]}, {\"chunk_id\": \"NCD-280.14:5\", \"criterion\": \"The Centers for Medicare & Medicaid Services will continue to allow coverage of all other uses of CSII in accordance with the Category B investigational device exemption clinical trials regulation (42 CFR 405.201) or as a routine cost under the clinical trials policy (Medicare National Coverage Determinations Manual 310.1 ).\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"category\", \"coverage\"]}, {\"chunk_id\": \"NCD-280.14:5\", \"criterion\": \"Other uses of external infusion pumps are covered if the Medicare Administrative Contractor (MAC) medical staff verifies the appropriateness of the therapy and the prescribed pump for the individual patient.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"external\", \"medical\", \"pump\"]}, {\"chunk_id\": \"NCD-280.14:5\", \"criterion\": \"Payment may also be made for drugs necessary for the effective use of a covered external infusion pump as long as the drug being used with the pump is itself reasonable and necessary for the patient's treatment.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"external\", \"pump\", \"treatment\"]}, {\"chunk_id\": \"NCD-40.7:3\", \"criterion\": \"Therefore, CMS determines that OIVIT is not reasonable and necessary for any indication under section 1862(a)(1)(A) of the Social Security Act.\", \"status\": \"needs_documentation\", \"overlap_terms\": []}, {\"chunk_id\": \"NCD-40.7:3\", \"criterion\": \"Services comprising an Outpatient Intravenous Insulin Therapy regimen are nationally non-covered under Medicare when furnished pursuant to an OIVIT regimen (see subsection A. above).\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"insulin\"]}, {\"chunk_id\": \"NCD-40.7:3\", \"criterion\": \"Individual components of OIVIT may have medical uses in conventional treatment regimens for diabetes and other conditions.\", \"status\": \"related_case_fact\", \"overlap_terms\": [\"diabetes\", \"medical\", \"treatment\"]}, {\"chunk_id\": \"NCD-40.7:3\", \"criterion\": \"Coverage for such other uses may be determined by other local or national Medicare determinations, and do not pertain to OIVIT.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"coverage\"]}, {\"chunk_id\": \"NCD-40.1:1\", \"criterion\": \"Please refer to 42 CFR 410.140 - 410.146 for conditions that must be met for Medicare coverage.\", \"status\": \"needs_documentation\", \"overlap_terms\": [\"coverage\"]}], \"unknown_chunk_ids\": [], \"rule\": \"related_case_fact = the case facts mention >= 2 of the criterion's key terms; this is NOT a determination that it is met\"}\n{\"overturn_probability\": 0.6767, \"overturn_percent\": 67.7, \"band\": \"above_typical\", \"train_overturn_rate\": 0.4983, \"model\": \"hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation\", \"test_roc_auc\": 0.7556, \"test_brier\": 0.1814, \"treatment_category_unseen\": false, \"limit\": \"Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing.\"}\n{\"overturn_probability_text\": 0.789, \"top_terms\": [{\"term\": \"tandem\", \"weight\": 0.356}, {\"term\": \"coverage tandem\", \"weight\": 0.287}, {\"term\": \"insulin pump\", \"weight\": 0.284}, {\"term\": \"mobi\", \"weight\": 0.171}, {\"term\": \"ambulatory\", \"weight\": 0.126}, {\"term\": \"external\", \"weight\": -0.122}], \"test_roc_auc\": 0.7476, \"note\": \"TF-IDF + LR on the request sentence only; a signal, not a verdict\"}\n{\"filters\": {\"before_year\": 2025, \"TreatmentCategory\": \"Pharmacy\", \"Type\": \"Medical Necessity\"}, \"n\": 9248, \"overturned\": 5422, \"overturn_rate\": 0.5863, \"overturn_percent\": 58.6, \"wilson_ci95\": [0.5762, 0.5963], \"years\": [2001, 2024], \"last_3_years\": {\"n\": 2155, \"overturn_percent\": 73.6}, \"headline\": \"5422 of 9248 published IMRs (TreatmentCategory = Pharmacy, Type = Medical Necessity, decided before 2025) overturned the plan (58.6%).\", \"caveat\": \"descriptive rate of past published reviews; not a prediction for any one case\"}\n{\"results\": [{\"reference_id\": \"MN21-35560\", \"year\": 2021, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Pharmacy / Insulin Pump\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for Tandem insulin pump\", \"similarity\": 0.538, \"findings_excerpt\": null}, {\"reference_id\": \"MN23-40259\", \"year\": 2023, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Pharmacy / Insulin Pump\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for Tandem X2 insulin pump and accessories\", \"similarity\": 0.521, \"findings_excerpt\": \"Findings:  The physician reviewer found that The patient has requested authorization and coverage for Tandem X2 insulin pump and accessories. In a study comparing the metabolic control of pediatric patients with type 1 diabetes treated with continuous subcutaneous insulin infusion (CSII) versus MDI, the authors noted that the patients who were treated with CSII achieved relatively good metabolic control. Another study compared the rates of microvascular complications in pediatric patients with type 1 diabetes treated with CSII versus MDI. The authors found that \\u201cCSII use is associated with low...\"}, {\"reference_id\": \"MN24-43130\", \"year\": 2024, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"DME / Glucose Monitor\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump\", \"similarity\": 0.462, \"findings_excerpt\": \"Findings:  The physician reviewer found that Nature of Statutory Criteria/Case Summary: A patient has requested authorization and coverage for a continuous glucose monitor (CGM), Tandem Mobi diabetic insulin pump. The Tandem Mobi pump is a U.S. Food and Drug Administration (FDA)-approved device which is widely used to manage type 1 diabetes. While this patient\\u2019s type 1 diabetes is controlled, she has reported hypoglycemia and hypoglycemia symptoms. She prefers the convenience of an insulin pump, and her provider has recommended one to mitigate risk of hypoglycemia. According to both the Americ...\"}, {\"reference_id\": \"MN21-35225\", \"year\": 2021, \"determination\": \"Overturned Decision of Health Plan\", \"treatment\": \"Pharmacy / Insulin Pump\", \"diagnosis\": \"Endocrine/Metabolic / Diabetes\", \"type\": \"Medical Necessity\", \"request\": \"authorization and coverage for Tandem T:Slim X2 Insulin Pump\", \"similarity\": 0.449, \"findings_excerpt\": null}], \"filters\": {\"before_year\": 2025, \"exclude_id\": \"MN25-45854\", \"treatment_category\": null}, \"note\": \"published, de-identified CA DMHC IMR decisions; cite as [IMR-<reference_id>]\"}\nPublished CA DMHC Independent Medical Review case MN25-45854 (2025). The health plan denied a request for authorization and coverage for a Tandem Mobi external ambulatory insulin pump. Denial type: Medical Necessity (the plan considered it not medically necessary). Diagnosis category: Endocrine/Metabolic / Diabetes. Treatment category: Pharmacy / Insulin Pump. Review type: Expedited. Age range: 11 to 20. Gender: Female.\n{\"ReferenceID\": \"MN25-45854\", \"ReportYear\": 2025, \"DiagnosisCategory\": \"Endocrine/Metabolic\", \"DiagnosisSubCategory\": \"Diabetes\", \"TreatmentCategory\": \"Pharmacy\", \"TreatmentSubCategory\": \"Insulin Pump\", \"Type\": \"Medical Necessity\", \"IMRType\": \"Expedited\", \"AgeRange\": \"11 to 20\", \"PatientGender\": \"Female\", \"request_text\": \"authorization and coverage for a Tandem Mobi external ambulatory insulin pump\"}\nprecedent counts (code-derived): 4 4 0",
+  "injection": {
+   "input_clean": true,
+   "documents_clean": true
+  },
+  "red_team": {
+   "verdict": "pass",
+   "issues": [],
+   "dropped_unverifiable": 4,
+   "dropped": [
+    "rule 2: \"[NCD-280.14:2]\"",
+    "rule 2: \"[NCD-280.14:2]\"",
+    "rule 2: \"[NCD-280.14:5]\"",
+    "rule 2: \"[NCD-280.14:5]\""
+   ]
+  }
+ },
+ "spans": [
+  {
+   "name": "mcp.tools/call.parse_denial",
+   "start": 1794758943.0832798,
+   "end": 1794758943.0887809,
+   "attrs": {
+    "agent": "intake",
+    "tool": "parse_denial",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.get_imr_case",
+   "start": 1794758943.0956795,
+   "end": 1794758943.3412776,
+   "attrs": {
+    "agent": "intake",
+    "tool": "get_imr_case",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.intake",
+   "start": 1794758943.3512495,
+   "end": 1794758947.4658637,
+   "attrs": {
+    "agent": "intake",
+    "model": "gpt-4o-mini",
+    "input_tokens": 932,
+    "output_tokens": 168,
+    "cost_usd": 0.0002406
+   }
+  },
+  {
+   "name": "llm.planner",
+   "start": 1794758947.4686337,
+   "end": 1794758949.1538646,
+   "attrs": {
+    "agent": "planner",
+    "model": "gpt-4o-mini",
+    "input_tokens": 425,
+    "output_tokens": 150,
+    "cost_usd": 0.0001537
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794758949.1553192,
+   "end": 1794758950.3867862,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 283,
+    "output_tokens": 84,
+    "cost_usd": 9.28e-05
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794758950.3868492,
+   "end": 1794758952.0187526,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794758952.0189002,
+   "end": 1794758952.5565758,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_coverage_policy",
+   "start": 1794758952.5567057,
+   "end": 1794758953.0418725,
+   "attrs": {
+    "agent": "policy_retriever",
+    "tool": "search_coverage_policy",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794758953.042043,
+   "end": 1794758957.1931083,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 3257,
+    "output_tokens": 484,
+    "cost_usd": 0.0007789
+   }
+  },
+  {
+   "name": "llm.policy_retriever",
+   "start": 1794758957.1940422,
+   "end": 1794758959.3901951,
+   "attrs": {
+    "agent": "policy_retriever",
+    "model": "gpt-4o-mini",
+    "input_tokens": 3918,
+    "output_tokens": 185,
+    "cost_usd": 0.0006987
+   }
+  },
+  {
+   "name": "mcp.tools/call.scan_documents",
+   "start": 1794758959.3902605,
+   "end": 1794758959.3957996,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "scan_documents",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.match_coverage_criteria",
+   "start": 1794758959.3974235,
+   "end": 1794758959.4009929,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "tool": "match_coverage_criteria",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.criteria_matcher",
+   "start": 1794758959.402146,
+   "end": 1794758962.6431131,
+   "attrs": {
+    "agent": "criteria_matcher",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1315,
+    "output_tokens": 380,
+    "cost_usd": 0.0004253
+   }
+  },
+  {
+   "name": "mcp.tools/call.score_overturn_likelihood",
+   "start": 1794758962.6450486,
+   "end": 1794758969.0749743,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "score_overturn_likelihood",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.classify_request_text",
+   "start": 1794758969.0750296,
+   "end": 1794758978.2037868,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "classify_request_text",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.cohort_stats",
+   "start": 1794758978.2038434,
+   "end": 1794758978.2432036,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "cohort_stats",
+    "ok": true
+   }
+  },
+  {
+   "name": "mcp.tools/call.search_imr_precedent",
+   "start": 1794758978.2432442,
+   "end": 1794758978.7732334,
+   "attrs": {
+    "agent": "risk_analyst",
+    "tool": "search_imr_precedent",
+    "ok": true
+   }
+  },
+  {
+   "name": "llm.appeal_writer",
+   "start": 1794758978.7825725,
+   "end": 1794758985.6405385,
+   "attrs": {
+    "agent": "appeal_writer",
+    "model": "gpt-4o-mini",
+    "input_tokens": 2982,
+    "output_tokens": 814,
+    "cost_usd": 0.0008589
+   }
+  },
+  {
+   "name": "llm.verifier",
+   "start": 1794758986.6570117,
+   "end": 1794758987.810556,
+   "attrs": {
+    "agent": "verifier",
+    "model": "gpt-4o-mini",
+    "input_tokens": 1858,
+    "output_tokens": 78,
+    "cost_usd": 0.0003255
+   }
+  },
+  {
+   "name": "mcp.tools/call.confirm_red_team",
+   "start": 1794758987.8106468,
+   "end": 1794758987.8157754,
+   "attrs": {
+    "agent": "verifier",
+    "tool": "confirm_red_team",
+    "ok": true
+   }
+  }
+ ]
+}

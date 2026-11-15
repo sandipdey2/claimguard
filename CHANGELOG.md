@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased - 2026-11-15
+
+### Azure deployment (live)
+- Deployed to a Udacity Vocareum lab subscription (westus) with the new RG-scoped `infra/lab/main.bicep`: Foundry + project + gpt-4o-mini, AI Search (Free, 1,034 docs), Storage, Key Vault, ACR (`az acr build`), Container Apps (Streamlit + FastAPI) and App Insights. Nothing was blocked by policy.
+- `infra/resources.bicep`: new `openAiSku` param (default DataZoneStandard, because GlobalStandard returns `ServiceModelDeprecating` and Standard returns `ServiceModelDeprecated` for gpt-4o-mini 2024-07-18), plus `searchSku`, `deployApps` (two-pass so Key Vault secrets exist before the apps), `deployApi` (FastAPI as a second Container App), `deployOpenAi` (OpenAI-compatible fallback) and `purgeProtection`. The model deployment now waits for the project to avoid `RequestConflict`.
+- Live verification: 12/12 checks, 26.9 s, $0.0033 on the Azure API. Two runs with the short default request failed `red_team_pass`; both are reported in docs/AZURE_DEPLOY.md.
+
 ## 0.1.0 - 2026-11-15
 
 First release for the Project 7 capstone and the Project 8 defense.

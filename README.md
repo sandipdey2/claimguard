@@ -10,7 +10,9 @@ a named human signs off.
 
 Integrative Industry Synthesis capstone (Project 7) and Project 8 defense - Sandip Dey. Version 0.1.0 (see [CHANGELOG](CHANGELOG.md)).
 
-**Live app:** https://claimguard-appeals.streamlit.app/ (Streamlit Community Cloud, gpt-4o-mini via Vocareum). [![CI](https://github.com/sandipdey2/claimguard/actions/workflows/ci.yml/badge.svg)](https://github.com/sandipdey2/claimguard/actions/workflows/ci.yml)
+**Live on Azure:** https://ca-cg-awluz7evtffc4.redmushroom-2296ed24.westus.azurecontainerapps.io (Azure Container Apps, gpt-4o-mini in Azure AI Foundry, Azure AI Search, Prompt Shields, Blob receipts, App Insights). API: https://ca-cg-api-awluz7evtffc4.redmushroom-2296ed24.westus.azurecontainerapps.io ([details](docs/AZURE_DEPLOY.md)).
+
+**Live app (Streamlit Cloud):** https://claimguard-appeals.streamlit.app/ (gpt-4o-mini via Vocareum). [![CI](https://github.com/sandipdey2/claimguard/actions/workflows/ci.yml/badge.svg)](https://github.com/sandipdey2/claimguard/actions/workflows/ci.yml)
 
 ![architecture](docs/architecture.png)
 
@@ -154,9 +156,9 @@ Set `CG_LLM_PROVIDER=azure` to use Azure OpenAI gpt-4o-mini. Authentication is E
 | Content Safety Prompt Shields | `AZURE_CONTENT_SAFETY_ENDPOINT` | local regex scanner |
 | App Insights (OpenTelemetry) | `APPLICATIONINSIGHTS_CONNECTION_STRING` | no export |
 
-[`infra/`](infra) holds the Bicep that provisions the full stack: Foundry resource and project, a gpt-4o-mini GlobalStandard deployment, AI Search, Storage, Key Vault, ACR, Container Apps and App Insights. `azure.yaml` deploys it with `azd up`.
+[`infra/`](infra) holds the Bicep that provisions the full stack: Foundry resource and project, a gpt-4o-mini DataZoneStandard deployment, AI Search, Storage, Key Vault, ACR, Container Apps and App Insights. `azure.yaml` deploys it with `azd up`.
 
-Deployment status: the Bicep builds and lints clean offline, and the adapters are tested against mocked endpoints. **Nothing has been deployed to Azure yet.** It needs your subscription; see [docs/AZURE_DEPLOY.md](docs/AZURE_DEPLOY.md).
+Deployment status: **live in a Udacity Vocareum lab subscription (westus)** through the RG-scoped [`infra/lab/main.bicep`](infra/lab/main.bicep). A real case on the Azure API passed 12/12 checks in 26.9 s for $0.0033; two runs with the short default API request failed `red_team_pass`, and both are reported. See [docs/AZURE_DEPLOY.md](docs/AZURE_DEPLOY.md).
 
 ## Limits (read before using)
 
@@ -166,7 +168,7 @@ Deployment status: the Bicep builds and lints clean offline, and the adapters ar
 - **Evaluation size.** There are 7 live runs on 5 cases. That is an engineering demonstration, not a quality study. Retrieval labels are weak keyword labels, and the injection set is small and in-sample after the follow-up patterns.
 - **PHI.** PHI detection is regex-based. Paste only de-identified text.
 - **Receipts.** A receipt verifies only with the same `CG_RECEIPT_KEY` (HMAC). The app uses an ephemeral key if none is set.
-- **Azure.** Not deployed yet. Before a paid deploy, check gpt-4o-mini regional availability, quotas and the Content Safety endpoint on the Foundry resource.
+- **Azure.** Deployed in a lab subscription that can be reset when the course lab ends. gpt-4o-mini 2024-07-18 only accepts new DataZoneStandard deployments (GlobalStandard and Standard are refused as deprecating/deprecated).
 
 ## Repository layout
 
