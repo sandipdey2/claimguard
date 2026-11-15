@@ -1,0 +1,5 @@
+# Optional Azure adapters. Each is used only when its env var is set; otherwise ClaimGuard falls back to the local path.
+-r requirements-api.txt
+azure-identity==1.27.0
+azure-storage-blob==12.31.1
+azure-monitor-opentelemetry-exporter==1.0.0b59

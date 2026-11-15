@@ -1,0 +1,5 @@
+# Tests, lint and types
+-r requirements-azure.txt
+pytest==9.2.0
+ruff==0.17.5
+mypy==2.4.1

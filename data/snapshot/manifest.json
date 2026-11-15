@@ -1,0 +1,174 @@
+{
+ "built_at": "2026-11-15T13:14:56+0000",
+ "sources": {
+  "ca_dmhc_imr": {
+   "name": "California DMHC Independent Medical Review (IMR) Determinations",
+   "url": "https://data.chhs.ca.gov/dataset/b79b3447-4c10-4ae6-84e2-1076f83bb24e/resource/3340c5d7-4054-4d03-90e0-5f44290ed095/download/independent-medical-review-imr-determinations-trends.csv",
+   "page": "https://data.ca.gov/dataset/independent-medical-review-imr-determinations-trend",
+   "license": "Creative Commons Attribution (data.ca.gov); CHHS Open Data Terms of Use. Attribution: California Department of Managed Health Care.",
+   "raw_file": "imr.csv",
+   "bytes": 85409358,
+   "sha256": "f68951823f6ffc09566cc190d97b2808e0269a069843efe809a3f5f90d4c893b",
+   "fetched": "2026-11-15"
+  },
+  "ny_dfs_external_appeals": {
+   "name": "New York DFS External Appeal Database (closed appeals, all years export)",
+   "url": "https://myportal.dfs.ny.gov/o/peasa/peasaserviceexcel",
+   "page": "https://www.dfs.ny.gov/public-appeal/search",
+   "license": "Public government records published by the New York State Department of Financial Services; attribution kept. Confirm portal terms before commercial reuse.",
+   "raw_file": "dfs.xlsx",
+   "bytes": 2874587,
+   "sha256": "d79320f2116ba0cd15047462147e5a0a80366f51f7b72af4b29504617de8788c",
+   "fetched": "2026-11-15"
+  },
+  "cms_ncd": {
+   "name": "CMS Medicare Coverage Database - National Coverage Determinations (weekly export)",
+   "url": "https://downloads.cms.gov/medicare-coverage-database/downloads/exports/ncd.zip",
+   "page": "https://www.cms.gov/medicare-coverage-database/downloads/downloads.aspx",
+   "license": "U.S. federal government work (CMS), public information. NCD narrative only; no AMA CPT code sets are redistributed.",
+   "raw_file": "ncd.zip",
+   "bytes": 1283174,
+   "sha256": "db49724ad4d311864dce240ebdfb7c2fb41ce735433c24f1e5eb2268d9e11eae",
+   "fetched": "2026-11-15"
+  },
+  "cms_ncd_api": {
+   "name": "CMS Coverage API - national NCD report",
+   "url": "https://api.coverage.cms.gov/v1/reports/national-coverage-ncd/",
+   "page": "https://api.coverage.cms.gov/",
+   "license": "U.S. federal government work (CMS), public information.",
+   "raw_file": "ncd_api.json",
+   "bytes": 97241,
+   "sha256": "ff6baf3581b56b11c474101807f0817ace43416945c9adf0b3677cec4adb20f2",
+   "fetched": "2026-11-15"
+  },
+  "cms_lcd": {
+   "name": "CMS Medicare Coverage Database - current Local Coverage Determinations (optional)",
+   "url": "https://downloads.cms.gov/medicare-coverage-database/downloads/exports/current_lcd.zip",
+   "page": "https://www.cms.gov/medicare-coverage-database/downloads/downloads.aspx",
+   "license": "CMS public information, but LCD files can reference AMA CPT / ADA CDT / AHA content. ClaimGuard indexes LCD narrative locally only and never commits or redistributes LCD text or code lists.",
+   "optional": true,
+   "raw_file": "current_lcd.zip",
+   "bytes": 33517451,
+   "sha256": "3e2f04b75bc85d8a05c6fc5334f8a8e49ba4b96a5304aa715ea803bf148d66b6",
+   "fetched": "2026-11-15"
+  }
+ },
+ "snapshot_files": {
+  "dfs.parquet": {
+   "bytes": 598105,
+   "sha256": "be70b8cff0ebe988c3f5abc5879978ec61ba6fad088366c15089eb6ef72a45c5"
+  },
+  "imr_findings_recent.parquet": {
+   "bytes": 3683648,
+   "sha256": "ed48a6c08fe952fd70a639aec10742346d4c5d9f1eb9735b03dc2ef961f16cb4"
+  },
+  "imr_slim.parquet": {
+   "bytes": 1173099,
+   "sha256": "4a256478c9e25246d97107b64dfa25696fada2f2e37c7692493c206d7c859da7"
+  },
+  "ncd.parquet": {
+   "bytes": 278450,
+   "sha256": "6e3dc274ae8f9383f3eabd1645c03d5fa92ba0d5f9d748cb82ba0bc6cc2bd30b"
+  }
+ },
+ "cleaning_log": [
+  {
+   "dataset": "ca_dmhc_imr",
+   "step": "read_csv",
+   "rows_in": 42749,
+   "rows_out": 42749,
+   "note": "14 columns"
+  },
+  {
+   "dataset": "ca_dmhc_imr",
+   "step": "drop_exact_duplicate_rows",
+   "rows_in": 42749,
+   "rows_out": 42710,
+   "note": "the published CSV repeats some rows verbatim"
+  },
+  {
+   "dataset": "ca_dmhc_imr",
+   "step": "fill_missing_categoricals_with_Unknown",
+   "rows_in": 42710,
+   "rows_out": 42710,
+   "note": "AgeRange/PatientGender missing on 691 rows are kept as 'Unknown' (not imputed)"
+  },
+  {
+   "dataset": "ca_dmhc_imr",
+   "step": "derive_label_and_request_text",
+   "rows_in": 42710,
+   "rows_out": 42710,
+   "note": "request_text found on 35620 rows; label overturned = Determination starts with 'Overturned'"
+  },
+  {
+   "dataset": "ca_dmhc_imr",
+   "step": "keep_full_findings_for_years>=2023",
+   "rows_in": 42710,
+   "rows_out": 8229,
+   "note": "size limit for the committed snapshot"
+  },
+  {
+   "dataset": "ny_dfs_external_appeals",
+   "step": "read_excel",
+   "rows_in": 63499,
+   "rows_out": 63499,
+   "note": "11 columns"
+  },
+  {
+   "dataset": "ny_dfs_external_appeals",
+   "step": "drop_exact_duplicate_rows",
+   "rows_in": 63499,
+   "rows_out": 62249,
+   "note": "the export repeats some rows verbatim"
+  },
+  {
+   "dataset": "ny_dfs_external_appeals",
+   "step": "derive_labels",
+   "rows_in": 62249,
+   "rows_out": 62249,
+   "note": "overturned_any includes 'Overturned in Part'; overturned_full does not"
+  },
+  {
+   "dataset": "cms_ncd",
+   "step": "read_ncd_trkg",
+   "rows_in": 357,
+   "rows_out": 357,
+   "note": ""
+  },
+  {
+   "dataset": "cms_ncd",
+   "step": "drop_terminated",
+   "rows_in": 357,
+   "rows_out": 345,
+   "note": "NCDs with a termination date are excluded from retrieval"
+  },
+  {
+   "dataset": "cms_ncd",
+   "step": "join_coverage_api_report",
+   "rows_in": 345,
+   "rows_out": 345,
+   "note": "345 matched the API report (345 NCDs)"
+  }
+ ],
+ "counts": {
+  "imr_rows": 42710,
+  "imr_overturned": 22431,
+  "imr_upheld": 20279,
+  "imr_years": [
+   2001,
+   2026
+  ],
+  "imr_findings_rows": 8229,
+  "dfs_rows": 62249,
+  "dfs_decisions": {
+   "Upheld": 32463,
+   "Overturned": 28610,
+   "Overturned in Part": 1176
+  },
+  "dfs_years": [
+   2019,
+   2026
+  ],
+  "ncd_current": 345
+ }
+}

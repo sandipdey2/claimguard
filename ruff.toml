@@ -1,0 +1,11 @@
+target-version = "py313"
+line-length = 160
+extend-exclude = ["data", "eval", "notebooks"]
+
+[lint]
+select = ["E", "F", "W", "I", "B006", "B008", "B015", "B018", "UP"]
+ignore = ["E501", "E731"]
+
+[lint.per-file-ignores]
+"tests/*" = ["E402"]
+"scripts/*" = ["E402"]

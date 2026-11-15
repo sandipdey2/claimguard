@@ -1,0 +1,26 @@
+# Raw public downloads (large, re-fetch with scripts/fetch_data.py) and local runtime state
+data/raw/
+data/runtime/
+data/lcd_local/
+# Secrets: only .streamlit/secrets.toml.example is committed
+.env
+.env.*
+.streamlit/secrets.toml
+*.pem
+*.key
+# Python / tooling caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+# Azure / azd local state
+.azure/
+infra/*.json
+!infra/main.parameters.json
+.DS_Store

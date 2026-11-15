@@ -1,0 +1,4 @@
+# HTTP API (FastAPI) and the streamable-HTTP MCP server process.
+-r requirements.txt
+fastapi==0.162.7
+uvicorn==0.54.0

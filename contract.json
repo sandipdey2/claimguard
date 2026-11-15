@@ -1,0 +1,83 @@
+{
+  "contract_version": "0.1.0",
+  "description": "ClaimGuard run contract. Loaded and SHA-256 hashed before the first LLM token; the hash is written into the signed receipt.",
+  "model": "gpt-4o-mini",
+  "providers": ["vocareum", "azure"],
+  "temperature": 0,
+  "top_p": 1.0,
+  "llm_timeout_s": 60,
+  "loop": {
+    "max_tool_rounds_retriever": 3,
+    "max_revisions": 1,
+    "planner": true
+  },
+  "budget": {
+    "max_llm_calls": 14,
+    "max_tool_calls": 30,
+    "max_total_tokens": 60000,
+    "max_cost_usd": 0.02,
+    "wall_clock_timeout_s": 240
+  },
+  "agents": {
+    "planner": {"tools": [], "prompts": []},
+    "intake": {"tools": ["parse_denial", "get_imr_case"], "prompts": []},
+    "policy_retriever": {"tools": ["search_coverage_policy", "get_ncd"], "prompts": []},
+    "criteria_matcher": {"tools": ["match_coverage_criteria"], "prompts": []},
+    "risk_analyst": {"tools": ["score_overturn_likelihood", "classify_request_text", "cohort_stats", "search_imr_precedent"], "prompts": []},
+    "appeal_writer": {"tools": [], "resources": ["disclaimer://not-advice"], "prompts": ["appeal_letter"]},
+    "verifier": {"tools": ["confirm_red_team", "scan_documents"], "prompts": ["red_team_review"]},
+    "gardener": {"tools": [], "prompts": ["garden_review"]}
+  },
+  "tool_arg_limits": {
+    "search_coverage_policy.k_max": 6,
+    "search_imr_precedent.k_max": 6,
+    "query_max_chars": 300
+  },
+  "required_checks": [
+    "disclaimer_present",
+    "citations_exist",
+    "citations_retrieved",
+    "quotes_verbatim",
+    "numbers_grounded",
+    "risk_matches_model",
+    "checklist_complete",
+    "no_phi_in_output",
+    "no_authority_or_guarantee",
+    "injection_scan_clean",
+    "red_team_pass",
+    "within_budget"
+  ],
+  "release_checks": ["human_signoff"],
+  "verification": {
+    "statuses": ["PASS", "FAIL", "NOT_RUN"],
+    "not_run_policy": "a REQUIRED check that is NOT_RUN blocks the result (status blocked_unrun); it is never counted as a pass",
+    "finalize_statuses": ["blocked_unrun", "not_finalized", "awaiting_human_signoff", "released", "rejected_by_human", "refused"],
+    "receipt_fields": ["check_status", "unrun_checks", "git_sha", "git_dirty", "contract_sha256", "feed_versions", "human_signoff"]
+  },
+  "receipt": {"algorithm": "HMAC-SHA256", "key_source": "CG_RECEIPT_KEY secret (Key Vault in Azure); ephemeral per-process key if unset"},
+  "pricing": {
+    "model": "gpt-4o-mini",
+    "input_per_1m": 0.15,
+    "output_per_1m": 0.6,
+    "cached_input_per_1m": 0.075,
+    "source": "https://platform.openai.com/docs/pricing (Standard tier, gpt-4o-mini); Azure global-standard list price is the same order - re-check before a paid deploy",
+    "accessed": "2026-11-15",
+    "note": "list price estimate; the Vocareum course gateway may bill differently"
+  },
+  "human_signoff": {
+    "required": true,
+    "effect": "a draft whose machine checks all PASS is 'awaiting_human_signoff'; only a named human reviewer's approval in the UI or API makes it 'released', and the decision is added to a re-signed receipt. ClaimGuard never files or sends an appeal."
+  },
+  "data_rules": [
+    "public data only: CMS NCD/LCD, CA DMHC IMR, NY DFS external appeals",
+    "no synthetic claims, no invented patients, no PHI",
+    "precedents must be decided before the case year (no look-ahead) and never the case itself"
+  ],
+  "gardening": {
+    "prompt": "garden_review",
+    "script": "scripts/garden.py",
+    "min_support": 2,
+    "mode": "propose_only",
+    "never": ["edit code", "edit the contract", "remove or loosen a required check"]
+  }
+}
