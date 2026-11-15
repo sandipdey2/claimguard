@@ -140,6 +140,16 @@ def _clean_dfs(raw: Path, log: StepLog) -> pd.DataFrame:
     return d
 
 
+def fix_mojibake(s):
+    """The NCD export is mostly latin-1 but some rows carry UTF-8 byte sequences (e.g. a curly apostrophe read as 'â\x80\x99')."""
+    if not isinstance(s, str) or not any(ch in s for ch in "âÃÂ"):
+        return s
+    try:
+        return s.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return s
+
+
 def _clean_ncd(raw_zip: Path, api_json: Path | None, log: StepLog) -> pd.DataFrame:
     import io
     import zipfile
@@ -148,6 +158,8 @@ def _clean_ncd(raw_zip: Path, api_json: Path | None, log: StepLog) -> pd.DataFra
     d = pd.read_csv(io.BytesIO(inner.read("ncd_trkg.csv")), encoding="latin-1")
     n0 = len(d)
     log.add("cms_ncd", "read_ncd_trkg", n0, n0)
+    for col in ("NCD_mnl_sect_title", "itm_srvc_desc", "indctn_lmtn", "xref_txt"):
+        d[col] = d[col].map(fix_mojibake)
     d = d[d["NCD_trmntn_dt"].isna()].copy()
     log.add("cms_ncd", "drop_terminated", n0, len(d), "NCDs with a termination date are excluded from retrieval")
     if api_json and api_json.exists():

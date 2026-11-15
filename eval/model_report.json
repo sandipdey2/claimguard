@@ -1,0 +1,183 @@
+{
+ "task": "P(IMR overturns the health plan's denial) from pre-decision categorical fields",
+ "features": [
+  "DiagnosisCategory",
+  "DiagnosisSubCategory",
+  "TreatmentCategory",
+  "TreatmentSubCategory",
+  "Type",
+  "IMRType",
+  "AgeRange",
+  "PatientGender"
+ ],
+ "excluded_features": {
+  "Findings": "post-decision text that states the outcome (leakage)",
+  "DaysToReview/DaysToAdopt": "post-filing durations",
+  "ReportYear": "not extrapolated across a time split"
+ },
+ "split": {
+  "train": "ReportYear <= 2023",
+  "validation": "2024",
+  "test": "2025",
+  "excluded": "2026 (incomplete year)"
+ },
+ "data": {
+  "train": 36727,
+  "validation": 2715,
+  "test": 2730,
+  "train_overturn_rate": 0.4983,
+  "test_overturn_rate": 0.7234,
+  "snapshot_sha256": "4a256478c9e25246d97107b64dfa25696fada2f2e37c7692493c206d7c859da7"
+ },
+ "comparison_on_validation": {
+  "logistic_regression": {
+   "val": {
+    "n": 2715,
+    "positives": 1778,
+    "roc_auc": 0.7241,
+    "pr_auc": 0.8212,
+    "brier": 0.198,
+    "threshold": 0.5,
+    "recall": 0.7688,
+    "precision": 0.7701,
+    "f1": 0.7695,
+    "accuracy": 0.6983,
+    "confusion": {
+     "tn": 529,
+     "fp": 408,
+     "fn": 411,
+     "tp": 1367
+    }
+   }
+  },
+  "hist_gradient_boosting": {
+   "val": {
+    "n": 2715,
+    "positives": 1778,
+    "roc_auc": 0.7276,
+    "pr_auc": 0.8152,
+    "brier": 0.1972,
+    "threshold": 0.5,
+    "recall": 0.7615,
+    "precision": 0.7632,
+    "f1": 0.7624,
+    "accuracy": 0.6891,
+    "confusion": {
+     "tn": 517,
+     "fp": 420,
+     "fn": 424,
+     "tp": 1354
+    }
+   }
+  }
+ },
+ "selected": "hist_gradient_boosting",
+ "served_model": "hist_gradient_boosting + sigmoid calibration (CalibratedClassifierCV, cv=5), refit on train+validation",
+ "test_metrics": {
+  "n": 2730,
+  "positives": 1975,
+  "roc_auc": 0.7556,
+  "pr_auc": 0.8792,
+  "brier": 0.1814,
+  "threshold": 0.5,
+  "recall": 0.8304,
+  "precision": 0.8192,
+  "f1": 0.8247,
+  "accuracy": 0.7447,
+  "confusion": {
+   "tn": 393,
+   "fp": 362,
+   "fn": 335,
+   "tp": 1640
+  }
+ },
+ "baselines_on_test": {
+  "majority_class_overturned": {
+   "accuracy": 0.7234,
+   "roc_auc": 0.5,
+   "note": "always predicts 'overturned' (the majority in training)"
+  },
+  "treatment_subcategory_rate": {
+   "n": 2730,
+   "positives": 1975,
+   "roc_auc": 0.7409,
+   "pr_auc": 0.8704,
+   "brier": 0.1852,
+   "threshold": 0.5,
+   "recall": 0.7109,
+   "precision": 0.8382,
+   "f1": 0.7693,
+   "accuracy": 0.6916,
+   "confusion": {
+    "tn": 484,
+    "fp": 271,
+    "fn": 571,
+    "tp": 1404
+   }
+  }
+ },
+ "calibration_curve_test": {
+  "mean_predicted": [
+   0.3261,
+   0.4291,
+   0.4886,
+   0.5387,
+   0.5943,
+   0.6468,
+   0.7005,
+   0.7558,
+   0.775,
+   0.8055
+  ],
+  "observed_rate": [
+   0.3467,
+   0.5184,
+   0.5934,
+   0.6703,
+   0.7473,
+   0.7942,
+   0.8556,
+   0.8756,
+   0.9181,
+   0.9349
+  ]
+ },
+ "treatment_categories_seen": {
+  "Pharmacy": 10470,
+  "Diag Imag & Screen": 5731,
+  "Mental Health": 4562,
+  "DME": 2514,
+  "Pain Management": 1622,
+  "Orthopedic Proc": 1601,
+  "Cancer Care": 1518,
+  "Gen Surg Proc": 1418,
+  "Rehab/ Svc - Outpt": 1355,
+  "Reconstr/Plast Proc": 1235,
+  "Elect/Therm/Radfreq": 1078,
+  "Autism Related Tx": 1000,
+  "Diag/ MD Eval": 756,
+  "Emergency/Urg Care": 611,
+  "Rehab/Svcs SNF Inpt": 496,
+  "Special Proc": 490,
+  "Cardio-Vasc Proc": 476,
+  "Ear-Nose-Thro Proc": 414,
+  "Alternative Tx": 410,
+  "Acute Med Svc Inpt": 320,
+  "Ob-Gyn Proc": 278,
+  "Dent/Orthodont Proc": 167,
+  "Chiropractic Care": 156,
+  "Neurosurgery Proc": 153,
+  "Home Health Care": 146,
+  "Vision Services": 112,
+  "Urology Proc": 105,
+  "Ophthalmology Proc": 65,
+  "Transportation": 61,
+  "Vision Services/Ophthalmology": 44,
+  "Prev Health Screen": 42,
+  "Not Applicable": 31,
+  "MLTSS": 3,
+  "Gen Surg proc": 2
+ },
+ "sklearn": "1.9.1",
+ "limits": "Association model on published review outcomes in California commercial plans. It does not know the clinical record, is not a probability that a particular appeal will win, and must not be used to discourage anyone from appealing."
+}

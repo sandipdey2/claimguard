@@ -1,0 +1,127 @@
+{
+ "request_text": {
+  "rows": {
+   "train": 30193,
+   "validation": 2238,
+   "test": 2652
+  },
+  "validation": {
+   "n": 2238,
+   "positives": 1459,
+   "roc_auc": 0.7053,
+   "pr_auc": 0.7994,
+   "brier": 0.2052,
+   "threshold": 0.5,
+   "recall": 0.7279,
+   "precision": 0.7411,
+   "f1": 0.7344,
+   "accuracy": 0.6568,
+   "confusion": {
+    "tn": 408,
+    "fp": 371,
+    "fn": 397,
+    "tp": 1062
+   }
+  },
+  "test": {
+   "n": 2652,
+   "positives": 1926,
+   "roc_auc": 0.7476,
+   "pr_auc": 0.8755,
+   "brier": 0.1786,
+   "threshold": 0.5,
+   "recall": 0.81,
+   "precision": 0.8219,
+   "f1": 0.8159,
+   "accuracy": 0.7345,
+   "confusion": {
+    "tn": 388,
+    "fp": 338,
+    "fn": 366,
+    "tp": 1560
+   }
+  },
+  "top_terms": {
+   "toward_overturned": [
+    "tomosynthesis",
+    "breast tomosynthesis",
+    "coverage euflexxa",
+    "injection left",
+    "coverage facial",
+    "coverage zepatier",
+    "speech",
+    "delay",
+    "orthotic",
+    "coverage xifaxan",
+    "xifaxan",
+    "afirma"
+   ],
+   "toward_upheld": [
+    "norco",
+    "decisiondx melanoma",
+    "enrollee rheumatoid",
+    "disc",
+    "24 weeks",
+    "revisional",
+    "melanoma",
+    "food",
+    "treatment breast",
+    "nuspin 20",
+    "oxycodone",
+    "tablets month"
+   ]
+  },
+  "use": "served (pre-decision request sentence only)"
+ },
+ "findings_full_text_leakage_upper_bound": {
+  "rows": {
+   "train": 36727,
+   "validation": 2715,
+   "test": 2730
+  },
+  "validation": {
+   "n": 2715,
+   "positives": 1778,
+   "roc_auc": 0.9988,
+   "pr_auc": 0.9995,
+   "brier": 0.0121,
+   "threshold": 0.5,
+   "recall": 0.9972,
+   "precision": 0.9949,
+   "f1": 0.9961,
+   "accuracy": 0.9948,
+   "confusion": {
+    "tn": 928,
+    "fp": 9,
+    "fn": 5,
+    "tp": 1773
+   }
+  },
+  "test": {
+   "n": 2730,
+   "positives": 1975,
+   "roc_auc": 0.9951,
+   "pr_auc": 0.9971,
+   "brier": 0.0074,
+   "threshold": 0.5,
+   "recall": 0.9975,
+   "precision": 0.997,
+   "f1": 0.9972,
+   "accuracy": 0.996,
+   "confusion": {
+    "tn": 749,
+    "fp": 6,
+    "fn": 5,
+    "tp": 1970
+   }
+  },
+  "use": "NOT served: Findings state the decision, so this is leakage"
+ },
+ "split": {
+  "train": "<= 2023",
+  "validation": 2024,
+  "test": 2025
+ },
+ "model": "TF-IDF (1-2 grams, sublinear, min_df=3) + logistic regression C=2.0",
+ "lstm": "optional P4 sequence-model note only (notebooks/README.md); not trained or served in v0.1"
+}

@@ -69,6 +69,7 @@ class CaseState(TypedDict, total=False):
     evidence: Annotated[list, operator.add]
     trace: Annotated[list, operator.add]
     route: Annotated[list, operator.add]
+    gate_inputs: Any
 
 
 # ----------------------------------------------------------------------------- structured outputs
@@ -463,7 +464,10 @@ def build_graph(llm, tools: list, session, ctx: RunContext):
         quotes = [{"citation_id": q["citation_id"], "quote": q["quote"]} for q in d["policy_points"]]
         v = verify(s["draft_md"], quotes, s.get("risk"), d["risk_statement"], s["retrieved"], known_ids(), evidence_text(s), injection_state(s),
                    conf, ctx, stage="final")
+        gate_inputs = {"quotes": quotes, "risk_statement": d["risk_statement"], "retrieved": s["retrieved"], "evidence_text": evidence_text(s),
+                       "injection": injection_state(s), "red_team": conf}
         return {"verification": v, "red_team": {**conf, "llm_verdict": rt["verdict"]}, "pending_review": False, "injection": injection_state(s),
+                "gate_inputs": gate_inputs,
                 "trace": [{"agent": agent, "type": "verify", "passed": v["passed"], "failed": v["failed"], "unrun": v["unrun_checks"],
                            "red_team": conf.get("verdict"), "dropped_unverifiable": conf.get("dropped_unverifiable")}]}
 

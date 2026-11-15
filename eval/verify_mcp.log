@@ -1,0 +1,55 @@
+server: claimguard_mcp_server.py
+[stdio] tools/list -> 14 tools; resources/list -> ['disclaimer://not-advice', 'model://overturn-card', 'dataset://manifest', 'policy://contract', 'registry://tools', 'graph://coverage-graph']; templates -> ['policy://ncd/{ncd_id}', 'imr://case/{reference_id}']; prompts/list -> ['appeal_letter', 'garden_review', 'red_team_review']
+[stdio] tools/call parse_denial isError=False -> {  "service": "an insulin pump as not medically necessary",  "denial_basis": "medical_necessity",  "plan_type": "unknown",  "imr_reference_ids": [],  
+[stdio] tools/call search_coverage_policy isError=False -> {  "backend": "local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf",  "results": [   {    "id": "NCD-280.14:9",    "doc_id":
+[stdio] tools/call get_ncd isError=False -> {  "id": "NCD-280.14",  "title": "Infusion Pumps",  "version": 2,  "effective": "2004-12-17",  "url": "https://www.cms.gov/medicare-coverage-database/
+[stdio] tools/call match_coverage_criteria isError=False -> {  "criteria": [   {    "chunk_id": "NCD-280.14:2",    "criterion": "Morphine infusion via an external infusion pump is covered when used in the treat
+[stdio] tools/call search_imr_precedent isError=False -> {  "results": [   {    "reference_id": "MN19-30683",    "year": 2019,    "determination": "Overturned Decision of Health Plan",    "treatment": "DME /
+[stdio] tools/call score_overturn_likelihood isError=False -> {  "overturn_probability": 0.5998,  "overturn_percent": 60.0,  "band": "above_typical",  "train_overturn_rate": 0.4983,  "model": "hist_gradient_boost
+[stdio] tools/call classify_request_text isError=False -> {  "overturn_probability_text": 0.5497,  "top_terms": [   {    "term": "coverage insulin",    "weight": -0.566   },   {    "term": "insulin pump",    
+[stdio] tools/call cohort_stats isError=False -> {  "filters": {   "before_year": 2025,   "TreatmentCategory": "Pharmacy",   "Type": "Medical Necessity"  },  "n": 9248,  "overturned": 5422,  "overtur
+[stdio] tools/call get_imr_case isError=False -> {  "ReferenceID": "MN25-45854",  "ReportYear": 2025,  "DiagnosisCategory": "Endocrine/Metabolic",  "DiagnosisSubCategory": "Diabetes",  "TreatmentCate
+[stdio] tools/call get_dfs_case isError=False -> {  "case_number": "201906-117724",  "diagnosis": "Digestive System/ Gastrointestinal",  "treatment": "Inpatient Hospital",  "health_plan": "United Hea
+[stdio] tools/call graph_neighbors isError=False -> {  "node": {   "type": "treatment",   "id": "Insulin Pump",   "imr_cases": 84  },  "edges": {   "treatment->diagnosis": [    {     "diagnosis": "Endoc
+[stdio] tools/call scan_documents isError=False -> {  "scanned": 2,  "flagged_local": [   1  ],  "prompt_shields": {   "status": "NOT_CONFIGURED",   "service": "azure_content_safety_prompt_shields"  },
+[stdio] tools/call confirm_red_team isError=False -> {  "verdict": "pass",  "issues": [],  "dropped_unverifiable": 1,  "dropped": [   "rule 4: \"this sentence is not in the draft at all\""  ] }
+[stdio] tools/call hypothesis_tests isError=False -> {  "scope": "CA DMHC IMR 2001-2025 (2026 incomplete, excluded); NY DFS external appeals 2019-2025 unless stated",  "alpha": 0.05,  "imr_by_treatment_c
+[stdio] tools/call search_coverage_policy isError=False -> {"error": "refused by server policy: k=50 exceeds search_coverage_policy.k_max=6"}
+[stdio] tools/call get_imr_case isError=False -> {"error": "refused by server policy: include_outcome is not available to agents over MCP (the drafting agents must not see the case decision)"}
+[stdio] resources/read disclaimer://not-advice -> ClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provide
+[stdio] resources/read model://overturn-card -> {  "task": "P(IMR overturns the health plan's denial) from pre-decision categorical fields",  "features": [   
+[stdio] resources/read dataset://manifest -> {  "counts": {   "imr_rows": 42710,   "imr_overturned": 22431,   "imr_upheld": 20279,   "imr_years": [    2001
+[stdio] resources/read policy://ncd/280.14 -> {  "id": "NCD-280.14",  "title": "Infusion Pumps",  "version": 2,  "effective": "2004-12-17",  "url": "https:/
+[stdio] resources/read imr://case/MN25-45854 -> {  "ReferenceID": "MN25-45854",  "ReportYear": 2025,  "DiagnosisCategory": "Endocrine/Metabolic",  "DiagnosisS
+[stdio] resources/read graph://coverage-graph -> {  "schema": {   "nodes": [    "treatment_subcategory",    "diagnosis_category",    "policy_document"   ],   "
+[stdio] resources/read policy://contract -> {   "contract_version": "0.1.0",   "description": "ClaimGuard run contract. Loaded and SHA-256 hashed before t
+[stdio] prompts/get appeal_letter -> You are the Appeal Writer of ClaimGuard. Write a draft appeal letter and a denial-risk brief for a H
+[stdio] prompts/get garden_review -> You are the Gardener of ClaimGuard. Below are recurring failure patterns mined f
+[http] unauthenticated POST http://127.0.0.1:47089/mcp -> 401 (bearer token required)
+[http] tools/list -> 14 tools; resources/list -> ['disclaimer://not-advice', 'model://overturn-card', 'dataset://manifest', 'policy://contract', 'registry://tools', 'graph://coverage-graph']; templates -> ['policy://ncd/{ncd_id}', 'imr://case/{reference_id}']; prompts/list -> ['appeal_letter', 'garden_review', 'red_team_review']
+[http] tools/call parse_denial isError=False -> {  "service": "an insulin pump as not medically necessary",  "denial_basis": "medical_necessity",  "plan_type": "unknown",  "imr_reference_ids": [],  
+[http] tools/call search_coverage_policy isError=False -> {  "backend": "local_hybrid bm25+faiss IndexFlatIP (cosine on L2-normalised LSA vectors) rrf",  "results": [   {    "id": "NCD-280.14:9",    "doc_id":
+[http] tools/call get_ncd isError=False -> {  "id": "NCD-280.14",  "title": "Infusion Pumps",  "version": 2,  "effective": "2004-12-17",  "url": "https://www.cms.gov/medicare-coverage-database/
+[http] tools/call match_coverage_criteria isError=False -> {  "criteria": [   {    "chunk_id": "NCD-280.14:2",    "criterion": "Morphine infusion via an external infusion pump is covered when used in the treat
+[http] tools/call search_imr_precedent isError=False -> {  "results": [   {    "reference_id": "MN19-30683",    "year": 2019,    "determination": "Overturned Decision of Health Plan",    "treatment": "DME /
+[http] tools/call score_overturn_likelihood isError=False -> {  "overturn_probability": 0.5998,  "overturn_percent": 60.0,  "band": "above_typical",  "train_overturn_rate": 0.4983,  "model": "hist_gradient_boost
+[http] tools/call classify_request_text isError=False -> {  "overturn_probability_text": 0.5497,  "top_terms": [   {    "term": "coverage insulin",    "weight": -0.566   },   {    "term": "insulin pump",    
+[http] tools/call cohort_stats isError=False -> {  "filters": {   "before_year": 2025,   "TreatmentCategory": "Pharmacy",   "Type": "Medical Necessity"  },  "n": 9248,  "overturned": 5422,  "overtur
+[http] tools/call get_imr_case isError=False -> {  "ReferenceID": "MN25-45854",  "ReportYear": 2025,  "DiagnosisCategory": "Endocrine/Metabolic",  "DiagnosisSubCategory": "Diabetes",  "TreatmentCate
+[http] tools/call get_dfs_case isError=False -> {  "case_number": "201906-117724",  "diagnosis": "Digestive System/ Gastrointestinal",  "treatment": "Inpatient Hospital",  "health_plan": "United Hea
+[http] tools/call graph_neighbors isError=False -> {  "node": {   "type": "treatment",   "id": "Insulin Pump",   "imr_cases": 84  },  "edges": {   "treatment->diagnosis": [    {     "diagnosis": "Endoc
+[http] tools/call scan_documents isError=False -> {  "scanned": 2,  "flagged_local": [   1  ],  "prompt_shields": {   "status": "NOT_CONFIGURED",   "service": "azure_content_safety_prompt_shields"  },
+[http] tools/call confirm_red_team isError=False -> {  "verdict": "pass",  "issues": [],  "dropped_unverifiable": 1,  "dropped": [   "rule 4: \"this sentence is not in the draft at all\""  ] }
+[http] tools/call hypothesis_tests isError=False -> {  "scope": "CA DMHC IMR 2001-2025 (2026 incomplete, excluded); NY DFS external appeals 2019-2025 unless stated",  "alpha": 0.05,  "imr_by_treatment_c
+[http] tools/call search_coverage_policy isError=False -> {"error": "refused by server policy: k=50 exceeds search_coverage_policy.k_max=6"}
+[http] tools/call get_imr_case isError=False -> {"error": "refused by server policy: include_outcome is not available to agents over MCP (the drafting agents must not see the case decision)"}
+[http] resources/read disclaimer://not-advice -> ClaimGuard drafts are not legal advice and not medical advice. ClaimGuard is not a law firm, a medical provide
+[http] resources/read model://overturn-card -> {  "task": "P(IMR overturns the health plan's denial) from pre-decision categorical fields",  "features": [   
+[http] resources/read dataset://manifest -> {  "counts": {   "imr_rows": 42710,   "imr_overturned": 22431,   "imr_upheld": 20279,   "imr_years": [    2001
+[http] resources/read policy://ncd/280.14 -> {  "id": "NCD-280.14",  "title": "Infusion Pumps",  "version": 2,  "effective": "2004-12-17",  "url": "https:/
+[http] resources/read imr://case/MN25-45854 -> {  "ReferenceID": "MN25-45854",  "ReportYear": 2025,  "DiagnosisCategory": "Endocrine/Metabolic",  "DiagnosisS
+[http] resources/read graph://coverage-graph -> {  "schema": {   "nodes": [    "treatment_subcategory",    "diagnosis_category",    "policy_document"   ],   "
+[http] resources/read policy://contract -> {   "contract_version": "0.1.0",   "description": "ClaimGuard run contract. Loaded and SHA-256 hashed before t
+[http] prompts/get appeal_letter -> You are the Appeal Writer of ClaimGuard. Write a draft appeal letter and a denial-risk brief for a H
+[http] prompts/get garden_review -> You are the Gardener of ClaimGuard. Below are recurring failure patterns mined f
+{"stdio": {"tools": 14, "refusals": 2}, "streamable_http": {"tools": 14, "refusals": 2}, "result": "PASS"}

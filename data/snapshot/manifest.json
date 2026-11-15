@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-15T13:14:56+0000",
+ "built_at": "2026-11-15T13:41:08+0000",
  "sources": {
   "ca_dmhc_imr": {
    "name": "California DMHC Independent Medical Review (IMR) Determinations",
@@ -67,8 +67,8 @@
    "sha256": "4a256478c9e25246d97107b64dfa25696fada2f2e37c7692493c206d7c859da7"
   },
   "ncd.parquet": {
-   "bytes": 278450,
-   "sha256": "6e3dc274ae8f9383f3eabd1645c03d5fa92ba0d5f9d748cb82ba0bc6cc2bd30b"
+   "bytes": 278136,
+   "sha256": "f998522455c8336267a384ea60c88fa7d72e1133c85764fc9a5c182f36473b51"
   }
  },
  "cleaning_log": [

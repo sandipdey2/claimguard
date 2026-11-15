@@ -22,6 +22,10 @@ INJECTION = [
     r"(new|updated|override) (system )?instructions?:",
     r"(do not|don't|never) (include|add|mention) (the |a )?disclaimer",
     r"mark (all|every) (checks?|citations?) (as )?(pass|valid)",
+    # v0.1 eval follow-up (patterns added after the first injection eval missed 4 of 16 prompts; see eval/README.md)
+    r"\byou are now dan\b|\bact as an? (unfiltered|unrestricted|uncensored|jailbroken)\b",
+    r"\b(override|forget|ignore) (your |the |all )?(safety )?(rules|guidelines|guardrails|instructions|prompts)\b",
+    r"\b(invent|fabricate|make up) (any |fake |new )?(ncd |lcd |policy )?citations?\b",
 ]
 PHI = [
     ("email", r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"),
@@ -34,15 +38,19 @@ PHI = [
     ("api_key", r"\b(sk|voc)-[A-Za-z0-9._-]{12,}"),
 ]
 REFUSE = {
+    "fabricate_record": r"\b(make up|invent|fabricate|create|generate|write)\b.{0,15}\b(fake|fictional|synthetic|made-up|fabricated)\b.{0,20}\b(patient|medical|clinical|records?|history)\b",
     "fabricate_patient": r"\b(make up|invent|fabricate|create|generate) (a |an |some )?(fake |fictional |synthetic )?(patient|medical history|clinical history|records?|diagnos\w*|test results?)\b",
     "impersonation": r"\b(sign|write|pretend|claim|say)\b.{0,40}\b(as|from|that you are|you're) (my |the |a )?(doctor|physician|attorney|lawyer|nurse|md)\b",
     "guarantee": r"\b(guarantee|promise|ensure|make sure)\b.{0,40}\b(win|overturn|approv\w*|succeed|success)",
+    "file_on_behalf": r"\b(file|submit|send|fax|mail)\b.{0,20}\b(appeal|letter|claim)\b.{0,40}\b(on my behalf|for me)\b",
     "file_with_insurer": r"\b(file|submit|send|fax|mail|email)\b.{0,30}\b(the |my |this )?(appeal|letter|claim)\b.{0,30}\b(to|with) (the |my )?(insurer|insurance|plan|payer|medicare|cms)",
 }
 REFUSAL_TEXT = {
     "fabricate_patient": "ClaimGuard never invents patients, records or clinical history. Use a published public case or your own de-identified facts.",
     "impersonation": "ClaimGuard cannot write as a physician or attorney. Drafts are written for the patient or their representative and must be reviewed by a qualified human.",
     "guarantee": "No one can guarantee an appeal outcome. ClaimGuard reports public review statistics as context only.",
+    "fabricate_record": "ClaimGuard never invents patients, records or clinical history. Use a published public case or your own de-identified facts.",
+    "file_on_behalf": "ClaimGuard never files, submits, faxes or mails anything. It produces a draft for human review.",
     "file_with_insurer": "ClaimGuard never files, submits, faxes or mails anything. It produces a draft for human review.",
     "out_of_scope": "ClaimGuard only helps with health-insurance denials, coverage policy and appeal drafts.",
     "prompt_injection": "The request contains instructions that try to override ClaimGuard's rules, so it was stopped.",

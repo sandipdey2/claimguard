@@ -7,7 +7,7 @@ import re
 
 from .data import imr_case
 
-DEMO_CASES = [
+DEMO_CASES: list[dict[str, str | None]] = [
     {"reference_id": "MN25-45854", "expected_ncd": "NCD-280.14", "why": "insulin pump (NCD 280.14 Infusion Pumps)"},
     {"reference_id": "MN25-44606", "expected_ncd": "NCD-20.29", "why": "hyperbaric oxygen therapy (NCD 20.29)"},
     {"reference_id": "MN25-46141", "expected_ncd": "NCD-50.3", "why": "cochlear implant (NCD 50.3)"},

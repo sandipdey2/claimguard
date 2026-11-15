@@ -1,0 +1,315 @@
+{
+ "scope": "CA DMHC IMR 2001-2025 (2026 incomplete, excluded); NY DFS external appeals 2019-2025 unless stated",
+ "alpha": 0.05,
+ "imr_by_treatment_category": {
+  "test": "chi-square test of independence",
+  "variable": "TreatmentCategory",
+  "categories": 12,
+  "n": 36592,
+  "chi2": 1200.37,
+  "dof": 11,
+  "p_value": 1.35e-250,
+  "cramers_v": 0.181,
+  "rates": [
+   {
+    "category": "Autism Related Tx",
+    "overturn_rate": 0.6949,
+    "n": 1039
+   },
+   {
+    "category": "Pain Management",
+    "overturn_rate": 0.6771,
+    "n": 1824
+   },
+   {
+    "category": "Pharmacy",
+    "overturn_rate": 0.5992,
+    "n": 11702
+   },
+   {
+    "category": "Mental Health",
+    "overturn_rate": 0.5895,
+    "n": 4826
+   },
+   {
+    "category": "Rehab/ Svc - Outpt",
+    "overturn_rate": 0.5489,
+    "n": 1379
+   },
+   {
+    "category": "Diag Imag & Screen",
+    "overturn_rate": 0.4858,
+    "n": 5980
+   },
+   {
+    "category": "Gen Surg Proc",
+    "overturn_rate": 0.4831,
+    "n": 1449
+   },
+   {
+    "category": "Reconstr/Plast Proc",
+    "overturn_rate": 0.4579,
+    "n": 1306
+   },
+   {
+    "category": "DME",
+    "overturn_rate": 0.4468,
+    "n": 2677
+   },
+   {
+    "category": "Cancer Care",
+    "overturn_rate": 0.4358,
+    "n": 1620
+   },
+   {
+    "category": "Elect/Therm/Radfreq",
+    "overturn_rate": 0.4296,
+    "n": 1115
+   },
+   {
+    "category": "Orthopedic Proc",
+    "overturn_rate": 0.2943,
+    "n": 1675
+   }
+  ]
+ },
+ "imr_by_review_type": {
+  "test": "chi-square test of independence",
+  "variable": "Type",
+  "categories": 3,
+  "n": 42172,
+  "chi2": 312.38,
+  "dof": 2,
+  "p_value": 1.47e-68,
+  "cramers_v": 0.086,
+  "rates": [
+   {
+    "category": "Medical Necessity",
+    "overturn_rate": 0.5487,
+    "n": 31010
+   },
+   {
+    "category": "Experimental/Investigational",
+    "overturn_rate": 0.4537,
+    "n": 10395
+   },
+   {
+    "category": "Urgent Care",
+    "overturn_rate": 0.4237,
+    "n": 767
+   }
+  ]
+ },
+ "imr_trend_2015_2025": {
+  "test": "Cochran-Armitage trend test (overturn rate by year)",
+  "years": [
+   2015,
+   2025
+  ],
+  "n": 26893,
+  "z": 22.35,
+  "p_value": 1.15e-110,
+  "rate_first_year": 0.5145,
+  "rate_last_year": 0.7234,
+  "by_year": [
+   {
+    "year": 2015,
+    "overturn_rate": 0.5145,
+    "n": 2076
+   },
+   {
+    "year": 2016,
+    "overturn_rate": 0.5611,
+    "n": 3053
+   },
+   {
+    "year": 2017,
+    "overturn_rate": 0.471,
+    "n": 2953
+   },
+   {
+    "year": 2018,
+    "overturn_rate": 0.4823,
+    "n": 2683
+   },
+   {
+    "year": 2019,
+    "overturn_rate": 0.5247,
+    "n": 2331
+   },
+   {
+    "year": 2020,
+    "overturn_rate": 0.6208,
+    "n": 2197
+   },
+   {
+    "year": 2021,
+    "overturn_rate": 0.6085,
+    "n": 2133
+   },
+   {
+    "year": 2022,
+    "overturn_rate": 0.5997,
+    "n": 1776
+   },
+   {
+    "year": 2023,
+    "overturn_rate": 0.642,
+    "n": 2246
+   },
+   {
+    "year": 2024,
+    "overturn_rate": 0.6549,
+    "n": 2715
+   },
+   {
+    "year": 2025,
+    "overturn_rate": 0.7234,
+    "n": 2730
+   }
+  ]
+ },
+ "ca_vs_ny_2019_2025": {
+  "test": "two-proportion z-test (overturn rate, CA IMR vs NY DFS external appeal)",
+  "ny_counts_partial_as_overturned": {
+   "p1": 0.629,
+   "p2": 0.4686,
+   "n1": 16128,
+   "n2": 52894,
+   "difference": 0.1605,
+   "ci95": [
+    0.1519,
+    0.169
+   ],
+   "z": 35.678,
+   "p_value": 8.54e-279,
+   "cohens_h": 0.324
+  },
+  "ny_full_overturns_only": {
+   "p1": 0.629,
+   "p2": 0.4498,
+   "n1": 16128,
+   "n2": 52894,
+   "difference": 0.1793,
+   "ci95": [
+    0.1707,
+    0.1878
+   ],
+   "z": 39.864,
+   "p_value": "<1e-300",
+   "cohens_h": 0.362
+  },
+  "note": "Different laws, plan mix and reviewer organisations; descriptive comparison only."
+ },
+ "imr_medical_necessity_vs_experimental": {
+  "test": "two-proportion z-test",
+  "p1": 0.5487,
+  "p2": 0.4537,
+  "n1": 31010,
+  "n2": 10395,
+  "difference": 0.095,
+  "ci95": [
+   0.0839,
+   0.106
+  ],
+  "z": 16.782,
+  "p_value": 3.3e-63,
+  "cohens_h": 0.19,
+  "group1": "Medical Necessity",
+  "group2": "Experimental/Investigational"
+ },
+ "dfs_by_denial_reason": {
+  "test": "chi-square test of independence",
+  "variable": "denial_reason",
+  "categories": 5,
+  "n": 52894,
+  "chi2": 33.21,
+  "dof": 4,
+  "p_value": 1.08e-06,
+  "cramers_v": 0.025,
+  "rates": [
+   {
+    "category": "Medical necessity",
+    "overturn_rate": 0.4726,
+    "n": 47845
+   },
+   {
+    "category": "Experimental/Investigational",
+    "overturn_rate": 0.4379,
+    "n": 1973
+   },
+   {
+    "category": "Formulary Exception",
+    "overturn_rate": 0.4264,
+    "n": 2997
+   },
+   {
+    "category": "Step Therapy",
+    "overturn_rate": 0.4054,
+    "n": 74
+   },
+   {
+    "category": "Out-of-Network Service",
+    "overturn_rate": 0.4,
+    "n": 5
+   }
+  ]
+ },
+ "dfs_by_coverage_type": {
+  "test": "chi-square test of independence",
+  "variable": "coverage_type",
+  "categories": 8,
+  "n": 52186,
+  "chi2": 2482.06,
+  "dof": 7,
+  "p_value": "<1e-300",
+  "cramers_v": 0.218,
+  "rates": [
+   {
+    "category": "Managed Long Term Care",
+    "overturn_rate": 0.8101,
+    "n": 4645
+   },
+   {
+    "category": "Self-Funded",
+    "overturn_rate": 0.4804,
+    "n": 1807
+   },
+   {
+    "category": "PPO",
+    "overturn_rate": 0.4606,
+    "n": 4012
+   },
+   {
+    "category": "EPO",
+    "overturn_rate": 0.4535,
+    "n": 2324
+   },
+   {
+    "category": "Medicaid",
+    "overturn_rate": 0.4363,
+    "n": 23459
+   },
+   {
+    "category": "Indemnity",
+    "overturn_rate": 0.4279,
+    "n": 6550
+   },
+   {
+    "category": "Essential Plan",
+    "overturn_rate": 0.419,
+    "n": 1592
+   },
+   {
+    "category": "HMO",
+    "overturn_rate": 0.4008,
+    "n": 7797
+   }
+  ]
+ },
+ "multiple_testing": {
+  "tests": 7,
+  "bonferroni_alpha": 0.00714,
+  "note": "with tens of thousands of rows tiny effects are 'significant'; read the effect sizes"
+ }
+}
